@@ -326,7 +326,69 @@ console.log(conf);*/
 
 // FUNCIONES ANONIMAS AUTOEJECUTABLES
 
+/*    //clasica
+    (function(d,w,c){
+        console.log("mi primer funcion autoejecutable");
+    })(document,window,console);
+
+    //la Crockford (JavaScript the good parts)
+    ((function(){
+        console.log("version Crockford");
+    })());
+
+    //unaria
+    +function(){
+    console.log("version Unaria")
+    }();
+
+    //Facebook
+    !function(){
+        console.log("Version Facebook");
+    }();
+
+*/
 
 
 
 
+
+//EJERCICIOS
+// 1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+function contar(cadena){
+    return cadena.length;
+}
+console.log(contar("hola victor"));
+// 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+function recortar(cadena2,separador,limite){
+    let separado= cadena2.split(separador,limite);
+    return separado.join("");
+  
+}
+function recortar2(cadena3,indice){
+    return cadena3.substring(0,indice);
+}
+console.log(recortar("hola victor como estas","",13));
+console.log(recortar2("hola victor",3));
+// 3) Programa una función que dada una String te devuelva un Array de textos separados por
+// cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+function elementos(string, caracter){
+    return string.split(caracter);
+}
+console.log(elementos("soy victor que tal"," "))
+
+// 4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+function xveces(palabra,x){
+
+    if(typeof palabra==="string"){
+        palabra=palabra+" ";
+        if(Number.isInteger(x)){
+            console.log(palabra.repeat(x));
+        }
+        else{
+            console.error("Numero de veces inválido");
+        }
+    }else{
+        console.error("No es un string");
+    }
+}
+console.log(xveces("as",2));
