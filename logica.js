@@ -501,6 +501,7 @@ function capicua(numero){
         
     }
 }
+capicua(101);
 /*11) Programa una función que calcule el factorial de un número 
 (El factorial de un entero positivo n, se define como el producto 
 de todos los números enteros positivos desde 1 hasta n), miFuncion(5) devolverá 120.*/
@@ -509,13 +510,12 @@ function factorial(numero){
     if(Number.isInteger(numero) && numero>0){
         let acumulador=1;
         for (let i = 0; i < numero; i++) {
-            acumulador=(i+1)*acumulador;
-            console.log(acumulador);
-            
+            acumulador=(i+1)*acumulador;            
         }
+        console.log(acumulador);
     }else{
         console.log("Ingrese un valore entero y positivo");
     }
     
 }
-factorial(12);
+factorial(5);
