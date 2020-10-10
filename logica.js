@@ -95,6 +95,10 @@ console.log(gato);
 gato.ladrar();
 */
 
+
+
+
+
 //------- PARAMETROS REST Y OPERADOR DE PROPAGACION
 /*function suma(a,b){
     return a+b;
@@ -359,6 +363,7 @@ console.log(conf);*/
         return cadena.length;
     }
     console.log(contar("hola victor"));
+
     // 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
     function recortar(cadena2,separador,limite){
         let separado= cadena2.split(separador,limite);
@@ -370,6 +375,7 @@ console.log(conf);*/
     }
     console.log(recortar("hola victor como estas","",13));
     console.log(recortar2("hola victor",3));
+
     // 3) Programa una función que dada una String te devuelva un Array de textos separados por
     // cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
     function elementos(string, caracter){
@@ -397,58 +403,119 @@ console.log(conf);*/
 
 
 
-/* 5) Programa una función que invierta las palabras de una cadena de texto,
- miFuncion("Hola Mundo") devolverá "odnuM aloH".*/
-function invertir(texto){
-    let invertido="";
-    for (let i = texto.length -1; i >=0 ; i--) {
+// /* 5) Programa una función que invierta las palabras de una cadena de texto,
+//  miFuncion("Hola Mundo") devolverá "odnuM aloH".*/
+// function invertir(texto){
+//     let invertido="";
+//     for (let i = texto.length -1; i >=0 ; i--) {
         
-        invertido += texto[i];
-    }
-    return invertido;
-}
-console.log(invertir("anita lava la tina"));
+//         invertido += texto[i];
+//     }
+//     return invertido;
+// }
+// console.log(invertir("anita lava la tina"));
 
-/* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo,
- miFuncion("hola mundo adios mundo", "mundo") devolverá 2.*/
-    function buscarRepetido(palabra,buscar){
-        let contador=0;
-        let array=palabra.split(" ");
-        for (let i = 0; i < array.length; i++) {
-            if(array[i]===buscar){
-                contador++;
-            }           
-        }
-        return contador;
-    }
-    console.log(buscarRepetido("hola mundo como estas mundo ","mundo"));
+// /* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo,
+//  miFuncion("hola mundo adios mundo", "mundo") devolverá 2.*/
+//     function buscarRepetido(palabra,buscar){
+//         let contador=0;
+//         let array=palabra.split(" ");
+//         for (let i = 0; i < array.length; i++) {
+//             if(array[i]===buscar){
+//                 contador++;
+//             }           
+//         }
+//         return contador;
+//     }
+//     console.log(buscarRepetido("hola mundo como estas mundo ","mundo"));
 
-/* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), 
- mifuncion("Salas") devolverá true.*/
-    function polidromo(frase){
-        let minuscula=frase.toLowerCase().replace(/ /g,"");
-        let array=minuscula.split("");
-        let invertido=array.reverse();//invierte el valor del array
-        let union=invertido.join().replace(/,/g,"");
-        if (minuscula===union) {
-            return true;
+// /* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), 
+//  mifuncion("Salas") devolverá true.*/
+//     function polidromo(frase){
+//         let minuscula=frase.toLowerCase().replace(/ /g,"");
+//         let array=minuscula.split("");
+//         let invertido=array.reverse();//invierte el valor del array
+//         let union=invertido.join().replace(/,/g,"");
+//         if (minuscula===union) {
+//             return true;
+//         }else{
+//             return false
+//         }    
+        
+//     }
+//     console.log(polidromo("anita lava la tina"));
+
+//     /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado,
+//  miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
+// console.clear();
+//  function eliminar(frase,eliminar){
+//     let array=frase.split(" ");
+//     //  let element=""
+//     for (let i = 0; i < array.length; i++) {
+        
+//         console.log(array[i].slice(eliminar.length));
+        
+//     }
+//  }
+//  eliminar("hola1 hola2 hola3","hola");
+
+ /*9) Programa una función que obtenga un numero aleatorio entre 501 y 600.*/
+//  function random(){
+     
+//      for (let i = 0; i < 1000; i++) {
+//         let ran=Math.round(Math.random()*(600-501))+501;
+//          console.log(`${i}: ${ran}`);
+//          if(ran==500 || ran==601){
+//             break;
+//         }
+//      }
+//  }
+//  random();
+
+ /*10) Programa una función que reciba un número y evalúe si es capicúa o no 
+(que se lee igual en un sentido que en otro), miFuncion(2002) devolverá true.*/
+function capicua(numero){
+    
+    if(Number.isInteger(numero)){
+        
+        if(numero>=10){
+            let string=numero.toString();
+            let array=string.split("");
+            let cant=array.length;
+            let num=0;
+            let sum=0;
+              for (let i =cant-1; i>=0; i--) {
+                num=parseInt(array[i])*Math.pow(10,i);
+                sum=sum+num;                
+            }
+            if(numero==sum){
+                console.log("Es capicua",numero, sum)
+            }else{
+                console.log(numero, sum,"No es capicua :,v")
+            }
         }else{
-            return false
-        }    
-        
-    }
-    console.log(polidromo("anita lava la tina"));
 
-    /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado,
- miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.*/
-console.clear();
- function eliminar(frase,eliminar){
-    let array=frase.split(" ");
-    //  let element=""
-    for (let i = 0; i < array.length; i++) {
+            console.log("ingrese digito de 2 cifras a más")
         
-        console.log(array[i].slice(eliminar.length));
+        }
         
     }
- }
- eliminar("hola1 hola2 hola3","hola");
+}
+/*11) Programa una función que calcule el factorial de un número 
+(El factorial de un entero positivo n, se define como el producto 
+de todos los números enteros positivos desde 1 hasta n), miFuncion(5) devolverá 120.*/
+
+function factorial(numero){
+    if(Number.isInteger(numero) && numero>0){
+        let acumulador=1;
+        for (let i = 0; i < numero; i++) {
+            acumulador=(i+1)*acumulador;
+            console.log(acumulador);
+            
+        }
+    }else{
+        console.log("Ingrese un valore entero y positivo");
+    }
+    
+}
+factorial(12);
