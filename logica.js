@@ -472,50 +472,101 @@ console.log(conf);*/
 //  }
 //  random();
 
+
+
  /*10) Programa una función que reciba un número y evalúe si es capicúa o no 
 (que se lee igual en un sentido que en otro), miFuncion(2002) devolverá true.*/
-function capicua(numero){
+// function capicua(numero){
     
-    if(Number.isInteger(numero)){
+//     if(Number.isInteger(numero)){
         
-        if(numero>=10){
-            let string=numero.toString();
-            let array=string.split("");
-            let cant=array.length;
-            let num=0;
-            let sum=0;
-              for (let i =cant-1; i>=0; i--) {
-                num=parseInt(array[i])*Math.pow(10,i);
-                sum=sum+num;                
-            }
-            if(numero==sum){
-                console.log("Es capicua",numero, sum)
-            }else{
-                console.log(numero, sum,"No es capicua :,v")
-            }
-        }else{
+//         if(numero>=10){
+//             let string=numero.toString();
+//             let array=string.split("");
+//             let cant=array.length;
+//             let num=0;
+//             let sum=0;
+//               for (let i =cant-1; i>=0; i--) {
+//                 num=parseInt(array[i])*Math.pow(10,i);
+//                 sum=sum+num;                
+//             }
+//             if(numero==sum){
+//                 console.log("Es capicua",numero, sum)
+//             }else{
+//                 console.log(numero, sum,"No es capicua :,v")
+//             }
+//         }else{
 
-            console.log("ingrese digito de 2 cifras a más")
+//             console.log("ingrese digito de 2 cifras a más")
         
+//         }
+        
+//     }
+// }
+// capicua(101);
+// /*11) Programa una función que calcule el factorial de un número 
+// (El factorial de un entero positivo n, se define como el producto 
+// de todos los números enteros positivos desde 1 hasta n), miFuncion(5) devolverá 120.*/
+
+// function factorial(numero){
+//     if(Number.isInteger(numero) && numero>0){
+//         let acumulador=1;
+//         for (let i = 0; i < numero; i++) {
+//             acumulador=(i+1)*acumulador;            
+//         }
+//         console.log(acumulador);
+//     }else{
+//         console.log("Ingrese un valore entero y positivo");
+//     }
+    
+// }
+// factorial(5);
+
+/*12) Programa una función que determine si un número es primo 
+(aquel que solo es divisible por sí mismo y 1) o no, miFuncion(7) devolverá true.*/
+
+
+function primo(numero){
+    let contador=0;
+    for (let i = 0; i < numero; i++) {
+        if(numero%(i+1)==0){
+            contador++;
         }
+        console.log(contador);
         
     }
-}
-capicua(101);
-/*11) Programa una función que calcule el factorial de un número 
-(El factorial de un entero positivo n, se define como el producto 
-de todos los números enteros positivos desde 1 hasta n), miFuncion(5) devolverá 120.*/
-
-function factorial(numero){
-    if(Number.isInteger(numero) && numero>0){
-        let acumulador=1;
-        for (let i = 0; i < numero; i++) {
-            acumulador=(i+1)*acumulador;            
-        }
-        console.log(acumulador);
+    if (contador==2) {
+        console.log("es primo");
     }else{
-        console.log("Ingrese un valore entero y positivo");
+        console.log("no es primo");
     }
-    
+
 }
-factorial(5);
+primo(1);
+ /*13) Programa una función que determine si un número es par o impar,
+ miFuncion(29) devolverá Impar.*/
+function numer_par(){
+    if(numer_par%2==0){
+        console.log("es par");
+    }
+    else{
+        console.log("Es inpar");
+    }
+}
+numer_par(0);
+ /*14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa,
+miFuncion(0,"C") devolverá 32°F.*/
+function conversion(temperatura,escala){
+    switch (escala) {
+        case "C":
+            n_tem=temperatura*9/5 +32;
+            console.log(`${n_tem} °F`)
+            break;
+        case "F":
+            n_tem=(10*temperatura-32)*5/9;
+            console.log(`${n_tem} °C`)
+        default:
+            break;
+    }
+}
+conversion(0,"F");
