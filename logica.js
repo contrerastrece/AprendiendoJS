@@ -526,47 +526,134 @@ console.log(conf);*/
 (aquel que solo es divisible por sí mismo y 1) o no, miFuncion(7) devolverá true.*/
 
 
-function primo(numero){
-    let contador=0;
-    for (let i = 0; i < numero; i++) {
-        if(numero%(i+1)==0){
-            contador++;
-        }
-        console.log(contador);
+// function primo(numero){
+//     let contador=0;
+//     for (let i = 0; i < numero; i++) {
+//         if(numero%(i+1)==0){
+//             contador++;
+//         }
+//         console.log(contador);
         
-    }
-    if (contador==2) {
-        console.log("es primo");
-    }else{
-        console.log("no es primo");
-    }
+//     }
+//     if (contador==2) {
+//         console.log("es primo");
+//     }else{
+//         console.log("no es primo");
+//     }
 
+// }
+// primo(1);
+//  /*13) Programa una función que determine si un número es par o impar,
+//  miFuncion(29) devolverá Impar.*/
+// function numer_par(){
+//     if(numer_par%2==0){
+//         console.log("es par");
+//     }
+//     else{
+//         console.log("Es inpar");
+//     }
+// }
+// numer_par(0);
+//  /*14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa,
+// miFuncion(0,"C") devolverá 32°F.*/
+// function conversion(temperatura,escala){
+//     switch (escala) {
+//         case "C":
+//             n_tem=temperatura*9/5 +32;
+//             console.log(`${n_tem} °F`)
+//             break;
+//         case "F":
+//             n_tem=(10*temperatura-32)*5/9;
+//             console.log(`${n_tem} °C`)
+//         default:
+//             break;
+//     }
+// }
+// conversion(0,"F");
+
+
+
+/*15) Programa una función para convertir números de base binaria a decimal y viceversa,
+ miFuncion(100,2) devolverá 4 base 10.*/
+ 
+    function convertir(numero,base){
+        if(Number.isInteger(numero) && Number.isInteger(base)){
+            let string=numero.toString();
+        let array=string.split("");
+        let sum=0;
+        switch (base) {
+            case 2:
+                for (let i =0; i <array.length ; i++) {
+                   if (parseInt(array[i])<base) {
+                    num=parseInt(array[i]);
+                    let baseTo=Math.pow(2,array.length-i-1)*num;  
+                    sum=sum+baseTo;
+                    
+                   }else{
+                       
+                       console.log("numero es incorrecto");
+                   }
+                                   
+                }
+                break;
+
+            case 10:
+                for (let i =0; i <array.length ; i++) {
+                    num=parseInt(array[i]);
+                    let baseTo=Math.pow(10,array.length-i-1)*num;
+                    sum=sum+baseTo;    
+                }
+                break;
+            default:
+                return "CONVERTIR(numero, base) base--> 10 o 2";
+            
+        }
+        return `el numero ${numero} en base ${base} es: ${sum}`
+        }
+        else{
+            console.log("ingrese numero positvos y enteros")
+        }
+        
+    } 
+    // console.log(convertir(1131,2));
+ 
+ /*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada,
+  miFuncion(1000, 20) devolverá 800.*/
+
+  function descuento(monto,des){
+    let total = monto*(1-(des/100));
+    console.log(total);
 }
-primo(1);
- /*13) Programa una función que determine si un número es par o impar,
- miFuncion(29) devolverá Impar.*/
-function numer_par(){
-    if(numer_par%2==0){
-        console.log("es par");
-    }
-    else{
-        console.log("Es inpar");
+// descuento(1000,20);
+
+/*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy,
+miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
+function fec_nac(anio,mes,dia){
+    let h=new Date();
+        h.setTime(h.getTime());
+    
+    let cum=new Date(anio,mes-1,dia);
+        cum.setTime(cum.getTime());
+
+    if(h.getTime()>cum.getTime()){
+    
+    
+    let d=h.getTime()-cum.getTime();
+    
+    let d2=new Date();
+    d2.setTime(d);
+    //geDay devuelve el numero de día en la semana
+    //Do Lu Ma Mi Ju Vi Sa
+    //0, 1, 2, 3, 4, 5, 6 
+    let d2a=d2.getFullYear()-1970;
+    let d2m=d2.getUTCMonth();
+    let d2d=d2.getUTCDate()-1;
+    
+    console.log(`han pasado ${d2a} años, ${d2m} meses y ${d2d} dias desde que naciste`);
+     
+    }else{
+        console.log("Ingrese una fecha menor a la fecha actual");
     }
 }
-numer_par(0);
- /*14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa,
-miFuncion(0,"C") devolverá 32°F.*/
-function conversion(temperatura,escala){
-    switch (escala) {
-        case "C":
-            n_tem=temperatura*9/5 +32;
-            console.log(`${n_tem} °F`)
-            break;
-        case "F":
-            n_tem=(10*temperatura-32)*5/9;
-            console.log(`${n_tem} °C`)
-        default:
-            break;
-    }
-}
-conversion(0,"F");
+
+fec_nac(2020,10,15);
