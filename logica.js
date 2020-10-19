@@ -573,87 +573,191 @@ console.log(conf);*/
 
 
 
-/*15) Programa una función para convertir números de base binaria a decimal y viceversa,
- miFuncion(100,2) devolverá 4 base 10.*/
+
+
+// /*15) Programa una función para convertir números de base binaria a decimal y viceversa,
+//  miFuncion(100,2) devolverá 4 base 10.*/
  
-    function convertir(numero,base){
-        if(Number.isInteger(numero) && Number.isInteger(base)){
-            let string=numero.toString();
-        let array=string.split("");
-        let sum=0;
-        switch (base) {
-            case 2:
-                for (let i =0; i <array.length ; i++) {
-                   if (parseInt(array[i])<base) {
-                    num=parseInt(array[i]);
-                    let baseTo=Math.pow(2,array.length-i-1)*num;  
-                    sum=sum+baseTo;
+//     function convertir(numero,base){
+//         if(Number.isInteger(numero) && Number.isInteger(base)){
+//             let string=numero.toString();
+//         let array=string.split("");
+//         let sum=0;
+//         switch (base) {
+//             case 2:
+//                 for (let i =0; i <array.length ; i++) {
+//                    if (parseInt(array[i])<base) {
+//                     num=parseInt(array[i]);
+//                     let baseTo=Math.pow(2,array.length-i-1)*num;  
+//                     sum=sum+baseTo;
                     
-                   }else{
+//                    }else{
                        
-                       console.log("numero es incorrecto");
-                   }
+//                        console.log("numero es incorrecto");
+//                    }
                                    
-                }
-                break;
+//                 }
+//                 break;
 
-            case 10:
-                for (let i =0; i <array.length ; i++) {
-                    num=parseInt(array[i]);
-                    let baseTo=Math.pow(10,array.length-i-1)*num;
-                    sum=sum+baseTo;    
-                }
-                break;
-            default:
-                return "CONVERTIR(numero, base) base--> 10 o 2";
+//             case 10:
+//                 for (let i =0; i <array.length ; i++) {
+//                     num=parseInt(array[i]);
+//                     let baseTo=Math.pow(10,array.length-i-1)*num;
+//                     sum=sum+baseTo;    
+//                 }
+//                 break;
+//             default:
+//                 return "CONVERTIR(numero, base) base--> 10 o 2";
             
-        }
-        return `el numero ${numero} en base ${base} es: ${sum}`
-        }
-        else{
-            console.log("ingrese numero positvos y enteros")
-        }
+//         }
+//         return `el numero ${numero} en base ${base} es: ${sum}`
+//         }
+//         else{
+//             console.log("ingrese numero positvos y enteros")
+//         }
         
-    } 
-    // console.log(convertir(1131,2));
+//     } 
+//     // console.log(convertir(1131,2));
  
- /*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada,
-  miFuncion(1000, 20) devolverá 800.*/
+//  /*16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada,
+//   miFuncion(1000, 20) devolverá 800.*/
 
-  function descuento(monto,des){
-    let total = monto*(1-(des/100));
-    console.log(total);
-}
-// descuento(1000,20);
+//   function descuento(monto,des){
+//     let total = monto*(1-(des/100));
+//     console.log(total);
+// }
+// // descuento(1000,20);
 
-/*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy,
-miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
-function fec_nac(anio,mes,dia){
-    let h=new Date();
-        h.setTime(h.getTime());
+// /*17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy,
+// miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).*/
+// function fec_nac(anio,mes,dia){
+//     let h=new Date();
+//         h.setTime(h.getTime());
     
-    let cum=new Date(anio,mes-1,dia);
-        cum.setTime(cum.getTime());
+//     let cum=new Date(anio,mes-1,dia);
+//         cum.setTime(cum.getTime());
 
-    if(h.getTime()>cum.getTime()){
+//     if(h.getTime()>cum.getTime()){
     
     
-    let d=h.getTime()-cum.getTime();
+//     let d=h.getTime()-cum.getTime();
     
-    let d2=new Date();
-    d2.setTime(d);
-    //geDay devuelve el numero de día en la semana
-    //Do Lu Ma Mi Ju Vi Sa
-    //0, 1, 2, 3, 4, 5, 6 
-    let d2a=d2.getFullYear()-1970;
-    let d2m=d2.getUTCMonth();
-    let d2d=d2.getUTCDate()-1;
+//     let d2=new Date();
+//     d2.setTime(d);
+//     //geDay devuelve el numero de día en la semana
+//     //Do Lu Ma Mi Ju Vi Sa
+//     //0, 1, 2, 3, 4, 5, 6 
+//     let d2a=d2.getFullYear()-1970;
+//     let d2m=d2.getUTCMonth();
+//     let d2d=d2.getUTCDate()-1;
     
-    console.log(`han pasado ${d2a} años, ${d2m} meses y ${d2d} dias desde que naciste`);
+//     console.log(`han pasado ${d2a} años, ${d2m} meses y ${d2d} dias desde que naciste`);
      
-    }else{
-        console.log("Ingrese una fecha menor a la fecha actual");
-    }
-}
+//     }else{
+//         console.log("Ingrese una fecha menor a la fecha actual");
+//     }
+// }
 
-fec_nac(2020,10,15);
+// fec_nac(2020,10,15);
+
+
+
+/*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes,
+miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
+function nvocales_nk(frase){
+    let nombre=frase;
+    let array=nombre.split("");
+    contadorv=0;
+    contador_=0;
+    contadork=0;
+    for (let i = 0; i < array.length; i++) {
+        
+        if(array[i]=="a"||array[i]=="e"||array[i]=="i"||array[i]=="o"||array[i]=="u"){
+            contadorv++;
+        }else if(array[i]==" "){
+            contador_++;
+        }        
+    }
+    contadork=nombre.length-(contadorv+contador_);
+   console.log(`hay ${contadorv} vocales y ${contadork} consonantes`)
+
+}
+// nvocales_nk("hola victor");
+
+
+const contarLetras=(cadena="")=>{
+    if(!cadena) return console.warn("No ingresaste una cadena de texto");
+    if(typeof cadena!=="string") return console.info(`EL valor ${cadena} ingresado NO es una cadena de texto`);
+
+    let vocales=0;
+    let consonantes=0;
+
+    cadena=cadena.toLocaleLowerCase();
+    for (const letra of cadena) {
+        if(/[aeiou]/.test(letra)) vocales++;        
+        if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) consonantes++;
+    }
+    return console.info({
+        cadena,
+        vocales,
+        consonantes
+    })
+}
+// contarLetras("peña");
+/*19) Programa una función que valide que un texto sea un nombre válido,
+ miFuncion("Jonathan MirCha") devolverá verdadero.*/
+
+function cadena(frase){        
+    if(typeof frase==="string"){
+        let min=frase.toLocaleLowerCase();
+        let array=min.split("");
+        let contador=0;        
+
+        for (let i = 0; i < array.length; i++) {
+            if((array[i].charCodeAt()>=97 && array[i].charCodeAt()<=122) || array[i].charCodeAt()==32 || array[i]==="ñ"){
+                contador++;            
+            }
+        }       
+
+        if(contador==frase.length){
+            console.log("Su nombre es correcto");
+        }else{
+            console.log("Su nombre tiene caracteres raros");
+        }
+    }else{
+        console.log("Asegurese de ingresar un string");
+    }
+    
+}
+// cadena("contreras");
+
+
+const nombre=(cadena="")=>{
+    if(!cadena) return console.warn("No ingresaste una cadena de texto");
+    if(typeof cadena!=="string") return console.info(`${cadena} NO es una cadena de texto`);
+    cadena=cadena.toLocaleLowerCase();
+
+    //^ => no puede haber nada antes
+    //$ => no puede haber nada despues
+    let er=/(^[a-zñ]+)(\s?[a-zñ])+$/.test(cadena);
+    return(er)
+    ?console.info(`${cadena} es un nombre valido`)
+    :console.error(`${cadena} NO es un nombre valido`);
+}
+// nombre("peña lopez llante");
+
+
+ /*20) Programa una función que valide que un texto sea un email válido,
+ miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+ const email=(texto="")=>{
+     if(!texto) return console.warn("No ingresaste una cadena");
+     if(typeof texto!=="string") return console.info(`${texto} No es una cadena de texto`);
+
+     let er=/(^[a-zñ0-9]+)(\_?\.?\-?[a-zñ0-9])*@([a-z]+)\.([a-z]{2,})$/i.test(texto); 
+    // let er=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(texto);
+    
+    return(er)     
+    ?console.info(`${texto} es un email valido`)
+    :console.error(`${texto} NO es un email valido`);
+ }
+ email("contreras_alchemist45@outlook.com");
