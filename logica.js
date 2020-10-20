@@ -662,102 +662,189 @@ console.log(conf);*/
 
 
 
-/*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes,
-miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
-function nvocales_nk(frase){
-    let nombre=frase;
-    let array=nombre.split("");
-    contadorv=0;
-    contador_=0;
-    contadork=0;
-    for (let i = 0; i < array.length; i++) {
+// /*18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes,
+// miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.*/
+// function nvocales_nk(frase){
+//     let nombre=frase;
+//     let array=nombre.split("");
+//     contadorv=0;
+//     contador_=0;
+//     contadork=0;
+//     for (let i = 0; i < array.length; i++) {
         
-        if(array[i]=="a"||array[i]=="e"||array[i]=="i"||array[i]=="o"||array[i]=="u"){
-            contadorv++;
-        }else if(array[i]==" "){
-            contador_++;
-        }        
+//         if(array[i]=="a"||array[i]=="e"||array[i]=="i"||array[i]=="o"||array[i]=="u"){
+//             contadorv++;
+//         }else if(array[i]==" "){
+//             contador_++;
+//         }        
+//     }
+//     contadork=nombre.length-(contadorv+contador_);
+//    console.log(`hay ${contadorv} vocales y ${contadork} consonantes`)
+
+// }
+// // nvocales_nk("hola victor");
+
+
+// const contarLetras=(cadena="")=>{
+//     if(!cadena) return console.warn("No ingresaste una cadena de texto");
+//     if(typeof cadena!=="string") return console.info(`EL valor ${cadena} ingresado NO es una cadena de texto`);
+
+//     let vocales=0;
+//     let consonantes=0;
+
+//     cadena=cadena.toLocaleLowerCase();
+//     for (const letra of cadena) {
+//         if(/[aeiou]/.test(letra)) vocales++;        
+//         if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) consonantes++;
+//     }
+//     return console.info({
+//         cadena,
+//         vocales,
+//         consonantes
+//     })
+// }
+// // contarLetras("peña");
+// /*19) Programa una función que valide que un texto sea un nombre válido,
+//  miFuncion("Jonathan MirCha") devolverá verdadero.*/
+
+// function cadena(frase){        
+//     if(typeof frase==="string"){
+//         let min=frase.toLocaleLowerCase();
+//         let array=min.split("");
+//         let contador=0;        
+
+//         for (let i = 0; i < array.length; i++) {
+//             if((array[i].charCodeAt()>=97 && array[i].charCodeAt()<=122) || array[i].charCodeAt()==32 || array[i]==="ñ"){
+//                 contador++;            
+//             }
+//         }       
+
+//         if(contador==frase.length){
+//             console.log("Su nombre es correcto");
+//         }else{
+//             console.log("Su nombre tiene caracteres raros");
+//         }
+//     }else{
+//         console.log("Asegurese de ingresar un string");
+//     }
+    
+// }
+// // cadena("contreras");
+
+
+// const nombre=(cadena="")=>{
+//     if(!cadena) return console.warn("No ingresaste una cadena de texto");
+//     if(typeof cadena!=="string") return console.info(`${cadena} NO es una cadena de texto`);
+//     cadena=cadena.toLocaleLowerCase();
+
+//     //^ => no puede haber nada antes
+//     //$ => no puede haber nada despues
+//     let er=/(^[a-zñ]+)(\s?[a-zñ])+$/.test(cadena);
+//     return(er)
+//     ?console.info(`${cadena} es un nombre valido`)
+//     :console.error(`${cadena} NO es un nombre valido`);
+// }
+// // nombre("peña lopez llante");
+
+
+//  /*20) Programa una función que valide que un texto sea un email válido,
+//  miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
+//  const email=(texto="")=>{
+//      if(!texto) return console.warn("No ingresaste una cadena");
+//      if(typeof texto!=="string") return console.info(`${texto} No es una cadena de texto`);
+
+//      let er=/(^[a-zñ0-9]+)(\_?\.?\-?[a-zñ0-9])*@([a-z]+)\.([a-z]{2,})$/i.test(texto); 
+//     // let er=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(texto);
+    
+//     return(er)     
+//     ?console.info(`${texto} es un email valido`)
+//     :console.error(`${texto} NO es un email valido`);
+//  }
+//  email("contreras_alchemist45@outlook.com");
+
+
+
+
+
+/*21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado,
+mi_funcion([1, 4, 5]) devolverá [1, 16, 25].*/
+const elevarCuadrado=(array=undefined)=>{
+    if (array===undefined) return console.warn("No ingresaste un arreglo");
+    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+    if(array.length===0) return console.warn("El arreglo está vacio");
+
+    for (const elemento of array) {
+        if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
     }
-    contadork=nombre.length-(contadorv+contador_);
-   console.log(`hay ${contadorv} vocales y ${contadork} consonantes`)
+
+    const newArray=array.map(i=>Math.pow(i,2));//el metodo map devuelve un array del array existente
+    console.log(`${array} =>${newArray}`)
+}
+// elevarCuadrado([1,1.5,3]);
+
+/*22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array,
+miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].*/
+ 
+const maxMin=(array=undefined)=>{
+    if(array===undefined) return console.warn("No ingresaste un arreglo");
+    if(!(array instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+    if(array.length===0) return console.warn("El arreglo está vacio");
+    for (const elemento of array) {
+        if(typeof elemento!=="number") return console.warn(`El elemento "${elemento}" no es un numero`);        
+    }
+
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 1; j < array.length; j++) {
+            if(array[j]<array[j-1]){
+                let aux = array[j];
+                array[j]=array[j-1];
+                array[j-1]=aux; 
+            }            
+        } 
+    }
+
+    let result=array.filter(filtrar_max_min);
+    
+    function filtrar_max_min(elemento){
+        let start=0;
+        let end=array.length-1;
+        return elemento ==array[start] || elemento==array[end];
+    }
+
+    return console.log(result);
+    
 
 }
-// nvocales_nk("hola victor");
 
+maxMin();
+maxMin("");
+maxMin([]);
+maxMin(["",1])
+maxMin([5,3,7,2,4])
 
-const contarLetras=(cadena="")=>{
-    if(!cadena) return console.warn("No ingresaste una cadena de texto");
-    if(typeof cadena!=="string") return console.info(`EL valor ${cadena} ingresado NO es una cadena de texto`);
+/*23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares,
+miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.*/
 
-    let vocales=0;
-    let consonantes=0;
-
-    cadena=cadena.toLocaleLowerCase();
-    for (const letra of cadena) {
-        if(/[aeiou]/.test(letra)) vocales++;        
-        if(/[bcdfghjklmnñpqrstvwxyz]/.test(letra)) consonantes++;
+function parEimpar(array){
+    if (array===undefined) return console.warn("No ingresaste un arreglo");
+    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+    if(array.length===0) return console.warn("El arreglo está vacio");
+    for (const elemento of array) {
+        if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
     }
-    return console.info({
-        cadena,
-        vocales,
-        consonantes
-    })
-}
-// contarLetras("peña");
-/*19) Programa una función que valide que un texto sea un nombre válido,
- miFuncion("Jonathan MirCha") devolverá verdadero.*/
 
-function cadena(frase){        
-    if(typeof frase==="string"){
-        let min=frase.toLocaleLowerCase();
-        let array=min.split("");
-        let contador=0;        
+    let filterPares=array.filter(par);
+    let filterImpares=array.filter(impar)
 
-        for (let i = 0; i < array.length; i++) {
-            if((array[i].charCodeAt()>=97 && array[i].charCodeAt()<=122) || array[i].charCodeAt()==32 || array[i]==="ñ"){
-                contador++;            
-            }
-        }       
-
-        if(contador==frase.length){
-            console.log("Su nombre es correcto");
-        }else{
-            console.log("Su nombre tiene caracteres raros");
-        }
-    }else{
-        console.log("Asegurese de ingresar un string");
+     return console.log(`${filterPares} Pares`,`${filterImpares} Impares`)
+ 
+    function par(elemento){
+     return elemento%2==0;
     }
     
-}
-// cadena("contreras");
-
-
-const nombre=(cadena="")=>{
-    if(!cadena) return console.warn("No ingresaste una cadena de texto");
-    if(typeof cadena!=="string") return console.info(`${cadena} NO es una cadena de texto`);
-    cadena=cadena.toLocaleLowerCase();
-
-    //^ => no puede haber nada antes
-    //$ => no puede haber nada despues
-    let er=/(^[a-zñ]+)(\s?[a-zñ])+$/.test(cadena);
-    return(er)
-    ?console.info(`${cadena} es un nombre valido`)
-    :console.error(`${cadena} NO es un nombre valido`);
-}
-// nombre("peña lopez llante");
-
-
- /*20) Programa una función que valide que un texto sea un email válido,
- miFuncion("jonmircha@gmail.com") devolverá verdadero.*/
- const email=(texto="")=>{
-     if(!texto) return console.warn("No ingresaste una cadena");
-     if(typeof texto!=="string") return console.info(`${texto} No es una cadena de texto`);
-
-     let er=/(^[a-zñ0-9]+)(\_?\.?\-?[a-zñ0-9])*@([a-z]+)\.([a-z]{2,})$/i.test(texto); 
-    // let er=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(texto);
-    
-    return(er)     
-    ?console.info(`${texto} es un email valido`)
-    :console.error(`${texto} NO es un email valido`);
- }
- email("contreras_alchemist45@outlook.com");
+    function impar(elemento){
+     return elemento%2!==0;
+    }
+  }
+ 
+//   parEimpar([1,2,3,4,5,6,7,8,9,10]);
