@@ -766,66 +766,175 @@ console.log(conf);*/
 
 
 
-/*21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado,
-mi_funcion([1, 4, 5]) devolverá [1, 16, 25].*/
-const elevarCuadrado=(array=undefined)=>{
+// /*21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado,
+// mi_funcion([1, 4, 5]) devolverá [1, 16, 25].*/
+// const elevarCuadrado=(array=undefined)=>{
+//     if (array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+//     if(array.length===0) return console.warn("El arreglo está vacio");
+
+//     for (const elemento of array) {
+//         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
+//     }
+
+//     const newArray=array.map(i=>Math.pow(i,2));//el metodo map devuelve un array del array existente
+//     console.log(`${array} =>${newArray}`)
+// }
+// // elevarCuadrado([1,1.5,3]);
+
+// /*22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array,
+// miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].*/
+ 
+// const maxMin=(array=undefined)=>{
+//     if(array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+//     if(array.length===0) return console.warn("El arreglo está vacio");
+//     for (const elemento of array) {
+//         if(typeof elemento!=="number") return console.warn(`El elemento "${elemento}" no es un numero`);        
+//     }
+
+//     for (let i = 0; i < array.length; i++) {
+//         for (let j = 1; j < array.length; j++) {
+//             if(array[j]<array[j-1]){
+//                 let aux = array[j];
+//                 array[j]=array[j-1];
+//                 array[j-1]=aux; 
+//             }            
+//         } 
+//     }
+
+//     let result=array.filter(filtrar_max_min);
+    
+//     function filtrar_max_min(elemento){
+//         let start=0;
+//         let end=array.length-1;
+//         return elemento ==array[start] || elemento==array[end];
+//     }
+
+//     return console.log(result);
+    
+
+// }
+
+// // maxMin();
+// // maxMin("");
+// // maxMin([]);
+// // maxMin(["",1])
+// // maxMin([5,3,7,2,4])
+
+// /*23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares,
+// miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.*/
+
+// function parEimpar(array){
+//     if (array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+//     if(array.length===0) return console.warn("El arreglo está vacio");
+//     for (const elemento of array) {
+//         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
+//     }
+
+//     let filterPares=array.filter(par);
+//     let filterImpares=array.filter(impar)
+
+//      return console.log(`${filterPares} Pares`,`${filterImpares} Impares`)
+ 
+//     function par(elemento){
+//      return elemento%2==0;
+//     }
+    
+//     function impar(elemento){
+//      return elemento%2!==0;
+//     }
+//   }
+ 
+// //   parEimpar([1,2,3,4,5,6,7,8,9,10]);
+
+
+
+
+
+/*24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, 
+el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente,
+miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.*/
+
+const asc_des=(array)=>{
     if (array===undefined) return console.warn("No ingresaste un arreglo");
     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
     if(array.length===0) return console.warn("El arreglo está vacio");
-
     for (const elemento of array) {
         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
     }
 
-    const newArray=array.map(i=>Math.pow(i,2));//el metodo map devuelve un array del array existente
-    console.log(`${array} =>${newArray}`)
-}
-// elevarCuadrado([1,1.5,3]);
-
-/*22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array,
-miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].*/
- 
-const maxMin=(array=undefined)=>{
-    if(array===undefined) return console.warn("No ingresaste un arreglo");
-    if(!(array instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
-    if(array.length===0) return console.warn("El arreglo está vacio");
-    for (const elemento of array) {
-        if(typeof elemento!=="number") return console.warn(`El elemento "${elemento}" no es un numero`);        
-    }
-
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 1; j < array.length; j++) {
-            if(array[j]<array[j-1]){
-                let aux = array[j];
-                array[j]=array[j-1];
-                array[j-1]=aux; 
+    function asc(array){
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 1; j < array.length; j++) {
+                if(array[j]<array[j-1]){
+                    let aux = array[j];
+                    array[j]=array[j-1];
+                    array[j-1]=aux;
+                }                
             }            
-        } 
+        }
+        return array;    
     }
 
-    let result=array.filter(filtrar_max_min);
-    
-    function filtrar_max_min(elemento){
-        let start=0;
-        let end=array.length-1;
-        return elemento ==array[start] || elemento==array[end];
+    function des(array){
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 1; j < array.length; j++) {
+                if(array[j]>array[j-1]){
+                    let aux = array[j-1];
+                    array[j-1]=array[j];
+                    array[j]=aux;
+                }                
+            }            
+        }        
+        return array;
     }
 
-    return console.log(result);
-    
+    return console.log(asc(array),"Ascendente"), console.log(des(array),"Descendente");
+}
+// asc_des([8,2,-4,6,7,1]);
 
+
+
+/*25) Programa una función que dado un arreglo de elementos, elimine los duplicados,
+miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]*/
+
+
+let array=[false,true,false,"1",5,true,25,"1",3,1];
+// console.log(array.splice(5,0,54));//devuelve los elementos eliminados
+// console.log(array.shift());// elimina el primer elemento y lo retorna
+// console.log(array);
+// let buscar=array.some(element=>element===2)// comprueba si al menos un elemento existe y retornará un boolean
+// console.log(buscar);
+
+const eliminar_duplicado=(array)=>{
+    if (array===undefined) return console.warn("No ingresaste un arreglo");
+    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+    if(array.length===0) return console.warn("El arreglo está vacio");
+    
+    for (let j = array.length-1; j >=0; j--) {
+        if (array.indexOf(array[j])!==j) eliminado=array.splice(j,1);            
+          
+    }    
+
+    return console.log(array);
 }
 
-maxMin();
-maxMin("");
-maxMin([]);
-maxMin(["",1])
-maxMin([5,3,7,2,4])
+eliminar_duplicado();
+eliminar_duplicado(6);
+eliminar_duplicado([]);
+eliminar_duplicado([1,2,3,1,2,3,4,5,2,0,1,97,5,0,58]);
 
-/*23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares,
-miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.*/
 
-function parEimpar(array){
+
+
+
+
+/*26) Programa una función que dado un arreglo de números obtenga el promedio,
+promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+
+const promedio=(array)=>{
     if (array===undefined) return console.warn("No ingresaste un arreglo");
     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
     if(array.length===0) return console.warn("El arreglo está vacio");
@@ -833,18 +942,9 @@ function parEimpar(array){
         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
     }
 
-    let filterPares=array.filter(par);
-    let filterImpares=array.filter(impar)
-
-     return console.log(`${filterPares} Pares`,`${filterImpares} Impares`)
- 
-    function par(elemento){
-     return elemento%2==0;
-    }
+    const promedio=(array.reduce((acc,ele) => acc+ele,0))/array.length;
+    console.log(promedio);
     
-    function impar(elemento){
-     return elemento%2!==0;
-    }
-  }
- 
-//   parEimpar([1,2,3,4,5,6,7,8,9,10]);
+}
+
+// promedio([10,20,6]);
