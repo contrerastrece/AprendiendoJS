@@ -853,98 +853,279 @@ console.log(conf);*/
 
 
 
-/*24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, 
-el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente,
-miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.*/
+// /*24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, 
+// el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente,
+// miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.*/
 
-const asc_des=(array)=>{
-    if (array===undefined) return console.warn("No ingresaste un arreglo");
-    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
-    if(array.length===0) return console.warn("El arreglo está vacio");
-    for (const elemento of array) {
-        if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
-    }
+// const asc_des=(array)=>{
+//     if (array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+//     if(array.length===0) return console.warn("El arreglo está vacio");
+//     for (const elemento of array) {
+//         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
+//     }
 
-    function asc(array){
-        for (let i = 0; i < array.length; i++) {
-            for (let j = 1; j < array.length; j++) {
-                if(array[j]<array[j-1]){
-                    let aux = array[j];
-                    array[j]=array[j-1];
-                    array[j-1]=aux;
-                }                
-            }            
-        }
-        return array;    
-    }
+//     function asc(array){
+//         for (let i = 0; i < array.length; i++) {
+//             for (let j = 1; j < array.length; j++) {
+//                 if(array[j]<array[j-1]){
+//                     let aux = array[j];
+//                     array[j]=array[j-1];
+//                     array[j-1]=aux;
+//                 }                
+//             }            
+//         }
+//         return array;    
+//     }
 
-    function des(array){
-        for (let i = 0; i < array.length; i++) {
-            for (let j = 1; j < array.length; j++) {
-                if(array[j]>array[j-1]){
-                    let aux = array[j-1];
-                    array[j-1]=array[j];
-                    array[j]=aux;
-                }                
-            }            
-        }        
-        return array;
-    }
+//     function des(array){
+//         for (let i = 0; i < array.length; i++) {
+//             for (let j = 1; j < array.length; j++) {
+//                 if(array[j]>array[j-1]){
+//                     let aux = array[j-1];
+//                     array[j-1]=array[j];
+//                     array[j]=aux;
+//                 }                
+//             }            
+//         }        
+//         return array;
+//     }
 
-    return console.log(asc(array),"Ascendente"), console.log(des(array),"Descendente");
-}
-// asc_des([8,2,-4,6,7,1]);
-
-
-
-/*25) Programa una función que dado un arreglo de elementos, elimine los duplicados,
-miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]*/
+//     return console.log(asc(array),"Ascendente"), console.log(des(array),"Descendente");
+// }
+// // asc_des([8,2,-4,6,7,1]);
 
 
-let array=[false,true,false,"1",5,true,25,"1",3,1];
-// console.log(array.splice(5,0,54));//devuelve los elementos eliminados
-// console.log(array.shift());// elimina el primer elemento y lo retorna
-// console.log(array);
-// let buscar=array.some(element=>element===2)// comprueba si al menos un elemento existe y retornará un boolean
-// console.log(buscar);
 
-const eliminar_duplicado=(array)=>{
-    if (array===undefined) return console.warn("No ingresaste un arreglo");
-    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
-    if(array.length===0) return console.warn("El arreglo está vacio");
+// /*25) Programa una función que dado un arreglo de elementos, elimine los duplicados,
+// miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true]*/
+
+
+// let array=[false,true,false,"1",5,true,25,"1",3,1];
+// // console.log(array.splice(5,0,54));//devuelve los elementos eliminados
+// // console.log(array.shift());// elimina el primer elemento y lo retorna
+// // console.log(array);
+// // let buscar=array.some(element=>element===2)// comprueba si al menos un elemento existe y retornará un boolean
+// // console.log(buscar);
+
+// const eliminar_duplicado=(array)=>{
+//     if (array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+//     if(array.length===0) return console.warn("El arreglo está vacio");
     
-    for (let j = array.length-1; j >=0; j--) {
-        if (array.indexOf(array[j])!==j) eliminado=array.splice(j,1);            
+//     for (let j = array.length-1; j >=0; j--) {
+//         if (array.indexOf(array[j])!==j) eliminado=array.splice(j,1);            
           
-    }    
+//     }    
 
-    return console.log(array);
-}
+//     return console.log(array);
+// }
 
-eliminar_duplicado();
-eliminar_duplicado(6);
-eliminar_duplicado([]);
-eliminar_duplicado([1,2,3,1,2,3,4,5,2,0,1,97,5,0,58]);
-
-
+// eliminar_duplicado();
+// eliminar_duplicado(6);
+// eliminar_duplicado([]);
+// eliminar_duplicado([1,2,3,1,2,3,4,5,2,0,1,97,5,0,58]);
 
 
 
 
-/*26) Programa una función que dado un arreglo de números obtenga el promedio,
-promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
 
-const promedio=(array)=>{
-    if (array===undefined) return console.warn("No ingresaste un arreglo");
-    if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
-    if(array.length===0) return console.warn("El arreglo está vacio");
-    for (const elemento of array) {
-        if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
+
+// /*26) Programa una función que dado un arreglo de números obtenga el promedio,
+// promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.*/
+
+// const promedio=(array)=>{
+//     if (array===undefined) return console.warn("No ingresaste un arreglo");
+//     if(!(array instanceof Array)) return console.error(`El valor que ingresaste no es un arreglo`);
+//     if(array.length===0) return console.warn("El arreglo está vacio");
+//     for (const elemento of array) {
+//         if(typeof elemento!=="number") return console.warn(`el elemento "${elemento}" no es numérico`);
+//     }
+
+//     const promedio=(array.reduce((acc,ele) => acc+ele,0))/array.length;
+//     console.log(promedio);
+    
+// }
+
+// // promedio([10,20,6]);
+
+
+
+
+
+
+/*27) Programa una clase llamada Pelicula.
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: 
+id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.(OK)
+  - Valida que el título no rebase los 100 caracteres.(OK)
+  - Valida que el director no rebase los 50 caracteres.(OK)
+  - Valida que el año de estreno sea un número entero de 4 dígitos.(OK)
+  - Valida que el país o paises sea introducidos en forma de arreglo.(OK)
+  - Valida que los géneros sean introducidos en forma de arreglo(OK).
+  - Valida que los géneros introducidos esten dentro de los géneros(OK) 
+     aceptados*.
+  - Crea un método estático que devuelva los géneros aceptados*(OK).
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.(OK)
+  - Crea un método que devuelva toda la ficha técnica de la película.(OK)
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: 
+Action, Adult, Adventure, Animation, Biography, Comedy,Crime, 
+Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, 
+History, Horror, Musical, Music, Mystery, News, Reality-TV, 
+Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.*/
+
+class Pelicula{
+    constructor({id,titulo,director,anio,pais,generos,calificacion}){
+        this.id=id;
+        this.titulo=titulo;
+        this.director=director;
+        this.anio=anio;
+        this.pais=pais;
+        this.generos=generos;
+        this.calificacion=calificacion;
+
+       this.validarIMDB(id);
+       this.validarDirector(director);
+       this.validarTitulo(titulo);
+       this.validarAnio(anio);
+       this.validarPais(pais);
+       this.validarGenero(generos);
+       this.validarCalificacion(calificacion);
+    
     }
 
-    const promedio=(array.reduce((acc,ele) => acc+ele,0))/array.length;
-    console.log(promedio);
-    
-}
+    static get listaGeneros(){
+        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy","Crime", 
+            "Documentary","Drama", "Family", "Fantasy", "Film Noir", "Game-Show", 
+            "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", 
+            "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+    }
+    static generosAceptados(){
+        return console.info(Pelicula.listaGeneros.join(".\n"));
+    }
+    validarCadena(propiedad,valor){
+        if(!valor) return console.warn(`${valor} está vacio`);
+        if(typeof valor!=="string") return console.error(`${propiedad}, ${valor} "ingresado, NO es una cadena de texto"`);
+        
+        return true;
+    }
 
-// promedio([10,20,6]);
+    validarLongitudCadena(propiedad, valor, longitud){
+        if(valor.length>longitud) return console.error(`${propiedad} "${valor}" excede el numero de caracteres permitidos ${longitud}`);
+        return true;
+    }
+
+    validarEntero(propiedad, valor){
+        if(!valor) return console.error(`el ${propiedad} está vacio`);
+        if(typeof valor!=="number") return console.error(`${propiedad} "${valor} no es un número"`);
+
+        return true;
+    }
+    validarArray(propiedad, valor){
+        if (valor===undefined) return console.warn("No ingresaste un arreglo");
+        if(!(valor instanceof Array)) return console.error(`El ${propiedad} que ingresaste no es un arreglo`);
+        if(valor.length===0) return console.warn("El arreglo está vacio");
+        for (const elemento of valor) {
+            if(typeof elemento!=="string") return console.warn(`${propiedad} "${elemento}" no es una cadena de texto`);
+        }
+
+        return true;
+    }
+
+
+    validarIMDB(id){
+        if(this.validarCadena("IMDB id",id)){
+            if(!(/^([a-z]{2}([0-9]){7}$)/.test(id))){
+                return console.error(`"${id}" no es valido, debe tener 9 caracteres, los 2 primero letras minusculas y los restanes números`);
+            }
+        }    
+    }
+
+    validarTitulo(titulo){
+        if(this.validarCadena("Titulo",titulo)){
+            this.validarLongitudCadena("Titulo",titulo,100);
+        }    
+    }
+
+    validarDirector(director){
+        if(this.validarCadena("Director",director)){
+            this.validarLongitudCadena("Director",director,50);
+        }    
+    }
+
+    validarAnio(anio){
+        if(this.validarEntero("Anio",anio)){
+            if(!(anio>1000 && anio<9999) ){
+                return console.error(`Ingresar anio valido de 4 digitos`);
+            }
+        }
+    }
+    validarPais(pais){
+        if(this.validarArray("Pais",pais)){
+           
+        }
+    }
+    validarGenero(generos){
+        if(this.validarArray("Genero",generos)){
+            for (const genero of generos) {
+                if(!(Pelicula.listaGeneros.includes(genero))){
+                    return console.error(`"${generos.join(", ")}" no pertenece a Generos permitidos ${Pelicula.generosAceptados()}`);
+                    
+                    
+                }
+            }
+        }
+    }
+    validarCalificacion(calificacion){
+        if(this.validarEntero("Calificación",calificacion)){
+            if(!(calificacion>=0 && calificacion<=10)){
+                return console.error("Puntación permitido 0-10");
+            }else{
+                this.calificacion=calificacion.toFixed(1);
+            }           
+        }
+    }
+    fichaTecnica(){
+        console.info(`FICHA TECNICA:\nTitulo: ${this.titulo}\nDirector: ${this.director}\nEstreno: ${this.anio}\nPais: ${this.pais.join(", ")}\nCalificación: ${this.calificacion}\nIMDB: ${this.id}\nGeneros: ${this.generos.join(",")} `);
+    }
+
+}
+// Pelicula.generosAceptados();
+const peli=[
+    {
+        id:"tt2123456",
+        titulo:"La hera del Hielo",
+        director:"victor contreras",
+        anio:1890,
+        pais:["Perú","Colombia"],
+        generos:["Comedy","Sport"],
+        calificacion:9.25
+    },
+    {
+        id:"tt2123456",
+        titulo:"La hera del Hielo",
+        director:"victor contreras",
+        anio:1290,
+        pais:["Perú","Colombia"],
+        generos:["Comedy","Sport"],
+        calificacion:9.25
+    },
+    {
+        id:"tt2123456",
+        titulo:"La hera del Hielo",
+        director:"victor contreras",
+        anio:1990,
+        pais:["Perú","Colombia"],
+        generos:["Comedy","Sport"],
+        calificacion:9.25
+    }
+]
+
+peli.forEach(elemento=>new Pelicula(elemento).fichaTecnica());
