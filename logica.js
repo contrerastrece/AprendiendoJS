@@ -953,179 +953,555 @@ console.log(conf);*/
 
 
 
+// /*27) Programa una clase llamada Pelicula.
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: 
+// id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+//   - Todos los datos del objeto son obligatorios.
+//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+//      7 restantes números.(OK)
+//   - Valida que el título no rebase los 100 caracteres.(OK)
+//   - Valida que el director no rebase los 50 caracteres.(OK)
+//   - Valida que el año de estreno sea un número entero de 4 dígitos.(OK)
+//   - Valida que el país o paises sea introducidos en forma de arreglo.(OK)
+//   - Valida que los géneros sean introducidos en forma de arreglo(OK).
+//   - Valida que los géneros introducidos esten dentro de los géneros(OK) 
+//      aceptados*.
+//   - Crea un método estático que devuelva los géneros aceptados*(OK).
+//   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+//     decimal de una posición.(OK)
+//   - Crea un método que devuelva toda la ficha técnica de la película.(OK)
+//   - Apartir de un arreglo con la información de 3 películas genera 3 
+//     instancias de la clase de forma automatizada e imprime la ficha técnica 
+//     de cada película.
 
-/*27) Programa una clase llamada Pelicula.
-La clase recibirá un objeto al momento de instanciarse con los siguentes datos: 
-id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
-  - Todos los datos del objeto son obligatorios.
-  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
-     7 restantes números.(OK)
-  - Valida que el título no rebase los 100 caracteres.(OK)
-  - Valida que el director no rebase los 50 caracteres.(OK)
-  - Valida que el año de estreno sea un número entero de 4 dígitos.(OK)
-  - Valida que el país o paises sea introducidos en forma de arreglo.(OK)
-  - Valida que los géneros sean introducidos en forma de arreglo(OK).
-  - Valida que los géneros introducidos esten dentro de los géneros(OK) 
-     aceptados*.
-  - Crea un método estático que devuelva los géneros aceptados*(OK).
-  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
-    decimal de una posición.(OK)
-  - Crea un método que devuelva toda la ficha técnica de la película.(OK)
-  - Apartir de un arreglo con la información de 3 películas genera 3 
-    instancias de la clase de forma automatizada e imprime la ficha técnica 
-    de cada película.
+// * Géneros Aceptados: 
+// Action, Adult, Adventure, Animation, Biography, Comedy,Crime, 
+// Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, 
+// History, Horror, Musical, Music, Mystery, News, Reality-TV, 
+// Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.*/
 
-* Géneros Aceptados: 
-Action, Adult, Adventure, Animation, Biography, Comedy,Crime, 
-Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, 
-History, Horror, Musical, Music, Mystery, News, Reality-TV, 
-Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.*/
+// class Pelicula{
+//     constructor({id,titulo,director,anio,pais,generos,calificacion}){
+//         this.id=id;
+//         this.titulo=titulo;
+//         this.director=director;
+//         this.anio=anio;
+//         this.pais=pais;
+//         this.generos=generos;
+//         this.calificacion=calificacion;
 
-class Pelicula{
-    constructor({id,titulo,director,anio,pais,generos,calificacion}){
-        this.id=id;
-        this.titulo=titulo;
-        this.director=director;
-        this.anio=anio;
-        this.pais=pais;
-        this.generos=generos;
-        this.calificacion=calificacion;
-
-       this.validarIMDB(id);
-       this.validarDirector(director);
-       this.validarTitulo(titulo);
-       this.validarAnio(anio);
-       this.validarPais(pais);
-       this.validarGenero(generos);
-       this.validarCalificacion(calificacion);
+//        this.validarIMDB(id);
+//        this.validarDirector(director);
+//        this.validarTitulo(titulo);
+//        this.validarAnio(anio);
+//        this.validarPais(pais);
+//        this.validarGenero(generos);
+//        this.validarCalificacion(calificacion);
     
-    }
+//     }
 
-    static get listaGeneros(){
-        return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy","Crime", 
-            "Documentary","Drama", "Family", "Fantasy", "Film Noir", "Game-Show", 
-            "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", 
-            "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
-    }
-    static generosAceptados(){
-        return console.info(Pelicula.listaGeneros.join(".\n"));
-    }
-    validarCadena(propiedad,valor){
-        if(!valor) return console.warn(`${valor} está vacio`);
-        if(typeof valor!=="string") return console.error(`${propiedad}, ${valor} "ingresado, NO es una cadena de texto"`);
+//     static get listaGeneros(){
+//         return ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy","Crime", 
+//             "Documentary","Drama", "Family", "Fantasy", "Film Noir", "Game-Show", 
+//             "History", "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", 
+//             "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"];
+//     }
+//     static generosAceptados(){
+//         return console.info(Pelicula.listaGeneros.join(".\n"));
+//     }
+//     validarCadena(propiedad,valor){
+//         if(!valor) return console.warn(`${valor} está vacio`);
+//         if(typeof valor!=="string") return console.error(`${propiedad}, ${valor} "ingresado, NO es una cadena de texto"`);
         
-        return true;
-    }
+//         return true;
+//     }
 
-    validarLongitudCadena(propiedad, valor, longitud){
-        if(valor.length>longitud) return console.error(`${propiedad} "${valor}" excede el numero de caracteres permitidos ${longitud}`);
-        return true;
-    }
+//     validarLongitudCadena(propiedad, valor, longitud){
+//         if(valor.length>longitud) return console.error(`${propiedad} "${valor}" excede el numero de caracteres permitidos ${longitud}`);
+//         return true;
+//     }
 
-    validarEntero(propiedad, valor){
-        if(!valor) return console.error(`el ${propiedad} está vacio`);
-        if(typeof valor!=="number") return console.error(`${propiedad} "${valor} no es un número"`);
+//     validarEntero(propiedad, valor){
+//         if(!valor) return console.error(`el ${propiedad} está vacio`);
+//         if(typeof valor!=="number") return console.error(`${propiedad} "${valor} no es un número"`);
 
-        return true;
-    }
-    validarArray(propiedad, valor){
-        if (valor===undefined) return console.warn("No ingresaste un arreglo");
-        if(!(valor instanceof Array)) return console.error(`El ${propiedad} que ingresaste no es un arreglo`);
-        if(valor.length===0) return console.warn("El arreglo está vacio");
-        for (const elemento of valor) {
-            if(typeof elemento!=="string") return console.warn(`${propiedad} "${elemento}" no es una cadena de texto`);
-        }
+//         return true;
+//     }
+//     validarArray(propiedad, valor){
+//         if (valor===undefined) return console.warn("No ingresaste un arreglo");
+//         if(!(valor instanceof Array)) return console.error(`El ${propiedad} que ingresaste no es un arreglo`);
+//         if(valor.length===0) return console.warn("El arreglo está vacio");
+//         for (const elemento of valor) {
+//             if(typeof elemento!=="string") return console.warn(`${propiedad} "${elemento}" no es una cadena de texto`);
+//         }
 
-        return true;
-    }
+//         return true;
+//     }
 
 
-    validarIMDB(id){
-        if(this.validarCadena("IMDB id",id)){
-            if(!(/^([a-z]{2}([0-9]){7}$)/.test(id))){
-                return console.error(`"${id}" no es valido, debe tener 9 caracteres, los 2 primero letras minusculas y los restanes números`);
-            }
-        }    
-    }
+//     validarIMDB(id){
+//         if(this.validarCadena("IMDB id",id)){
+//             if(!(/^([a-z]{2}([0-9]){7}$)/.test(id))){
+//                 return console.error(`"${id}" no es valido, debe tener 9 caracteres, los 2 primero letras minusculas y los restanes números`);
+//             }
+//         }    
+//     }
 
-    validarTitulo(titulo){
-        if(this.validarCadena("Titulo",titulo)){
-            this.validarLongitudCadena("Titulo",titulo,100);
-        }    
-    }
+//     validarTitulo(titulo){
+//         if(this.validarCadena("Titulo",titulo)){
+//             this.validarLongitudCadena("Titulo",titulo,100);
+//         }    
+//     }
 
-    validarDirector(director){
-        if(this.validarCadena("Director",director)){
-            this.validarLongitudCadena("Director",director,50);
-        }    
-    }
+//     validarDirector(director){
+//         if(this.validarCadena("Director",director)){
+//             this.validarLongitudCadena("Director",director,50);
+//         }    
+//     }
 
-    validarAnio(anio){
-        if(this.validarEntero("Anio",anio)){
-            if(!(anio>1000 && anio<9999) ){
-                return console.error(`Ingresar anio valido de 4 digitos`);
-            }
-        }
-    }
-    validarPais(pais){
-        if(this.validarArray("Pais",pais)){
+//     validarAnio(anio){
+//         if(this.validarEntero("Anio",anio)){
+//             if(!(anio>1000 && anio<9999) ){
+//                 return console.error(`Ingresar anio valido de 4 digitos`);
+//             }
+//         }
+//     }
+//     validarPais(pais){
+//         if(this.validarArray("Pais",pais)){
            
-        }
-    }
-    validarGenero(generos){
-        if(this.validarArray("Genero",generos)){
-            for (const genero of generos) {
-                if(!(Pelicula.listaGeneros.includes(genero))){
-                    return console.error(`"${generos.join(", ")}" no pertenece a Generos permitidos ${Pelicula.generosAceptados()}`);
+//         }
+//     }
+//     validarGenero(generos){
+//         if(this.validarArray("Genero",generos)){
+//             for (const genero of generos) {
+//                 if(!(Pelicula.listaGeneros.includes(genero))){
+//                     return console.error(`"${generos.join(", ")}" no pertenece a Generos permitidos ${Pelicula.generosAceptados()}`);
                     
                     
-                }
-            }
-        }
-    }
-    validarCalificacion(calificacion){
-        if(this.validarEntero("Calificación",calificacion)){
-            if(!(calificacion>=0 && calificacion<=10)){
-                return console.error("Puntación permitido 0-10");
-            }else{
-                this.calificacion=calificacion.toFixed(1);
-            }           
-        }
-    }
-    fichaTecnica(){
-        console.info(`FICHA TECNICA:\nTitulo: ${this.titulo}\nDirector: ${this.director}\nEstreno: ${this.anio}\nPais: ${this.pais.join(", ")}\nCalificación: ${this.calificacion}\nIMDB: ${this.id}\nGeneros: ${this.generos.join(",")} `);
-    }
+//                 }
+//             }
+//         }
+//     }
+//     validarCalificacion(calificacion){
+//         if(this.validarEntero("Calificación",calificacion)){
+//             if(!(calificacion>=0 && calificacion<=10)){
+//                 return console.error("Puntación permitido 0-10");
+//             }else{
+//                 this.calificacion=calificacion.toFixed(1);
+//             }           
+//         }
+//     }
+//     fichaTecnica(){
+//         console.info(`FICHA TECNICA:\nTitulo: ${this.titulo}\nDirector: ${this.director}\nEstreno: ${this.anio}\nPais: ${this.pais.join(", ")}\nCalificación: ${this.calificacion}\nIMDB: ${this.id}\nGeneros: ${this.generos.join(",")} `);
+//     }
 
-}
-// Pelicula.generosAceptados();
-const peli=[
-    {
-        id:"tt2123456",
-        titulo:"La hera del Hielo",
-        director:"victor contreras",
-        anio:1890,
-        pais:["Perú","Colombia"],
-        generos:["Comedy","Sport"],
-        calificacion:9.25
-    },
-    {
-        id:"tt2123456",
-        titulo:"La hera del Hielo",
-        director:"victor contreras",
-        anio:1290,
-        pais:["Perú","Colombia"],
-        generos:["Comedy","Sport"],
-        calificacion:9.25
-    },
-    {
-        id:"tt2123456",
-        titulo:"La hera del Hielo",
-        director:"victor contreras",
-        anio:1990,
-        pais:["Perú","Colombia"],
-        generos:["Comedy","Sport"],
-        calificacion:9.25
-    }
-]
+// }
+// // Pelicula.generosAceptados();
+// const peli=[
+//     {
+//         id:"tt2123456",
+//         titulo:"La hera del Hielo",
+//         director:"victor contreras",
+//         anio:1890,
+//         pais:["Perú","Colombia"],
+//         generos:["Comedy","Sport"],
+//         calificacion:9.25
+//     },
+//     {
+//         id:"tt2123456",
+//         titulo:"La hera del Hielo",
+//         director:"victor contreras",
+//         anio:1290,
+//         pais:["Perú","Colombia"],
+//         generos:["Comedy","Sport"],
+//         calificacion:9.25
+//     },
+//     {
+//         id:"tt2123456",
+//         titulo:"La hera del Hielo",
+//         director:"victor contreras",
+//         anio:1990,
+//         pais:["Perú","Colombia"],
+//         generos:["Comedy","Sport"],
+//         calificacion:9.25
+//     }
+// ]
 
-peli.forEach(elemento=>new Pelicula(elemento).fichaTecnica());
+// peli.forEach(elemento=>new Pelicula(elemento).fichaTecnica());
+
+
+
+
+
+//Asincronía en JS
+
+//temporizador settimeout() & setInterval()
+
+// setTimeout(()=>{
+//     console.log("Ejecutando en SetTimeOut 3s")
+// },3000)
+// let tem=setInterval(()=>{
+//     console.log("se mostrará cada 2seg",new Date().toLocaleString())
+// },2000)
+// clearInterval(tem);
+
+//Asincronia y event loop
+
+
+//CALLBACK 
+// function cuadradoCallBack( valor, callback){
+//     setTimeout(()=>{
+//         callback(valor, Math.pow(valor,2));
+//     },0 | Math.random()*1000)
+// }
+// cuadradoCallBack(0,(valor,resultado)=>{
+//     console.log("Inicia CallBack");
+//     console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//     cuadradoCallBack(1,(valor,resultado)=>{        
+//         console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//         cuadradoCallBack(2,(valor,resultado)=>{
+//             console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//             cuadradoCallBack(3,(valor,resultado)=>{
+//                 console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//                 cuadradoCallBack(4,(valor,resultado)=>{
+//                     console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//                     cuadradoCallBack(5,(valor,resultado)=>{
+//                         console.log(`Valor: ${valor}, Resultado: ${resultado}`);
+//                     })
+//                 })
+//             })
+//         })
+//     });    
+// })
+
+
+
+
+
+
+//PROMESA
+
+// function cuadradoPromesa(valor){
+//     if(typeof valor!=="number"){
+//         return Promise.reject(`Error, el valor "${valor}" no es un numero`);
+//     }
+
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             resolve({
+//                 valor:valor,
+//                 result:Math.pow(valor,2)
+//             });
+//         },0|Math.random()*1000);
+//     });
+// }
+
+// cuadradoPromesa(0)
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     return cuadradoPromesa(1);
+// })
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     return cuadradoPromesa(2);
+// })
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     return cuadradoPromesa(3);
+// })
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     return cuadradoPromesa("4");
+// })
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     return cuadradoPromesa(5);
+// })
+// .then((obj)=>{
+//     console.log(`Promesa: ${obj.valor}, ${obj.result}`);
+//     console.log("Fin de la Promesa");
+// })
+// .catch(err=>console.error(err));
+
+
+
+
+
+//Async Await
+
+// function resolveAfter2Seconds(x) {
+//     return new Promise(resolve => {
+//       setTimeout(() => {
+//         resolve(x);
+//       }, 2000);
+//     });
+//   }
+  
+  
+//   async function add1(x) {
+//     const a = await resolveAfter2Seconds(20);
+//     const b = await resolveAfter2Seconds(30);
+//     return x + a + b;
+//   }
+  
+//   add1(10).then(v => {
+//     console.log(v);  // prints 60 after 4 seconds.
+//   });
+  
+  
+//   async function add2(x) {
+//     const p_a = resolveAfter2Seconds(20);
+//     const p_b = resolveAfter2Seconds(30);
+//     return x + await p_a + await p_b;
+//   }
+  
+//   add2(20).then(v => {
+//     console.log(v);  // prints 60 after 2 seconds.
+//   });
+
+
+
+
+
+//Nuevos tipos JS
+
+
+
+//SYMBOL
+
+// let NOMBRE=Symbol("nombre");
+// let SALUDAR=Symbol("saludar");
+// const persona={
+//     [NOMBRE]:"victor",
+//     edad:27
+// }
+// console.log(persona)
+
+// persona.NOMBRE="vcontreras"
+// console.log(persona);
+// console.log(persona.NOMBRE)
+// console.log(persona[NOMBRE])
+// persona[SALUDAR]=function(){
+//     console.log("hola");
+// }
+// persona[SALUDAR]();
+
+// console.log(persona)
+// //no mostrará a los del tipo SYMBOL porque los mantendrá como privado 
+// for (let propiedad in persona) {
+//     console.log(propiedad);
+//     console.log(persona[propiedad])
+// }
+// //mostrará los objetos SYMBOL
+// let mostrar=Object.getOwnPropertySymbols(persona);
+// console.log(mostrar);
+
+
+
+
+
+
+// //SET
+// //devuelve un array con valores únicos primitivos
+
+// const set=new Set(["1",true,false,"1",2,1,{},{}]);
+// console.log(set);
+// //cantidad de itmes
+// console.log("cantidad de elementos ünicos",set.size);
+// //agregar datos a un SET
+// const set2=new Set();
+// set2.add(1);
+// set2.add(2);
+// set2.add("");
+// set2.add("2");
+// set2.add(true);
+// set2.add({});
+// set2.add(["1",2,"hola"]);
+// set2.add("vcontreras")
+// console.log(set2)
+// //recorrer set con for of
+// console.log("Recorriendo set")
+// for (const item of set) {
+//     console.log(item)
+// }
+// //recorrer set con forEach
+// console.log("Recorriendo set2")
+// set2.forEach(item=>console.log(item));
+// //SET es un objeto iterable más no es un arreglo
+// //para poder acceder a sus elementos tendremos 
+// //que convertirlo en un array para poder acceder
+// let arr=Array.from(set);
+// console.log(arr[7]);
+// //eliminar elementos de set2
+// set2.delete(true);
+// console.log(set2)
+// //verificar si contiene
+// console.log(set2.has("vcontreras"))//devolverá true
+
+// //limpiar los elemntos de set2
+// set2.clear()
+// console.log(set2.size)
+
+
+
+
+
+
+// //MAP
+// //almacena pares clave/valor
+// let mapa=new Map();
+
+// mapa.set("name","victor");
+// mapa.set("user","vcontreras");
+// mapa.set("age",27)
+// console.log(mapa.get("name"));
+// //cantidad de elementos
+// console.log(mapa.size);
+
+// //preguntar si tiene la llave victor, devolverá TRUE si es verdadero
+// console.log(mapa.has("victor"))//retornará FALSE
+
+// //recorrer el mapa
+// for (const [key,value] of mapa) {
+//     console.log(`LLave: ${key},Valor: ${value}`)
+// }
+
+// //otra forma de agregar valores al MAP
+// const mapa2=new Map([
+//     ["nombre","victor"],
+//     ["edad","25"],
+//     ["correo","vcontreras4@gmail.com"],
+//     ["ciudad","Lima"]
+// ])
+// console.log(mapa2);
+
+// //mostrar las llaves del mapa
+// const llavesMapa=[...mapa.keys()];
+// console.log(llavesMapa)
+
+// //mostrar los valores del mapa
+// const valoresMapa=[...mapa.values()];
+// console.log(valoresMapa)
+
+
+
+
+
+// //WEAKSET
+// var ws = new WeakSet();
+// var obj = {};
+// var foo = {};
+
+// ws.add(window);
+// ws.add(obj);
+
+// ws.has(window); // true
+// ws.has(foo);    // false, foo no fue agregado al conjunto
+
+// ws.delete(window); // elimina window del conjunto
+// ws.has(window);    // false, window fue eliminado
+// console.log(ws)
+
+
+
+// //WEAKMAPS
+
+// var wm1 = new WeakMap(),
+//     wm2 = new WeakMap(),
+//     wm3 = new WeakMap();
+// var o1 = {},
+//     o2 = function(){},
+//     o3 = window;
+
+// wm1.set(o1, 37);
+// wm1.set(o2, "azerty");
+// wm2.set(o1, o2); // un valor puede ser cualquier cosa, incluidos objetos o funciones
+// wm2.set(o3, undefined);
+// wm2.set(wm1, wm2); // claves y valores pueden ser objetos cualesquiera. !Incluso WeakMaps!
+
+// wm1.get(o2); // "azerty"
+// wm2.get(o2); // undefined, porque no hay valor para o2 en wm2
+// wm2.get(o3); // undefined, porque es es el valor del conjunto
+// wm1.has(o2); // true
+// wm2.has(o2); // false
+// wm2.has(o3); // true (incluso si el valor es 'undefined')
+
+// wm3.set(o1, 37);
+// wm3.get(o1); // 37
+
+// wm1.has(o1);   // true
+// wm1.delete(o1);
+// wm1.has(o1);   // false
+
+
+
+
+
+
+
+
+//ITERABLES & ITERATORS
+
+// const iterable =["hola","mundo"];
+// const iterador=iterable[Symbol.iterator]();
+// console.log(iterable);
+// console.log(iterador);
+// console.log(iterador.next().value); // 'hola'
+// console.log(iterador.next().value); // 'mundo'
+// console.log(iterador.next().done);  // true
+
+
+// const iterable2=[1,2,3,4,5,6];
+// const iterador2=iterable2[Symbol.iterator]();
+// let next=iterador2.next();
+// while(!next.done){
+//     console.log(next.value);
+//     next=iterador2.next();
+// }
+
+
+
+
+
+
+//GENERATORS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   let contenido=document.getElementById("contenido")
+//   function consultar(id){
+//     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+//     .then(res=>res.json())
+//     .then(data=>{
+//         console.log(data)
+//         let type=data.json();
+//         contenido.innerHTML=`<img src="${data.sprites.front_default}" alt="" class="img-fluid">
+//         <h2>${data.name}</h2>
+//         <p>${type.name}</p>`                    
+//     })
+// }
+// consultar(3);
