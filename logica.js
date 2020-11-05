@@ -1467,16 +1467,75 @@ console.log(conf);*/
 //GENERATORS
 
 
+//yield son los returns especiales de un generator
+// a diferencia de que un YIELD si se ejecutará lo que hay debajo
+function suma(){
+    let a=3;
+    let b=5;
+    return a+b;//8
+    return a*b//nunca se ejecutará
+}
+function* SUMA(){
+    let a=3;
+    let b=5;
+    yield a+b;//8
+    yield a*b//15
+}
+let SUMA_YIELD=SUMA();
+console.log(SUMA_YIELD.next());
+
+console.log(SUMA_YIELD.next());
+
+console.log(SUMA_YIELD.next());
 
 
 
+function* iterable(){
+    yield "hola"
+    console.log("hola consola");
+    yield "hola 2"
+    console.log("más instrucciones del");
+    yield "hola 3"
+    console.log("hola consola");
+    yield "hola 4"
+    yield "hola 5"
+}
+
+let iterador=iterable();
+// console.log(iterador.next());
+// console.log(iterador.next());
+// console.log(iterador.next());
+// console.log(iterador.next());
+for(let y of iterador){
+    console.log(y);
+}
+
+//guardaremos en un arreglo 
+const arr=[...iterable()];//guardará cada YIELD en el arreglo
+console.log(arr);
 
 
+function cuadrado(valor){
+    setTimeout(()=>{
+        return console.log({valor, resultado:Math.pow(valor,2)})
+    },Math.random()*10000);
+}
 
-
-
-
-
+function* generador(){
+    console.log("Inicio del Generador");
+    yield cuadrado(0);
+    yield cuadrado(1);
+    yield cuadrado(2);
+    yield cuadrado(3);
+    yield cuadrado(4);
+    yield cuadrado(5);
+    yield cuadrado(6);
+    console.log("Fin del generador");
+}
+let gen=generador();
+for (let g of gen) {
+    console.log(g);
+}
 
 
 
