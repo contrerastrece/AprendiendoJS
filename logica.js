@@ -1465,10 +1465,13 @@ console.log(conf);*/
 
 
 //GENERATORS
+/*Los generadores son una alternativa poderosa: 
+permiten definir un algoritmo iterativo
+al escribir una sola función que puede mantener su propio estado.
 
+YIELD: son los returns especiales de un generator
+ a diferencia de que un YIELD si se ejecutará lo que hay debajo
 
-//yield son los returns especiales de un generator
-// a diferencia de que un YIELD si se ejecutará lo que hay debajo
 function suma(){
     let a=3;
     let b=5;
@@ -1482,64 +1485,86 @@ function* SUMA(){
     yield a*b//15
 }
 let SUMA_YIELD=SUMA();
-console.log(SUMA_YIELD.next());
+console.log(SUMA_YIELD.next());//Object { value: 8, done: false }
+console.log(SUMA_YIELD.next());//Object { value: 15, done: false }
+console.log(SUMA_YIELD.next());//Object { value: undefined, done: true }*/
 
-console.log(SUMA_YIELD.next());
+// function* iterable(){
+//     yield "hola"
+//     console.log("hola consola");
+//     yield "hola 2"
+//     console.log("más instrucciones del");
+//     yield "hola 3"
+//     console.log("hola consola");
+//     yield "hola 4"
+//     yield "hola 5"
+// }
 
-console.log(SUMA_YIELD.next());
-
-
-
-function* iterable(){
-    yield "hola"
-    console.log("hola consola");
-    yield "hola 2"
-    console.log("más instrucciones del");
-    yield "hola 3"
-    console.log("hola consola");
-    yield "hola 4"
-    yield "hola 5"
-}
-
-let iterador=iterable();
+// let iterador=iterable();
+// //accediendo a los valores de la funcion generadora
+// /*PRIMERA FORMA
 // console.log(iterador.next());
 // console.log(iterador.next());
 // console.log(iterador.next());
-// console.log(iterador.next());
-for(let y of iterador){
-    console.log(y);
+// console.log(iterador.next());*/
+
+// //SEGUNDA FORMA
+// for(let y of iterador){
+//     console.log(y);
+// }
+
+// //guardaremos en un arreglo 
+// const arr=[...iterable()];//guardará cada YIELD en el arreglo
+// console.log(arr);
+
+
+// function cuadrado(valor){
+//     setTimeout(()=>{
+//         return console.log({valor, resultado:Math.pow(valor,2)})
+//     },Math.random()*10000);
+// }
+
+// function* generador(){
+//     console.log("Inicio del Generador");
+//     yield cuadrado(0);
+//     yield cuadrado(1);
+//     yield cuadrado(2);
+//     yield cuadrado(3);
+//     yield cuadrado(4);
+//     yield cuadrado(5);
+//     yield cuadrado(6);
+//     console.log("Fin del generador");
+// }
+// let gen=generador();
+// for (let g of gen) {
+//     console.log(g);
+// }
+
+
+//PROXY
+//va generer una copia y va permitir que tu realices modificaciones al objeto original
+const persona={
+    nombre:"",
+    apellido:"",
+    edad:0
 }
-
-//guardaremos en un arreglo 
-const arr=[...iterable()];//guardará cada YIELD en el arreglo
-console.log(arr);
-
-
-function cuadrado(valor){
-    setTimeout(()=>{
-        return console.log({valor, resultado:Math.pow(valor,2)})
-    },Math.random()*10000);
+//operaciones que se realizará al objeto
+const handler={
+    set(obj,prop, val){
+        //validando si existen las propiedades, si existe se agregará 
+        if(Object.keys(obj).indexOf(prop)===-1){
+            //console.log(Object.keys(obj))//devolverá las propiedades del obj
+            return console.error(`la propiedad "${prop}" no existe en el objeto Persona()`);           
+        }
+        obj[prop]=val;
+    }
 }
-
-function* generador(){
-    console.log("Inicio del Generador");
-    yield cuadrado(0);
-    yield cuadrado(1);
-    yield cuadrado(2);
-    yield cuadrado(3);
-    yield cuadrado(4);
-    yield cuadrado(5);
-    yield cuadrado(6);
-    console.log("Fin del generador");
-}
-let gen=generador();
-for (let g of gen) {
-    console.log(g);
-}
-
-
-
-
+const alumno = new Proxy(persona,handler)
+alumno.nombre="victor";
+alumno.apellido="contreras";
+alumno.edad=27;
+alumno.direccion="Cañete"//está agregando la propiedad al obj persona
+console.log(alumno);
 
 
 
