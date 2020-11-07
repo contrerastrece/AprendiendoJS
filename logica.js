@@ -1541,36 +1541,52 @@ console.log(SUMA_YIELD.next());//Object { value: undefined, done: true }*/
 // }
 
 
+
+
+
+
 //PROXY
 //va generer una copia y va permitir que tu realices modificaciones al objeto original
-const persona={
-    nombre:"",
-    apellido:"",
-    edad:0
+// const persona={
+//     nombre:"",
+//     apellido:"",
+//     edad:0
+// }
+// //operaciones que se realizará al objeto
+// const handler={
+//     set(obj,prop, val){
+//         //validando si existen las propiedades, si existe se agregará 
+//         if(Object.keys(obj).indexOf(prop)===-1){
+//             //console.log(Object.keys(obj))//devolverá las propiedades del obj
+//             return console.error(`la propiedad "${prop}" no existe en el objeto Persona()`);           
+//         }
+//         obj[prop]=val;
+//     }
+// }
+// const alumno = new Proxy(persona,handler)
+// alumno.nombre="victor";
+// alumno.apellido="contreras";
+// alumno.edad=27;
+// alumno.direccion="Cañete"//está agregando la propiedad al obj persona
+// console.log(alumno);
+
+
+
+
+
+
+
+//PROPIEDADES DINAMICAS DE LOS OBJETOS
+let aleatorio=Math.round(Math.random()*100+5);
+const objUsuarios={
+    propiedad:"valor",
+    [`id_${aleatorio}`]:"valor aleatorio"
 }
-//operaciones que se realizará al objeto
-const handler={
-    set(obj,prop, val){
-        //validando si existen las propiedades, si existe se agregará 
-        if(Object.keys(obj).indexOf(prop)===-1){
-            //console.log(Object.keys(obj))//devolverá las propiedades del obj
-            return console.error(`la propiedad "${prop}" no existe en el objeto Persona()`);           
-        }
-        obj[prop]=val;
-    }
-}
-const alumno = new Proxy(persona,handler)
-alumno.nombre="victor";
-alumno.apellido="contreras";
-alumno.edad=27;
-alumno.direccion="Cañete"//está agregando la propiedad al obj persona
-console.log(alumno);
+console.log(objUsuarios);
 
-
-
-
-
-
+const usuarios=["Victor","Contreras","Pariona","Victor2","Contreras2","Pariona2"];
+usuarios.forEach((usuario,index) =>objUsuarios[`id_${index}`]=usuario);
+console.log(objUsuarios);
 
 
 
