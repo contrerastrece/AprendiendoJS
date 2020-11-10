@@ -1593,82 +1593,140 @@ console.log(SUMA_YIELD.next());//Object { value: undefined, done: true }*/
 
 
 
+
+
+
 //THIS
 //hará referencia al objeto global (window)
-console.log(window)
-console.log(this)
-this.nombre="contexto Global"
+// console.log(window)
+// console.log(this)
+// this.nombre="contexto Global"
 
 
-function imprimir(){
-    console.log(this.nombre);
+// function imprimir(){
+//     console.log(this.nombre);
+// }
+
+// imprimir();//Contexto Global
+
+// const obj={
+//     nombre:"Contexto Objeto",
+//     imprimir:function(){
+//         console.log(this.nombre);
+//     }
+// }
+
+// obj.imprimir();//Contexto Objeto
+
+// const obj2={
+//     nombre:"Contexto OBJETO 2",
+//     imprimir
+// }
+// obj2.imprimir();//Contexto OBJETO 2
+
+// const obj3={
+//     nombre:"Contexto OBJETO 3",
+//     imprimir:()=>{
+//         console.log(this.nombre)
+//     }
+// }
+// obj3.imprimir();//Contexto Global
+// //las arrow funtions no genera scopes y obedece en donde fue creado el obejto
+
+// function Persona(nombre){
+//     this.nombre=nombre
+//     return console.log(this.nombre);
+// }
+// let alumno=new Persona("victor");//victor
+
+
+// function Persona2(nombre){
+//     this.nombre=nombre
+//     return function(){
+//         console.log(this.nombre)
+//     }
+// }
+// let alumno2=new Persona2("Contreras");
+// alumno2()/*devuelve CONTEXTO GLOBAL porque dentro de su escope no encuentra
+// la variable nombre y se sale del escope padre y trae el nombre 
+ 
+// para solucionar el error anterior usaremos arrow functios porque el arrow function
+// no crea scopes así que nos devolvera la propiedad nombre creada en la function*/
+
+// function Persona3(nombre){
+//     this.nombre=nombre
+//     return ()=>{
+//         console.log(this.nombre)
+//     }
+// }
+// let alumno3=new Persona3("Pariona");
+// alumno3();//Pariona
+
+
+
+
+
+//CALL
+//El método call() llama a una función con un valor this asignado y 
+//argumentos provistos de forma individual.
+const person1={
+    firstName:"victor",
+    lastName:"Contreras",
+    fullName:function(){
+        return console.log(`${this.firstName} ${this.lastName}`)
+    }
 }
+person1.fullName();//victor contreras
 
-imprimir();//Contexto Global
+const person2={
+    firstName:"hatake",
+    lastName:"Kakashi",
+}
+person1.fullName.call(person2);//hatake kakashi
 
+//APPLY
+//recibe los métodos en forma de un array
+const person3={
+    firstName:"victor",
+    lastName:"Contreras",
+    fullName:function(city,country){
+        this.city=city;
+        this.country=country;
+        return console.log(`${this.firstName} ${this.lastName} Ciudad:${city} Pais:${country}`)
+    }
+}
+person3.fullName();//victor contreras
+
+const person4={
+    firstName:"hatake",
+    lastName:"Kakashi",
+}
+person3.fullName.apply(person4,["Lima","Perú"]);//hatake kakashi
+
+
+//BIND
+//crea una nueva función
+this.x=10;
 const obj={
-    nombre:"Contexto Objeto",
-    imprimir:function(){
-        console.log(this.nombre);
-    }
+    x:30,
+    getx:function (){
+        return this.x
+    }     
+};
+
+console.log(obj.getx());//30
+ let y=obj.getx;//10 porque en este caso THIS apunta al objeto global
+console.log(y());
+
+function list(...arr){
+    // return Array.prototype.slice.call(arguments);
+    return arr.slice()
 }
-
-obj.imprimir();//Contexto Objeto
-
-const obj2={
-    nombre:"Contexto OBJETO 2",
-    imprimir
-}
-obj2.imprimir();//Contexto OBJETO 2
-
-const obj3={
-    nombre:"Contexto OBJETO 3",
-    imprimir:()=>{
-        console.log(this.nombre)
-    }
-}
-obj3.imprimir();//Contexto Global
-//las arrow funtions no genera scopes y obedece en donde fue creado el obejto
-
-function Persona(nombre){
-    this.nombre=nombre
-    return console.log(this.nombre);
-}
-let alumno=new Persona("victor");//victor
-
-
-function Persona2(nombre){
-    this.nombre=nombre
-    return function(){
-        console.log(this.nombre)
-    }
-}
-let alumno2=new Persona2("Contreras");
-alumno2()//devuelve CONTEXTO GLOBAL porque dentro de su escope no encuentra
-//la variable nombre y se sale del escope padre y trae el nombre 
-
-//para solucionar el error anterior usaremos arrow functios porque el arrow function
-//no crea scopes así que nos devolvera la propiedad nombre creada en la function
-
-function Persona3(nombre){
-    this.nombre=nombre
-    return ()=>{
-        console.log(this.nombre)
-    }
-}
-let alumno3=new Persona3("Pariona");
-alumno3();//Pariona
-
-
-
-
-
-
-
-
-
-
-
+let lista=list(1,2,3,5);
+let agregarElemento=list.bind(undefined,24)//retorna una nueva funcion
+let list3=agregarElemento();
+let lista4=agregarElemento(2,15,16,17,18)
+console.log(lista4)
 
 
 
