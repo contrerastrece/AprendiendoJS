@@ -1669,69 +1669,97 @@ console.log(SUMA_YIELD.next());//Object { value: undefined, done: true }*/
 //CALL
 //El método call() llama a una función con un valor this asignado y 
 //argumentos provistos de forma individual.
-const person1={
-    firstName:"victor",
-    lastName:"Contreras",
-    fullName:function(){
-        return console.log(`${this.firstName} ${this.lastName}`)
-    }
+// const person1={
+//     firstName:"victor",
+//     lastName:"Contreras",
+//     fullName:function(){
+//         return console.log(`${this.firstName} ${this.lastName}`)
+//     }
+// }
+// person1.fullName();//victor contreras
+
+// const person2={
+//     firstName:"hatake",
+//     lastName:"Kakashi",
+// }
+// person1.fullName.call(person2);//hatake kakashi
+
+// //APPLY
+// //recibe los métodos en forma de un array
+// const person3={
+//     firstName:"victor",
+//     lastName:"Contreras",
+//     fullName:function(city,country){
+//         this.city=city;
+//         this.country=country;
+//         return console.log(`${this.firstName} ${this.lastName} Ciudad:${city} Pais:${country}`)
+//     }
+// }
+// person3.fullName();//victor contreras
+
+// const person4={
+//     firstName:"hatake",
+//     lastName:"Kakashi",
+// }
+// person3.fullName.apply(person4,["Lima","Perú"]);//hatake kakashi
+
+
+// //BIND
+// //crea una nueva función
+// this.x=10;
+// const obj={
+//     x:30,
+//     getx:function (){
+//         return this.x
+//     }     
+// };
+
+// console.log(obj.getx());//30
+//  let y=obj.getx;//10 porque en este caso THIS apunta al objeto global
+// console.log(y());
+
+// function list(...arr){
+//     // return Array.prototype.slice.call(arguments);
+//     return arr.slice()
+// }
+// let lista=list(1,2,3,5);
+// let agregarElemento=list.bind(undefined,24)//retorna una nueva funcion
+// let list3=agregarElemento();
+// let lista4=agregarElemento(2,15,16,17,18)
+// console.log(lista4)
+
+
+
+
+
+
+
+
+//JSON
+const json={
+"employees":[
+      {"firstName":"John","age":25},
+      {"firstName":"Anna","age":26},
+      {"firstName":"Peter","age":28}
+    ],
+"e-mail":"abc@gmail.com",
+"anio":2020
+    
 }
-person1.fullName();//victor contreras
-
-const person2={
-    firstName:"hatake",
-    lastName:"Kakashi",
-}
-person1.fullName.call(person2);//hatake kakashi
-
-//APPLY
-//recibe los métodos en forma de un array
-const person3={
-    firstName:"victor",
-    lastName:"Contreras",
-    fullName:function(city,country){
-        this.city=city;
-        this.country=country;
-        return console.log(`${this.firstName} ${this.lastName} Ciudad:${city} Pais:${country}`)
-    }
-}
-person3.fullName();//victor contreras
-
-const person4={
-    firstName:"hatake",
-    lastName:"Kakashi",
-}
-person3.fullName.apply(person4,["Lima","Perú"]);//hatake kakashi
-
-
-//BIND
-//crea una nueva función
-this.x=10;
-const obj={
-    x:30,
-    getx:function (){
-        return this.x
-    }     
-};
-
-console.log(obj.getx());//30
- let y=obj.getx;//10 porque en este caso THIS apunta al objeto global
-console.log(y());
-
-function list(...arr){
-    // return Array.prototype.slice.call(arguments);
-    return arr.slice()
-}
-let lista=list(1,2,3,5);
-let agregarElemento=list.bind(undefined,24)//retorna una nueva funcion
-let list3=agregarElemento();
-let lista4=agregarElemento(2,15,16,17,18)
-console.log(lista4)
-
-
-
-
-
+console.log(json.firstName);
+console.log(JSON);
+console.log(JSON.parse("{}"))//object
+console.log(JSON.parse("[1,2,3]"))//array
+console.log(JSON.parse("true"));
+console.log(JSON.parse("false"));
+console.log(JSON.parse('{"employees":[{"firstName":"John","age":25},{"firstName":"Anna","age":26},{"firstName":"Peter","age":28}],"e-mail":"abc@gmail.com","anio":2020}'))
+//devolver en formato JSON
+console.log(JSON.stringify({}));
+console.log(JSON.stringify([1,2,3,4]));
+console.log(JSON.stringify(true))
+console.log(JSON.stringify(false))
+console.log(JSON.stringify({x:2,y:3}))
+console.log(JSON.stringify(json))
 
 
 
