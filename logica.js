@@ -1736,30 +1736,30 @@ console.log(SUMA_YIELD.next());//Object { value: undefined, done: true }*/
 
 
 //JSON
-const json={
-"employees":[
-      {"firstName":"John","age":25},
-      {"firstName":"Anna","age":26},
-      {"firstName":"Peter","age":28}
-    ],
-"e-mail":"abc@gmail.com",
-"anio":2020
+// const json={
+// "employees":[
+//       {"firstName":"John","age":25},
+//       {"firstName":"Anna","age":26},
+//       {"firstName":"Peter","age":28}
+//     ],
+// "e-mail":"abc@gmail.com",
+// "anio":2020
     
-}
-console.log(json.firstName);
-console.log(JSON);
-console.log(JSON.parse("{}"))//object
-console.log(JSON.parse("[1,2,3]"))//array
-console.log(JSON.parse("true"));
-console.log(JSON.parse("false"));
-console.log(JSON.parse('{"employees":[{"firstName":"John","age":25},{"firstName":"Anna","age":26},{"firstName":"Peter","age":28}],"e-mail":"abc@gmail.com","anio":2020}'))
-//devolver en formato JSON
-console.log(JSON.stringify({}));
-console.log(JSON.stringify([1,2,3,4]));
-console.log(JSON.stringify(true))
-console.log(JSON.stringify(false))
-console.log(JSON.stringify({x:2,y:3}))
-console.log(JSON.stringify(json))
+// }
+// console.log(json.firstName);
+// console.log(JSON);
+// console.log(JSON.parse("{}"))//object
+// console.log(JSON.parse("[1,2,3]"))//array
+// console.log(JSON.parse("true"));
+// console.log(JSON.parse("false"));
+// console.log(JSON.parse('{"employees":[{"firstName":"John","age":25},{"firstName":"Anna","age":26},{"firstName":"Peter","age":28}],"e-mail":"abc@gmail.com","anio":2020}'))
+// //devolver en formato JSON
+// console.log(JSON.stringify({}));
+// console.log(JSON.stringify([1,2,3,4]));
+// console.log(JSON.stringify(true))
+// console.log(JSON.stringify(false))
+// console.log(JSON.stringify({x:2,y:3}))
+// console.log(JSON.stringify(json)
 
 
 
