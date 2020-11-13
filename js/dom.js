@@ -77,7 +77,7 @@ console.log($linkDom.hasAttribute("data-id"))
 
 
 //DOM:ESTILOS Y VARIABLES CSS
-const $linkDom=document.querySelector(".link-dom");
+/*const $linkDom=document.querySelector(".link-dom");
 
 console.log($linkDom.style)
 console.log($linkDom.getAttribute("style"))
@@ -114,5 +114,36 @@ $html.style.setProperty("--primary-color","#222");
 varBodyColor=getComputedStyle($html).getPropertyValue("--primary-color");
 console.log(varBodyColor)
 $body.style.setProperty("background-color",varBodyColor)
+*/
 
 
+
+
+
+
+
+
+//DOM: CLases CSS
+
+const $card=document.querySelector(".card");
+const $linkMenu=document.querySelectorAll(".link-menu")
+console.log($card)
+console.log($linkMenu)
+console.log($card.className)//devuelve el nombre de la clase
+console.log($card.classList)//delvuelve un DOMTokenList
+
+console.log($card.classList.contains("border-1"))//devolverá si contiene la clase
+$card.classList.add("rotate-45")//agregar una clase
+console.log($card.classList.contains("rotate-45"))
+$card.classList.remove("rotate-45")//eleminar clase
+
+$card.classList.toggle("ratate-45");//se agregará la clase si no la contiene en caso contrario se la quitará(como un interruptor)
+
+//reemplazar clases por otra
+$card.classList.add("rotate-45");
+$card.classList.replace("rotate-45","rotate-135")
+
+//agregar más de una clase 
+$card.classList.add("sepia","opacity-80");
+//eliminar más de una clase
+$card.classList.remove("sepia","rotate-135");

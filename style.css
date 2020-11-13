@@ -8,4 +8,28 @@ body{
 :root{
     --primary-color:#090979;
     --text-color:#00d4ff;
+    --dark-color:#333
+}
+.card{
+    display: inline-block;
+    background-color:var(--dark-color);
+    color:var(--text-color);
+}
+.card figcaption{
+    padding: 1rem;
+}
+.border-1{
+    border-radius: 1rem;
+}
+.rotate-45{
+    transform: rotate(45deg);
+}
+.rotate-135{
+    transform: rotate(135deg);
+}
+.opacity-80{
+    opacity: 0.8;
+}
+.sepia{
+    filter: sepia(1);
 }
