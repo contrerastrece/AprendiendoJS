@@ -5,3 +5,7 @@ body{
     height: 100vh;
     background: #f3f3f3;
 }
+:root{
+    --primary-color:#090979;
+    --text-color:#00d4ff;
+}

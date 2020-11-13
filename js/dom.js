@@ -29,7 +29,7 @@
 
 
 //ATRIBUTOS
-console.log(document.documentElement.lang)
+/*console.log(document.documentElement.lang)
 console.log(document.documentElement.getAttribute("lang"))
 console.log(document.querySelector(".link-dom").href)//http://127.0.0.1:5500/DOM.html
 console.log(document.querySelector(".link-dom").getAttribute("href"))//DOM.html
@@ -69,3 +69,50 @@ console.log($linkDom.dataset.id);
 //eliminar el data-id
 console.log($linkDom.removeAttribute("data-id"))
 console.log($linkDom.hasAttribute("data-id"))
+*/
+
+
+
+
+
+
+//DOM:ESTILOS Y VARIABLES CSS
+const $linkDom=document.querySelector(".link-dom");
+
+console.log($linkDom.style)
+console.log($linkDom.getAttribute("style"))
+console.log($linkDom.style.background);//accediendo el color del fondo
+console.log($linkDom.style.color);//accediendo el color del texto
+console.log(window.getComputedStyle($linkDom))//devuelve los valores por defecto que le da el navegador a la etiqueta
+console.log(window.getComputedStyle($linkDom).getPropertyValue("background-color"))//acceder a una propiedad en específico
+
+//dar estilo a la etiqueta
+$linkDom.style.setProperty("text-decoration","none");
+$linkDom.style.setProperty("display","block");
+$linkDom.style.width="50%";
+$linkDom.style.textAlign="center";
+$linkDom.style.margin="auto";
+$linkDom.style.padding=".5rem";
+$linkDom.style.borderRadius="0.3rem"
+$linkDom.style.fontFamily="verdana";
+$linkDom.style.fontWeight="700";
+
+
+//variables CSS
+const $html=document.documentElement;
+const $body=document.body;
+
+let varBodyColor=getComputedStyle($html).getPropertyValue("--primary-color");
+let varTextColor=getComputedStyle($body).getPropertyValue("--text-color");
+
+$body.style.backgroundColor=varBodyColor;
+$body.style.color=varTextColor;
+console.log(varBodyColor)
+
+//cambiar el color del --primary-color
+$html.style.setProperty("--primary-color","#222");
+varBodyColor=getComputedStyle($html).getPropertyValue("--primary-color");
+console.log(varBodyColor)
+$body.style.setProperty("background-color",varBodyColor)
+
+
