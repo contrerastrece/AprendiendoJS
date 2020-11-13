@@ -124,7 +124,7 @@ $body.style.setProperty("background-color",varBodyColor)
 
 
 //DOM: CLases CSS
-
+/*
 const $card=document.querySelector(".card");
 const $linkMenu=document.querySelectorAll(".link-menu")
 console.log($card)
@@ -147,3 +147,31 @@ $card.classList.replace("rotate-45","rotate-135")
 $card.classList.add("sepia","opacity-80");
 //eliminar más de una clase
 $card.classList.remove("sepia","rotate-135");
+*/
+
+
+
+
+
+
+
+
+//DOM: Texto y HTML
+
+const $queEs=document.getElementById("que-es");
+
+let text=`
+<p>
+    victor
+</p>
+<p>
+    Contreras
+</p>
+<p>
+    Pariona
+</p>
+`;
+$queEs.innerText=text;//sirve para agregar texto y no es parte del Stantdar
+$queEs.textContent=text;//es parte del estandar
+$queEs.innerHTML=text;//reenlaza con contenido html
+$queEs.outerHTML=text;//elimina la etiquta contenedora y pega el codigo html ingresado en el template
