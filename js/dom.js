@@ -157,7 +157,7 @@ $card.classList.remove("sepia","rotate-135");
 
 
 //DOM: Texto y HTML
-
+/*
 const $queEs=document.getElementById("que-es");
 
 let text=`
@@ -175,3 +175,24 @@ $queEs.innerText=text;//sirve para agregar texto y no es parte del Stantdar
 $queEs.textContent=text;//es parte del estandar
 $queEs.innerHTML=text;//reenlaza con contenido html
 $queEs.outerHTML=text;//elimina la etiquta contenedora y pega el codigo html ingresado en el template
+*/
+
+
+
+
+
+//RECORRIENDO EL DOM
+
+const $cards=document.querySelector(".cards")
+console.log($cards)//devuelve la seccion cards
+console.log($cards.children)//devuelve a sus hijos de la etiqueta section
+console.log($cards.children[2])//devuelve un hijo en específico
+console.log($cards.parentElement)//devuleve el padre de la seccion cards
+console.log($cards.firstElementChild)//devuelve el primer hijo
+console.log($cards.lastElementChild)//devuelve el último hijo
+console.log($cards.previousElementSibling)//devuelve el hermano anterior de la secction
+console.log($cards.nextElementSibling)//devuelve el hermano siguiente de la secction
+console.log($cards.children[2].closest("section"))//devuelve la etiquta más cercana anterior
+console.log($cards.closest(":not(section)"))//devolverá el body
+
+

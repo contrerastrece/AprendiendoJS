@@ -1,6 +1,4 @@
 body{
-    margin: 0;
-    padding: 0;
     width: 100vw;
     height: 100vh;
     background: #f3f3f3;
@@ -11,7 +9,10 @@ body{
     --text-color:#00d4ff;
     --dark-color:#333
 }
-
+.cards{
+    border: thin solid var(--dark-color);
+    padding: 1rem;
+}
 .card{
     display: inline-block;
     background-color:var(--dark-color);
