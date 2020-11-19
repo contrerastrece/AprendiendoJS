@@ -284,7 +284,7 @@ document.body.appendChild($ul3)
 
 
 //TEMPLATES HTML
-
+/*
 const $cards=document.querySelector(".cards"),
 $template=document.getElementById("template-card").content,
 $fragment=document.createDocumentFragment(),
@@ -325,3 +325,33 @@ cardContent.forEach(contenido=>{
 })
 
 $cards.appendChild($fragment);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//modificando elementos (old Style)
+const $cards=document.querySelector(".cards");
+const $newCard=document.createElement("figure");
+const $clone=$cards.cloneNode(true);
+
+$newCard.innerHTML=`
+<img src="https://placeimg.com/200/200/any" alt="Any">
+<figcaption>Any</figcaption>
+`;
+$newCard.classList.add("card")
+// console.log($newCard)
+// $cards.replaceChild($newCard,$cards.children[1])//remplazando al segundo elemento
+// $cards.removeChild($cards.lastElementChild);//Eliminando el último hijo
+$cards.insertBefore($newCard,$cards.firstElementChild)//insertando antes del primer hijo
+document.body.appendChild($clone)//clonar la seccion cards
