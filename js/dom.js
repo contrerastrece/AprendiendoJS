@@ -181,8 +181,9 @@ $queEs.outerHTML=text;//elimina la etiquta contenedora y pega el codigo html ing
 
 
 
-//RECORRIENDO EL DOM
 
+//RECORRIENDO EL DOM
+/*
 const $cards=document.querySelector(".cards")
 console.log($cards)//devuelve la seccion cards
 console.log($cards.children)//devuelve a sus hijos de la etiqueta section
@@ -194,5 +195,83 @@ console.log($cards.previousElementSibling)//devuelve el hermano anterior de la s
 console.log($cards.nextElementSibling)//devuelve el hermano siguiente de la secction
 console.log($cards.children[2].closest("section"))//devuelve la etiquta más cercana anterior
 console.log($cards.closest(":not(section)"))//devolverá el body
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+//CREAR ELEMENTOS HTML
+const $figure=document.createElement("figure"),
+    $img=document.createElement("img"),
+    $figCaption=document.createElement("figcaption"),
+    $figCaptionText=document.createTextNode("Animals"),
+    $cards=document.querySelector(".cards");
+
+$figure.classList.add("card");//agregando clase a la etiqueta FIGURE
+
+$img.setAttribute("src","https://placeimg.com/200/200/animals") //agregando atributo SRC
+$img.setAttribute("alt","Animales")//agregando atributo ALT
+
+$figCaption.appendChild($figCaptionText)//insertando texto en el FIGCAPTION
+
+$figure.appendChild($img)//insertando un hijo a la etiqueta FIGURE
+$figure.appendChild($figCaption)
+$cards.appendChild($figure)
+
+const estaciones=["Primavera", "Otoño", "Invierno","Verano"],
+$ul=document.createElement("ul");
+document.write("<h3>Estaciones del Año</h3>");
+document.body.appendChild($ul);
+
+//imprimir los elemntos de las estaciones
+//(no recomendable)
+estaciones.forEach(elementos =>{
+    const $li=document.createElement("li");
+    $li.textContent=elementos;
+    $ul.appendChild($li);
+})
+
+//no recomendable(reflow)
+//reflow=por cada insersion de elementos vuelve a recargar el html
+//no es recomndable si muchos elementos a insertar
+const continentes=["Africa","America","Asia","Europa","Oceanía"],
+$ul2=document.createElement("ul");
+
+document.write("<h3>Continentes del Mundo</h3>");
+document.body.appendChild($ul2);
+
+$ul2.innerHTML="";
+//imprimir los eleentos del continente
+continentes.forEach(continente=>$ul2.innerHTML+=`<li>${continente}</li>`
+
+)
+
+//usaremos fragmentos para evitar el problema del reflow
+const fragment=document.createDocumentFragment();
+// const fragment=new DocumentFragment();//esta tambien es valida para crear fragmentos
+const meses=["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SET","OCT","NOV","DIC"];
+const $ul3=document.createElement("ul");
+document.write("<h3>Meses del Año</h3>");
+
+
+meses.forEach(mes=>{
+    const $li3=document.createElement("li");
+    $li3.textContent=mes;
+    fragment.appendChild($li3)
+})
+
+$ul3.appendChild(fragment)
+document.body.appendChild($ul3)
+
+
+
 
 
