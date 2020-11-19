@@ -182,6 +182,7 @@ $queEs.outerHTML=text;//elimina la etiquta contenedora y pega el codigo html ing
 
 
 
+
 //RECORRIENDO EL DOM
 /*
 const $cards=document.querySelector(".cards")
@@ -209,7 +210,7 @@ console.log($cards.closest(":not(section)"))//devolverá el body
 
 
 //CREAR ELEMENTOS HTML
-const $figure=document.createElement("figure"),
+/*const $figure=document.createElement("figure"),
     $img=document.createElement("img"),
     $figCaption=document.createElement("figcaption"),
     $figCaptionText=document.createTextNode("Animals"),
@@ -270,8 +271,57 @@ meses.forEach(mes=>{
 
 $ul3.appendChild(fragment)
 document.body.appendChild($ul3)
+*/
 
 
 
 
 
+
+
+
+
+
+
+//TEMPLATES HTML
+
+const $cards=document.querySelector(".cards"),
+$template=document.getElementById("template-card").content,
+$fragment=document.createDocumentFragment(),
+cardContent=[
+    {
+        title:"Tecnología",
+        img:"https://placeimg.com/200/200/tech"
+    },
+    {
+        title:"Naturaleza",
+        img:"https://placeimg.com/200/200/nature"
+    },
+    {
+        title:"Animales",
+        img:"https://placeimg.com/200/200/animals"
+    },
+    {
+        title:"Arquitectura",
+        img:"https://placeimg.com/200/200/arch"
+    },
+    {
+        title:"Persona",
+        img:"https://placeimg.com/200/200/people"
+    },
+]
+
+cardContent.forEach(contenido=>{
+    $template.querySelector("figure").classList.add("card");
+    
+    $template.querySelector("img").setAttribute("src",contenido.img);
+    $template.querySelector("img").setAttribute("alt",contenido.title.toLocaleLowerCase());
+    $template.querySelector("figcaption").textContent=contenido.title;
+
+    //el template es único, por eso clonaremos el nodo para cada elemento
+    let $clone=document.importNode($template,true);//true->copiara toda la estructra, False->solo copiara la etiqueta template de apertura y de cierre
+
+    $fragment.appendChild($clone)
+})
+
+$cards.appendChild($fragment);
