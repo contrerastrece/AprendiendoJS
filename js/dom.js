@@ -341,7 +341,8 @@ $cards.appendChild($fragment);
 
 
 //modificando elementos (old Style)
-const $cards=document.querySelector(".cards");
+
+/*const $cards=document.querySelector(".cards");
 const $newCard=document.createElement("figure");
 const $clone=$cards.cloneNode(true);
 
@@ -355,3 +356,45 @@ $newCard.classList.add("card")
 // $cards.removeChild($cards.lastElementChild);//Eliminando el último hijo
 $cards.insertBefore($newCard,$cards.firstElementChild)//insertando antes del primer hijo
 document.body.appendChild($clone)//clonar la seccion cards
+*/
+
+//Modificando elementos (cool style)
+/*
+insertAdjacent...
+    .insertAdjacentElement(position,el)
+    .insertAdjacentHTML(position,html)
+    .insertAdjacentText(position,text)
+
+Position...
+    beforebegin(hermano anterior)
+    afterbegin(primer hijo)
+    beforeend(ultimo hijo)
+    afterend(hermano siguiente)
+*/
+const $cards=document.querySelector(".cards");
+const $newCard=document.createElement("figure");
+
+// $newCard.innerHTML=`
+// <img src="https://placeimg.com/200/200/any" alt="Any">
+// <figcaption>Any</figcaption>
+// `;
+
+let $contentCard=`
+<img src="https://placeimg.com/200/200/people" alt="people">
+<figcaption></figcaption>
+`;
+$newCard.classList.add("card");
+// $cards.insertAdjacentElement("beforebegin",$newCard)
+// $cards.insertAdjacentElement("beforeend",$newCard)
+// $cards.insertAdjacentElement("afterbegin",$newCard)
+// $cards.insertAdjacentElement("afterend",$newCard)
+
+
+// $cards.prepend($newCard)//agrega como primer hijo
+// $cards.append($newCard)//agrega como útlmo hijo
+// $cards.before($newCard)//agrega como hermano anterior
+// $cards.after($newCard)//agrega como hermano siguiente
+$cards.insertAdjacentElement("afterbegin",$newCard);//insertando un elemento vacio como primer hijo
+
+$newCard.insertAdjacentHTML("beforeend",$contentCard);//insertando contenido html al elemento vacio
+$newCard.querySelector("figcaption").insertAdjacentText("beforeend","Personas")//insertando texto al figcaption
