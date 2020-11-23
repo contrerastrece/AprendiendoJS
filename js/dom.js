@@ -371,7 +371,7 @@ Position...
     beforeend(ultimo hijo)
     afterend(hermano siguiente)
 */
-const $cards=document.querySelector(".cards");
+/*const $cards=document.querySelector(".cards");
 const $newCard=document.createElement("figure");
 
 // $newCard.innerHTML=`
@@ -398,3 +398,44 @@ $cards.insertAdjacentElement("afterbegin",$newCard);//insertando un elemento vac
 
 $newCard.insertAdjacentHTML("beforeend",$contentCard);//insertando contenido html al elemento vacio
 $newCard.querySelector("figcaption").insertAdjacentText("beforeend","Personas")//insertando texto al figcaption
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Manejadores de Eventos
+function holaMundo(){
+    alert("Hello World!")
+    console.log(event)
+}
+
+const $eventoSemantico=document.getElementById("evento-semantico");
+const $eventoMultiple=document.getElementById("evento-multiple");
+
+//evento semantico ejecuta solo 1 evento
+$eventoSemantico.onclick=holaMundo;//sin parentesis el método para no inicializar cuando se carga la página
+
+$eventoSemantico.onclick=function(e){
+    alert("Hola mundo Manejador de eventos Semántico")
+    console.log(e)
+    console.log(event)
+}
+
+//asignar varios eventos al boton
+$eventoMultiple.addEventListener("click",holaMundo)
+$eventoMultiple.addEventListener("click",e=>{
+    alert("Hola Mundo Manejado de eventos Multiples")
+    console.log(e)
+    console.log(e.type)
+    console.log(e.target);
+    console.log(event)
+})
