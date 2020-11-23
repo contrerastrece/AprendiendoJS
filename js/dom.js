@@ -413,7 +413,7 @@ $newCard.querySelector("figcaption").insertAdjacentText("beforeend","Personas")/
 
 
 //Manejadores de Eventos
-function holaMundo(){
+/*function holaMundo(){
     alert("Hello World!")
     console.log(event)
 }
@@ -439,3 +439,37 @@ $eventoMultiple.addEventListener("click",e=>{
     console.log(e.target);
     console.log(event)
 })
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Eventos con parametros y remover eventos
+const saludar=(nombre="desconocido")=>{
+    console.log(`Hola ${nombre}`)
+}
+const $eventoMultiple=document.getElementById("evento-multiple");
+const $eventoRemover=document.getElementById("remover-evento");
+
+$eventoMultiple.addEventListener("click",()=>{
+    saludar();
+    saludar("Vcontreras");
+});
+
+//para eliminar un evento tiene que eliminar una función declarada
+const remover=(e)=>{
+    console.log(`Eliminando evento ${e.type}`)
+    $eventoRemover.removeEventListener("dblclick",remover);//removiendo evento
+    $eventoRemover.disabled=true;//desactivando button
+}
+$eventoRemover.addEventListener("dblclick",remover);
