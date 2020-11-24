@@ -518,7 +518,7 @@ $eventoDiv.forEach((div)=>{
 
 
 //DOM: stopPropagation & preventDefault 
-const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
+/*const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
 const $linkEventos=document.querySelector(".eventos-flujos a");
 console.log($eventoDiv);
 
@@ -535,4 +535,36 @@ $linkEventos.addEventListener("click",e=>{
     alert("Hola :]");
     e.preventDefault();//cancelar la accion que tenga por defecto
     e.stopPropagation();//detener la propagación de los divs y solo sirva al enlace
+})
+*/
+
+
+
+
+
+
+
+
+
+
+
+//DELEGACION DE EVENTOS
+function flujoEventos(e){
+    console.log(`Hola te saluda el div ${this},el click lo orgino ${e.target.className}`);
+}
+// En lugar de haber tenido 4 listeners (3<div> y 1<a>), solamente tengo la asignación de un 
+//"listener" al evento click del nodo principal "document". 
+//Con esta técnica a parte de mejorar el rendimiento solamente estamos teniendo 
+//una sola asignación al evento "click". A través del condicional "if" evaluamos los eventos
+document.addEventListener("click",(e)=>{
+    console.log(`click en`,e.target)
+
+    //matches -> buscar un selector(css) valido
+    if(e.target.matches(".eventos-flujos div")){
+        flujoEventos(e);
+    }
+    if(e.target.matches(".eventos-flujos a")){
+        alert("Hola :]");
+        e.preventDefault();
+    }
 })
