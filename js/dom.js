@@ -486,7 +486,7 @@ $eventoRemover.addEventListener("dblclick",remover);
 //Flujos de eventos
 //la fase de burbuja se efectua del evento más interno al más externo
 //la fase de captura se efectua del evento más externo al más interno
-const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
+/*const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
 console.log($eventoDiv);
 
 function flujoEventos(e){
@@ -506,4 +506,33 @@ $eventoDiv.forEach((div)=>{
     })
 
 });
+*/
 
+
+
+
+
+
+
+
+
+
+//DOM: stopPropagation & preventDefault 
+const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
+const $linkEventos=document.querySelector(".eventos-flujos a");
+console.log($eventoDiv);
+
+function flujoEventos(e){
+    console.log(`Hola te saluda el div ${this.className},el click lo orgino ${e.target.className}`);
+    e.stopPropagation();//para detener la propagación delos divs
+}
+
+$eventoDiv.forEach((div)=>{
+    div.addEventListener("click",flujoEventos);   
+});
+
+$linkEventos.addEventListener("click",e=>{
+    alert("Hola :]");
+    e.preventDefault();//cancelar la accion que tenga por defecto
+    e.stopPropagation();//detener la propagación de los divs y solo sirva al enlace
+})
