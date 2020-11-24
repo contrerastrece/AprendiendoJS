@@ -455,7 +455,7 @@ $eventoMultiple.addEventListener("click",e=>{
 
 
 //Eventos con parametros y remover eventos
-const saludar=(nombre="desconocido")=>{
+/*const saludar=(nombre="desconocido")=>{
     console.log(`Hola ${nombre}`)
 }
 const $eventoMultiple=document.getElementById("evento-multiple");
@@ -473,3 +473,37 @@ const remover=(e)=>{
     $eventoRemover.disabled=true;//desactivando button
 }
 $eventoRemover.addEventListener("dblclick",remover);
+*/
+
+
+
+
+
+
+
+
+
+//Flujos de eventos
+//la fase de burbuja se efectua del evento más interno al más externo
+//la fase de captura se efectua del evento más externo al más interno
+const $eventoDiv=document.querySelectorAll(".eventos-flujos div");
+console.log($eventoDiv);
+
+function flujoEventos(e){
+    console.log(`Hola te saluda el div ${this.className},el click lo orgino ${e.target.className}`)
+}
+
+$eventoDiv.forEach((div)=>{
+    //FASE BURBUJA
+    // div.addEventListener("click",flujoEventos);//actua del evento más interno al más externo
+    // div.addEventListener("click",flujoEventos,false);//el false es opcional
+
+    //FASE CAPTURA
+    // div.addEventListener("click",flujoEventos,true)
+    div.addEventListener("click",flujoEventos,{
+        capture:true,
+        once:true//el evento se ejecutará solo una vez
+    })
+
+});
+

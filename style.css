@@ -36,3 +36,17 @@ body{
 .sepia{
     filter: sepia(1);
 }
+.eventos-flujos div{
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.uno{
+background-color: yellow;
+}
+.dos{
+background-color: gold;
+}
+.tres{
+background-color:lightyellow;
+}
