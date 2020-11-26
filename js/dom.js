@@ -580,6 +580,7 @@ document.addEventListener("click",(e)=>{
 
 
 //BOM (Browser object Model)
+/*
 window.addEventListener("resize",e=>{
     console.clear()
     console.log("****evento Resize*****");
@@ -610,3 +611,34 @@ document.addEventListener("DOMContentLoaded",e=>{
     console.log(window.screenX);
     console.log(window.screenY);
 })
+*/
+
+
+
+
+
+
+
+
+
+
+//BOM: metodos
+// alert("alerta")
+// const confirm=confirm("confirmacion");//arrojará verdadero si le das ACEPTAR y false en CANCELAR
+// console.log(confirm)
+const $btnAbrir=document.getElementById("abrir-ventana");
+const $btnCerrar=document.getElementById("cerrar-ventana");
+const $btnImprimir=document.getElementById("imprimir-ventana");
+
+let ventanaYb;//declarar undefined
+$btnAbrir.addEventListener("click",e=>{
+    ventanaYb=open("https://www.youtube.com");//cargamos una url a nuestra variable
+});
+
+$btnCerrar.addEventListener("click",e=>{
+    ventanaYb.close()//cerrar la ventana abierta
+});
+
+$btnImprimir.addEventListener("click",e=>{
+    print();//imprimir el navegador
+});
