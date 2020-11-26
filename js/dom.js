@@ -549,7 +549,7 @@ $linkEventos.addEventListener("click",e=>{
 
 
 //DELEGACION DE EVENTOS
-function flujoEventos(e){
+/*function flujoEventos(e){
     console.log(`Hola te saluda el div ${this},el click lo orgino ${e.target.className}`);
 }
 // En lugar de haber tenido 4 listeners (3<div> y 1<a>), solamente tengo la asignación de un 
@@ -567,4 +567,46 @@ document.addEventListener("click",(e)=>{
         alert("Hola :]");
         e.preventDefault();
     }
+})
+*/
+
+
+
+
+
+
+
+
+
+
+//BOM (Browser object Model)
+window.addEventListener("resize",e=>{
+    console.clear()
+    console.log("****evento Resize*****");
+    console.log(innerHeight)//
+    console.log(innerWidth)
+    console.log(outerHeight)//tamaño del alto del navegadors
+    console.log(outerWidth)//tamaño del ancho del navegador incluendo las barras de notificaciones
+})
+
+window.addEventListener("scroll", e=>{
+    console.clear()
+    let x=window.scrollX;//indica es desplazamiento hacia la derecha
+    let y=window.scrollY;//indica el desplazamiento hacia abajo
+    console.log("****Evento Scroll*****");
+    console.log(x,y)
+})
+
+window.addEventListener("load",e=>{
+    // console.clear();
+    console.log("****Evento Load*****");
+    console.log(window.screenX)
+    console.log(window.screenY)
+})
+//carga más rápido que el evento LOAD
+document.addEventListener("DOMContentLoaded",e=>{
+    // console.clear();
+    console.log("****Evento DOMContetLoaded*****");
+    console.log(window.screenX);
+    console.log(window.screenY);
 })
