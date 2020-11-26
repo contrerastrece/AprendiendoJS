@@ -622,11 +622,12 @@ document.addEventListener("DOMContentLoaded",e=>{
 
 
 
+
 //BOM: metodos
 // alert("alerta")
 // const confirm=confirm("confirmacion");//arrojará verdadero si le das ACEPTAR y false en CANCELAR
 // console.log(confirm)
-const $btnAbrir=document.getElementById("abrir-ventana");
+/*const $btnAbrir=document.getElementById("abrir-ventana");
 const $btnCerrar=document.getElementById("cerrar-ventana");
 const $btnImprimir=document.getElementById("imprimir-ventana");
 
@@ -641,4 +642,52 @@ $btnCerrar.addEventListener("click",e=>{
 
 $btnImprimir.addEventListener("click",e=>{
     print();//imprimir el navegador
-});
+});*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//BOM objetos: URL, Historial y Navegador
+console.log("******** URL ********");
+console.log(location);
+console.log(location.origin);
+console.log(location.protocol);
+console.log(location.host);
+console.log(location.hostname);
+console.log(location.port);
+console.log(location.href)
+console.log(location.hash);//detecta lo que hay después de un # (www.index.html#contacto) en este caso devolverá "contacto"
+console.log(location.pathname)//archivo de la que se está consultando
+console.log(location.search);//devolverá parametros de la url (www.index.html?nombre=victor&edad=27) en este caso devolcerá "?edad=victor&edad=27"
+
+//Historial
+console.log("******** Historial ********");
+console.log(history)
+console.log(history.length)//cuantas paginas puedes retroceder o avanzar
+// console.log(history.back(1))//cuantas páginas quieresnir atras
+// console.log(history.forward(1))//cuantas paginas quieres ir adelante
+// console.log(history.go(1))//los numeros positivos indican para avanzar y los negativos para retorceder números de paginas
+
+//Navegacion
+console.log("******** Navegacion ********");
+console.log(navigator)
+console.log(navigator.connection)//funciona en google Chrome
+console.log(navigator.geolocation)
+console.log(navigator.mediaDevices)//dispositivos como camaras y microonos
+console.log(navigator.mimeTypes)//app que soporta el navegador(tipo de formatos que soporta)
+console.log(navigator.onLine)//evento de conection
+console.log(navigator.serviceWorker)//nos ayuda a convertir PWA 
+console.log(navigator.storage)//API de almacenamiento
+console.log(navigator.usb)//funciona en google Chrome capacidad de reconocer usb
+console.log(navigator.userAgent)//plataforma de la que se está conectando
