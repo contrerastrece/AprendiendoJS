@@ -659,7 +659,7 @@ $btnImprimir.addEventListener("click",e=>{
 
 
 //BOM objetos: URL, Historial y Navegador
-console.log("******** URL ********");
+/*console.log("******** URL ********");
 console.log(location);
 console.log(location.origin);
 console.log(location.protocol);
@@ -691,3 +691,4 @@ console.log(navigator.serviceWorker)//nos ayuda a convertir PWA
 console.log(navigator.storage)//API de almacenamiento
 console.log(navigator.usb)//funciona en google Chrome capacidad de reconocer usb
 console.log(navigator.userAgent)//plataforma de la que se está conectando
+*/
