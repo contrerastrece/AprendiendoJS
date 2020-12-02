@@ -33,8 +33,19 @@
 
     <main>
         <div class="container" id="1">
-            <h2>Seccion 1</h2>
+            <h2>Reloj Digital y Alarma sonora</h2>
+            <div class="container-reloj" id="reloj">
+                <h3 class="hora" id="hora">00:00:00</h3>
+                <!-- <audio src="assets/alarm.mp3" controls></audio> -->
+            </div>
+            <div class="container-button">
+                <button id="iniciar_r">Iniciar Reloj</button>
+                <button id="detener_r">Detener Reloj</button>
+                <button id="iniciar_a">Iniciar Alarma</button>
+                <button id="detener_a">Detener Alarma</button>
+            </div>
         </div>
+        
         <hr>
         <div class="container" id="2">
             <h2>Seccion 2</h2>
@@ -66,6 +77,7 @@
     </main>
     
     <script type="module" src="js/hamburger.js"></script>
+    <script type="module" src="js/reloj.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
 </html>

@@ -1,3 +1,7 @@
+@font-face{
+    font-family: "DS-DIGIB";
+    src: url("assets/DS-DIGIB.TTF");
+}
 html{
     scroll-behavior: smooth;
 }
@@ -27,9 +31,11 @@ body{
     padding-top:4rem ;
     width: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     height: 100vh;
     box-sizing: border-box;
+    text-align: center;
+    flex-direction: column;
 }
 .panel-item{
     display: flex;
@@ -43,6 +49,7 @@ body{
     z-index: 2;
     transform: translate(-100%,0%);
     transition: .3s ease-in-out;
+    visibility: hidden;
 }
 .panel-item .ul{
     padding: 0 ;
@@ -60,6 +67,7 @@ body{
     list-style: none;
     transition: all .3s ease;
     height: 100%;
+    text-align: center;
 }
 .li:hover{
     font-weight: bold;
@@ -80,9 +88,22 @@ body{
     color: #000;
     transition: ease-in;
     transition: .3s ease-in-out;
+    text-align: center;
 }
 
 .panel-item.show{
     transition: .3s ease-in-out;
     transform: translate(0%,0%);
+    visibility: visible;
 }
+
+
+/* Reloj Digital */
+.hora{
+    color: lightcoral;    
+    font-size: 5rem;
+    letter-spacing: 10px;
+    font-family: "DS-DIGIB";
+    padding: 0;
+    margin: 2rem 0;
+} 

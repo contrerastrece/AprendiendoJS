@@ -1,8 +1,14 @@
 import  {hamburgerMenu}  from "./hamburger.js";
+import { reloj, alarma } from "./reloj.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
+    reloj("#hora","#iniciar_r","#detener_r");
+    alarma("#iniciar_a","#detener_a");   
 })
+
+
+
 
 const $template=document.getElementById("templateList").content;
 const $fragment=document.createDocumentFragment();
@@ -28,9 +34,10 @@ $div.classList.add("panel-item");
 //     } 
 // })
 
+//lista de Menu
 const listSeccion=[
     {
-        name:"1ra Generación",
+        name:"Reloj Digital y Alarma sonora",
         link:"#1"
     },
     {
@@ -62,7 +69,8 @@ const listSeccion=[
         link:"#8"
     }
 ]
-   
+
+//imprimir mi lista de Menu
 listSeccion.forEach(contenido=>{
     $template.querySelector("li").classList.add("li");
     $template.querySelector("a").classList.add("a");
@@ -79,4 +87,4 @@ listSeccion.forEach(contenido=>{
 
 $ul.appendChild($fragment);
 $div.appendChild($ul);
-document.querySelector(".Panel").appendChild($div);
+document.querySelector(".menu").appendChild($div);
