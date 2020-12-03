@@ -5,6 +5,9 @@
 html{
     scroll-behavior: smooth;
 }
+:root{
+    --yelow:#efd81d;
+}
 body{
     margin: 0;
     padding: 0;
@@ -16,19 +19,19 @@ body{
 .header{
     position:sticky;
     top: 0;
-    /* z-index: 2; */
+    z-index: 2;
 }
 .title{
     width: 100%;
-    background-color:#efd81d ;
-    opacity: 0.7;
+    background-color:var(--yelow) ;
+    /* opacity: 0.8; */
     text-align: center;
     margin: 0;
     padding: .5rem 0;
-    font-weight: bold; 
+    font-weight: bold;
 }
 .container{
-    padding-top:4rem ;
+    padding-top:3rem ;
     width: 100%;
     display: flex;
     /* justify-content: center; */
@@ -71,7 +74,7 @@ body{
 }
 .li:hover{
     font-weight: bold;
-    background-color:#efd81d;
+    background-color:var(--yelow);
     transition: .3s ease-in-out;
 }
 .panel-item .ul .li .a{
@@ -97,7 +100,6 @@ body{
     visibility: visible;
 }
 
-
 /* Reloj Digital */
 .hora{
     color: lightcoral;    
@@ -107,3 +109,22 @@ body{
     padding: 0;
     margin: 2rem 0;
 } 
+/* Evento con teclado direccionales y shortcut */
+.container-board{
+    position: relative;
+    margin: auto;
+    width: 95%;
+    height: 70%;
+    background:#333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle{
+    position: relative;
+    height: 4vh;
+    width: 4vh;
+    border-radius: 50%;
+    background-color: var(--yelow);
+    /* opacity: .7; */
+}

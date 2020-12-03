@@ -1,12 +1,17 @@
 import  {hamburgerMenu}  from "./hamburger.js";
 import { reloj, alarma } from "./reloj.js";
+import { moveKeys, shortCuts} from "./shortcuts.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
     reloj("#hora","#iniciar_r","#detener_r");
-    alarma("#iniciar_a","#detener_a");   
+    alarma("#iniciar_a","#detener_a");
 })
 
+document.addEventListener("keydown",e=>{
+    moveKeys(e,".circle",".container-board");
+    shortCuts(e);
+})
 
 
 
@@ -41,7 +46,7 @@ const listSeccion=[
         link:"#1"
     },
     {
-        name:"2da Generación",
+        name:"Evento de Teclado",
         link:"#2"
     },
     {
