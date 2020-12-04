@@ -1,3 +1,4 @@
+import { countDown } from "./countDown.js";
 import  {hamburgerMenu}  from "./hamburger.js";
 import { reloj, alarma } from "./reloj.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
@@ -6,6 +7,8 @@ document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
     reloj("#hora","#iniciar_r","#detener_r");
     alarma("#iniciar_a","#detener_a");
+    countDown("#days","#hours","#minutes","#seconds","#fest");
+
 })
 
 document.addEventListener("keydown",e=>{
@@ -50,7 +53,7 @@ const listSeccion=[
         link:"#2"
     },
     {
-        name:"3ra Generación",
+        name:"CountDown",
         link:"#3"
     },
     {

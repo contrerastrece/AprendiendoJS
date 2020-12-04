@@ -3,13 +3,14 @@ export{reloj ,alarma};//exportando las dos funciones implementadas
 function reloj(hora,btn_iniciarR,btn_detenerR){    
     let time;
     function checkTime(i){
-        return (i<10) ? i="0"+i : i;//agregar cero si es menor a 10
+        return (i<10) ? i="0"+i :i;//agregar cero si es menor a 10
     }
+    
     document.addEventListener("click",e=>{
         if(e.target.matches(btn_iniciarR)){           
             time=setInterval(()=>{
                 let hoy= new Date();
-                let h=hoy.getHours();
+                let h=checkTime(hoy.getHours());
                 let m=checkTime(hoy.getMinutes());
                 let s=checkTime(hoy.getSeconds());
                 //agregar contenido al contenedor de HORA
