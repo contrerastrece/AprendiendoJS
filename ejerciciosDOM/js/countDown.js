@@ -2,7 +2,7 @@ export {countDown}
 function countDown(days,minutes,hours,seconds,fest){
 
     let time;     
-            const fechaNavidad=new Date(2020,11,4,17,39);
+            const fechaNavidad=new Date(2020,11,25);
            if(fechaNavidad.getTime()>Date.now()){
             time=setInterval(()=>{       
                 let today= Date.now()//la fecha de ahora en milisegundos
@@ -32,8 +32,8 @@ function countDown(days,minutes,hours,seconds,fest){
                    alert("Feliz Navidad");
                    clearInterval(time)
                }
-               console.clear()
-               console.log(restante,fechaNavidad.getTime()- Date.now());             
+            //    console.clear()
+            //    console.log(restante,fechaNavidad.getTime()- Date.now());             
            },1000);
         }else{
             console.log("teminio")

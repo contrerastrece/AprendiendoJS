@@ -2,6 +2,7 @@ import { countDown } from "./countDown.js";
 import  {hamburgerMenu}  from "./hamburger.js";
 import { reloj, alarma } from "./reloj.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
+import { toUp } from "./toUp.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
@@ -14,6 +15,10 @@ document.addEventListener("DOMContentLoaded",e=>{
 document.addEventListener("keydown",e=>{
     moveKeys(e,".circle",".container-board");
     shortCuts(e);
+})
+
+document.addEventListener("scroll",e=>{
+    toUp(e,"#btnUp")
 })
 
 
