@@ -8,16 +8,16 @@
     cursor: pointer;
     transition: all .5s ease-in-out;
     border-radius: 50%;
-    background: #efd81d ;
-    bottom: 1.5rem;
-    right:  1.5rem;
+    background:var(--backgroundSecondary) ;
+    bottom: 1rem;
+    right:  1rem;
     z-index: 4;
 
 }
 .menu-btn__burger {
     width: 2rem;
     height: 0.3rem;
-    background: #fff;
+    background:var(--textPrimary);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: all .5s ease-in-out;
@@ -28,7 +28,7 @@
     position: absolute;
     width: 2rem;
     height: 0.3rem;
-    background: #fff;
+    background:var(--textPrimary);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: all .5s ease-in-out;

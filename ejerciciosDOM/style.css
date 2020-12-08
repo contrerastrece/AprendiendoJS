@@ -5,16 +5,38 @@
 html{
     scroll-behavior: smooth;
 }
-:root{
-    --yelow:#efd81d;
+/* :root{
+    --yelow:#efd81d; */
+    /* --backgroundPrimary:#fff; */
+    /* --backgroundSecondary:#efd81d; */
+    /* --textPrimary:#000; */
+    /* dark */
+    /* --backgroundDark:#263143; */
+    /* --bacgroundSecondaryDark:#6191AF; */
+    /* --txtDark:#F0F4F6;
+} */
+/* .light{
+    --backgroundPrimary:#fff;
+    --backgroundSecondary:#efd81d;
+    --textPrimary:#000;
+} */
+.dark{
+    --backgroundPrimary:#263143;
+    --textPrimary: #F0F4F6;  
+    --backgroundSecondary:#6191AF;
 }
 body{
+    --backgroundPrimary:#fff;
+    --backgroundSecondary:#efd81d;
+    --textPrimary:#000;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1.5px;
     width: 100%;
+    background-color: var(--backgroundPrimary);
+    color: var(--textPrimary);
 }
 .header{
     position:sticky;
@@ -23,7 +45,7 @@ body{
 }
 .title{
     width: 100%;
-    background-color:var(--yelow) ;
+    background-color:var(--backgroundSecondary) ;
     /* opacity: 0.8; */
     text-align: center;
     margin: 0;
@@ -83,7 +105,7 @@ hr{
 }
 .li:hover{
     font-weight: bold;
-    background-color:var(--yelow);
+    background-color:var(--backgroundSecondary);
     transition: .3s ease-in-out;
 }
 .panel-item .ul .li .a{
@@ -134,7 +156,7 @@ hr{
     height: 4vh;
     width: 4vh;
     border-radius: 50%;
-    background-color: var(--yelow);
+    background-color: var(--backgroundSecondary);
     /* opacity: .7; */
 }
 
@@ -217,19 +239,38 @@ hr{
 
 /* btn-Up */
 .bx-chevron-up-circle{
-    background: var(--yelow);
-    color: #fff;
+    background: var(--backgroundSecondary);
+    color:var(--textPrimary);
     border-radius: 50%;
     font-size: 4rem;
     padding: 0;
     margin: 0;
-    position: absolute;
     position: fixed;
-    bottom: 6.5rem;
-    right: 1.5rem;
+    bottom: 6rem;
+    right: 1rem;
     z-index: 3;
     border: none;
     cursor: pointer;
+    transition: all .3s ease-out;
+}
+.hidden{
     visibility: hidden;
-    transition: linear .2s;
+    opacity: 0;
+}
+
+/* Btn Mode Dark */
+.mode{
+    border-radius: 50%;
+    background: var(--backgroundSecondary);
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 3;
+    border: none;
+    cursor: pointer;
+    /* transition: all .3s linear; */
+    color: var(--textPrimary);
 }

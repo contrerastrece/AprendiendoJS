@@ -1,16 +1,14 @@
-export function toUp(e,btnUp){
-    
-    // let y=scrollY;
-    if(scrollY>800){
-        // console.log(y)
-
-        document.querySelector(btnUp).style.visibility="visible";
+export function toUp(e,btnUp){        
+    if(scrollY>800){            
+    document.querySelector(btnUp).classList.remove("hidden");
         document.addEventListener("click",e=>{
-            if(e.target.matches(btnUp)){               
+            if(e.target.matches(btnUp)){ 
+                
                 scrollTo(scrollX,0);
             }
         })
-    }else{        
-        document.querySelector(btnUp).style.visibility="hidden";
+    }else{
+    
+        document.querySelector(btnUp).classList.add("hidden");        
     }
 }

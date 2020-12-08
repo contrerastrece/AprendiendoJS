@@ -1,5 +1,6 @@
 import { countDown } from "./countDown.js";
 import  {hamburgerMenu}  from "./hamburger.js";
+import { modeDark } from "./modeDark.js";
 import { reloj, alarma } from "./reloj.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
 import { toUp } from "./toUp.js";
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     reloj("#hora","#iniciar_r","#detener_r");
     alarma("#iniciar_a","#detener_a");
     countDown("#days","#hours","#minutes","#seconds","#fest");
+    modeDark(e,"#btnMode");
 
 })
 
