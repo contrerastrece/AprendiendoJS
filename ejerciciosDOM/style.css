@@ -37,6 +37,7 @@ body{
     width: 100%;
     background-color: var(--backgroundPrimary);
     color: var(--textPrimary);
+    transition: all .3s linear;
 }
 .header{
     position:sticky;
