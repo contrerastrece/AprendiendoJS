@@ -100,13 +100,15 @@
         <hr>
         <div class="container" id="5">
             <h2>Responsive Tester</h2>
-            <form action="" class="form">
-                <input type="text" name="" id="url" placeholder="Ingrese URL">
-                <input type="text" name="" id="ancho" placeholder="Ancho">
-                <input type="text" name="" id="alto" placeholder="Alto">
+            <form action="" class="form" id="form" name="form">
+                <input type="text" name="url" id="url" placeholder="Ingrese URL" required>
+                <input type="text" name="ancho" id="ancho" placeholder="Ancho" required>
+                <input type="text" name="alto" id="alto" placeholder="Alto" required>
                 <div class="buttom">
-                    <button id="probar">Probar</button>
-                    <button id="cerrar">Cerrar</button>
+                    <!-- <button id="probar" type="submit" name="probar">Probar</button>
+                    <button id="cerrar" name="cerrar" type="button">Cerrar</button> -->
+                    <input type="submit" name="probar" value="probar">
+                    <input type="button" name="cerrar" value="cerrar">
                 </div>
             </form>
         </div>
