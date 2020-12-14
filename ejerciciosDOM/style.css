@@ -278,6 +278,19 @@ hr{
     /* transition: all .3s linear; */
     color: var(--textPrimary);
 }
+/* Formulario */
+.form{
+    /* width: 100%; */
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    /* padding: auto; */
+
+}
+.form .buttom{
+    display: grid;
+    grid-auto-flow: column;
+}
 
 
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */}
@@ -294,8 +307,4 @@ hr{
         justify-content: space-around;
     }
 }
-@media (min-width:1281px) { /* hi-res laptops and desktops */ 
-    body{
-        background-color: rgb(41, 117, 75);
-    }
-}
+@media (min-width:1281px) { /* hi-res laptops and desktops */}

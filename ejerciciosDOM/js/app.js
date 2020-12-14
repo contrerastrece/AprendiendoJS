@@ -3,6 +3,7 @@ import  {hamburgerMenu}  from "./hamburger.js";
 import {responsiveMedia } from "./matchMedia.js";
 import { modeDark } from "./modeDark.js";
 import { reloj, alarma } from "./reloj.js";
+import { responsiveTester } from "./responsiveTester.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
 import { toUp } from "./toUp.js";
 
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     modeDark(e,"#btnMode");
     responsiveMedia("video","(min-width:600px)",`<a target="_blank" href="https://www.youtube.com/watch?v=n7ZuRd-Mjg8">ver video</a>`,`<iframe width="560" height="315" src="https://www.youtube.com/embed/n7ZuRd-Mjg8" frameborder="0" allow="accelerometer"; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`);    
     responsiveMedia("mapa","(min-width:1025px)",`<a target="_blank" href="https://goo.gl/maps/afz6oR7W7ptoeQDo8">ver Mapa</a>`,`<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.9589583960087!2d116.5681862149428!3d40.4319076793633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f121d7687f2ccf%3A0xd040259b950522df!2sMuralla%20China!5e0!3m2!1ses-419!2spe!4v1607811431153!5m2!1ses-419!2spe" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`);
+    responsiveTester("url","ancho","alto","#probar","#cerrar");
 });
 
 document.addEventListener("keydown",e=>{
@@ -66,11 +68,11 @@ const listSeccion=[
         link:"#3"
     },
     {
-        name:"4ta Generación",
+        name:"Responsive con JavaScript",
         link:"#4"
     },
     {
-        name:"5ta Generación",
+        name:"Responsive Tester",
         link:"#5"
     },
     {
