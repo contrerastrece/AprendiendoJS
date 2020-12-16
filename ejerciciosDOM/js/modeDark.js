@@ -1,5 +1,5 @@
 export {modeDark}
-function modeDark(e,btn){
+function modeDark(btn){
     const $btn=document.querySelector(btn);
     
     //capturar el theme actual 

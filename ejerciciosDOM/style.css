@@ -291,6 +291,38 @@ hr{
     display: grid;
     grid-auto-flow: column;
 }
+/* OnLine y OffLine */
+.online,
+.offLine{
+    width: 95%;
+    overflow: hidden;
+    height: 3rem;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    text-align: center;    
+    z-index: 5;    
+    top: 50%;
+    transition: 1s ease-in-out;
+}
+.online{
+    background:greenyellow;
+    color: black; 
+   
+}
+.offLine{
+    background:tomato;
+    color: white; 
+}
+
+
+
+
+
+
+
+
 
 
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */}
