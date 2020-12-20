@@ -1,4 +1,5 @@
 import { countDown } from "./countDown.js";
+import { detectarCamara } from "./detectarCamara.js";
 import { deteccion_Conexion } from "./detectarConexion.js";
 import  {hamburgerMenu}  from "./hamburger.js";
 import {responsiveMedia } from "./matchMedia.js";
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     // responsiveTester("url","ancho","alto","#probar","#cerrar");
     responsiveTester("form");
     userDevice("userAgent");
+    detectarCamara("btnInit","video-cam");
 });
 
 document.addEventListener("keydown",e=>{
@@ -34,6 +36,7 @@ document.addEventListener("scroll",e=>{
 modeDark("#btnMode");
 
 deteccion_Conexion("status");
+
 
 
 const $template=document.getElementById("templateList").content;
@@ -91,7 +94,7 @@ const listSeccion=[
         link:"#7"
     },
     {
-        name:"8va Generación",
+        name:"Detección de CamareWeb",
         link:"#8"
     }
 ]
