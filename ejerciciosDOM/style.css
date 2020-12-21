@@ -74,18 +74,19 @@ hr{
     z-index: 2;
 }
 .panel-item{
+    padding: 2rem 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, .8);
     position: fixed;
     top: 0;
+    bottom: 0;
     z-index: 3;
     transform: translate(-100%,0%);
     transition: .3s ease-in-out;
     visibility: hidden;
+    overflow-y: auto;
 }
 .panel-item .ul{
     padding: 0 ;

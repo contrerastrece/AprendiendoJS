@@ -1,6 +1,7 @@
 import { countDown } from "./countDown.js";
 import { detectarCamara } from "./detectarCamara.js";
 import { deteccion_Conexion } from "./detectarConexion.js";
+import { geolocalizacion } from "./geolocalizacion.js";
 import  {hamburgerMenu}  from "./hamburger.js";
 import {responsiveMedia } from "./matchMedia.js";
 import { modeDark } from "./modeDark.js";
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     responsiveTester("form");
     userDevice("userAgent");
     detectarCamara("btnInit","video-cam");
+    geolocalizacion("geo");
 });
 
 document.addEventListener("keydown",e=>{
@@ -96,6 +98,14 @@ const listSeccion=[
     {
         name:"Detección de CamareWeb",
         link:"#8"
+    },
+    {
+        name:"Geolocalización",
+        link:"#9"
+    },
+    {
+        name:"Geolocalización",
+        link:"#10"
     }
 ]
 
