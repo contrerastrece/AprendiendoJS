@@ -39,6 +39,7 @@ body{
     color: var(--textPrimary);
     transition: all .3s linear;
     /* min-width: 320px; */
+    
 }
 .header{
     position:sticky;
@@ -317,19 +318,69 @@ hr{
     color: white; 
 }
 
+/* Filtros de busqueda */
+.container__img{
+    margin: 1rem auto;
+    width:100%;
+    max-width: 1024px;
+    column-count: 3; 
+    padding-bottom: 1rem;
+    
+}
+.card{
+    border-radius: 0.3rem;
+    background: cadetblue;
+    margin-bottom: 0.5rem;
+   /* para evitar que se corten el contenido  */
+    break-inside: avoid-column;
+    page-break-inside: avoid;
+    /* transition: all .3s ease-out; */
+    padding-bottom: 0px;
+    display:inline-block;
+}
+.card img{
+    /* border: 1px solid yellow; */
+    max-width: 90%;
+    margin-top: .5rem;
+}
+.card .namePokemon{
+    font-size: .8rem;
+    color: white;
+    font-weight: bold;
+    line-height: 2rem;
+    margin-top: 0;
+    text-transform: capitalize;
+    
+}
+.filter{
+    display: none;
+    /* visibility: hidden;
+    opacity: 0;
+    order: 1; */
+
+}
 
 
 
 
 
+@media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  
+}
+@media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */
+    
+}
+@media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 
-
-
-
-@media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */}
-@media (min-width:480px) { /* smartphones, Android phones, landscape iPhone */}
-@media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */}
-@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */}
+    .container__img{
+        column-count: 4;
+    }
+}
+@media (min-width:801px) { /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .container__img{
+        column-count: 5;
+    }
+}
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
     .content{
         width: 100%;
@@ -339,5 +390,11 @@ hr{
         align-items: center;
         justify-content: space-around;
     }
+    .container__img{
+        column-count: 6;
+    }
 }
-@media (min-width:1281px) { /* hi-res laptops and desktops */}
+@media (min-width:1281px) { /* hi-res laptops and desktops */
+    
+
+}

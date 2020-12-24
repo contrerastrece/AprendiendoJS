@@ -7,6 +7,7 @@ import {responsiveMedia } from "./matchMedia.js";
 import { modeDark } from "./modeDark.js";
 import { reloj, alarma } from "./reloj.js";
 import { responsiveTester } from "./responsiveTester.js";
+import { search } from "./search.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
 import { toUp } from "./toUp.js";
 import { userDevice } from "./userAgent.js";
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded",e=>{
     userDevice("userAgent");
     detectarCamara("btnInit","video-cam");
     geolocalizacion("geo");
+    search("input");
+    
 });
 
 document.addEventListener("keydown",e=>{
@@ -38,6 +41,7 @@ document.addEventListener("scroll",e=>{
 modeDark("#btnMode");
 
 deteccion_Conexion("status");
+// masonry();    
 
 
 
@@ -104,7 +108,7 @@ const listSeccion=[
         link:"#9"
     },
     {
-        name:"Geolocalización",
+        name:"Filtros de Búsqueda",
         link:"#10"
     }
 ]
