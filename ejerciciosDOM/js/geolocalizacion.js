@@ -7,7 +7,7 @@ function geolocalizacion(geo){
         timeout:5000,
         maximunAge:0
     }
-    console.log(navigator.geolocation)
+    // console.log(navigator.geolocation)
     if(navigator.geolocation){
         $geo.innerHTML="<p>su navegador si acepta geolocalización</p>";
         navigator.geolocation.getCurrentPosition(exito,error,opc)

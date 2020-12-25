@@ -10,26 +10,26 @@ function moveKeys(e,ball,board){
                 case 37://izquierda
                     e.preventDefault();
                     if( limitBall.left>limitBoard.left) x--;
-                    console.clear()
-                    console.log(limitBall.left,limitBoard.left)
+                    // console.clear()
+                    // console.log(limitBall.left,limitBoard.left)
                     break;
                 case 38://arriba
                     e.preventDefault();
                     if( limitBall.top>limitBoard.top) y--;
-                    console.clear()
-                    console.log(limitBall.top,limitBoard.top)   
+                    // console.clear()
+                    // console.log(limitBall.top,limitBoard.top)   
                     break;
                 case 39://derecha
                     e.preventDefault();
                     if( limitBall.right<limitBoard.right) x++;
-                    console.clear()
-                    console.log(limitBall.right,limitBoard.right)
+                    // console.clear()
+                    // console.log(limitBall.right,limitBoard.right)
                     break;
                 case 40://abajo
                     e.preventDefault();
                     if( limitBall.bottom<limitBoard.bottom) y++;
-                    console.clear()
-                    console.log(limitBall.bottom,limitBoard.bottom)
+                    // console.clear()
+                    // console.log(limitBall.bottom,limitBoard.bottom)
                     break;
             }
         $ball.style.transform=`translate(${x*10}px,${y*10}px)`;

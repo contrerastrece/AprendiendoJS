@@ -9,6 +9,7 @@ import { reloj, alarma } from "./reloj.js";
 import { responsiveTester } from "./responsiveTester.js";
 import { search } from "./search.js";
 import { moveKeys, shortCuts} from "./shortcuts.js";
+import { sortear } from "./sorteo.js";
 import { toUp } from "./toUp.js";
 import { userDevice } from "./userAgent.js";
 
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     detectarCamara("btnInit","video-cam");
     geolocalizacion("geo");
     search("input");
-    
+    sortear();
 });
 
 document.addEventListener("keydown",e=>{
@@ -110,6 +111,10 @@ const listSeccion=[
     {
         name:"Filtros de Búsqueda",
         link:"#10"
+    },
+    {
+        name:"Sorteo Digital",
+        link:"#11"
     }
 ]
 

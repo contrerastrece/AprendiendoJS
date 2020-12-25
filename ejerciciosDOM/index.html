@@ -43,10 +43,10 @@
                 <!-- <audio src="assets/alarm.mp3" controls></audio> -->
             </div>
             <div class="container-button">
-                <button id="iniciar_r">Iniciar Reloj</button>
-                <button id="detener_r">Detener Reloj</button>
-                <button id="iniciar_a">Iniciar Alarma</button>
-                <button id="detener_a">Detener Alarma</button>
+                <button id="iniciar_r" class="btn btn_start_reloj">Iniciar Reloj</button>
+                <button id="detener_r" class="btn btn_stop_reloj">Detener Reloj</button>
+                <button id="iniciar_a" class="btn btn_start_Alrm">Iniciar Alarma</button>
+                <button id="detener_a" class="btn btn_stop_alrm">Detener Alarma</button>
             </div>
         </div>
         
@@ -107,8 +107,8 @@
                 <div class="buttom">
                     <!-- <button id="probar" type="submit" name="probar">Probar</button>
                     <button id="cerrar" name="cerrar" type="button">Cerrar</button> -->
-                    <input type="submit" name="probar" value="probar">
-                    <input type="button" name="cerrar" value="cerrar">
+                    <input type="submit" name="probar" value="probar" class="btn btn_probar">
+                    <input type="button" name="cerrar" value="cerrar" class="btn btn_cerrar">
                 </div>
             </form>
         </div>
@@ -131,7 +131,7 @@
 
             <!-- Trigger canvas web API -->
             <div class="controller">
-                <button id="btnInit">Probar cámara</button>
+                <button id="btnInit" class="btn btn_camara">Probar cámara</button>
             </div>
             
         </div>
@@ -153,6 +153,20 @@
                     </div>
                 </template>
             </div>
+        </div>
+        <hr>
+        <div class="container" id="11">
+            <h2>Sorteo Digital</h2>
+            <ul class="opcion">
+                <li class="opcion_item">html</li>
+                <li class="opcion_item">Css</li>
+                <li class="opcion_item">Bootstrap</li>
+                <li class="opcion_item">Git</li>
+                <li class="opcion_item">Github</li>
+                <li class="opcion_item">JavaScript</li>
+                <li class="opcion_item">Angular</li>
+            </ul>
+            <button class="btn btn_sortear" id="sortear">Sortear</button>
         </div>
 
     </main>
