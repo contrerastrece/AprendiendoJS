@@ -34,7 +34,7 @@ body{
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1.5px;
-    width: 100%;
+    /* width: 100%; */
     background-color: var(--backgroundPrimary);
     color: var(--textPrimary);
     transition: all .3s linear;
@@ -63,10 +63,11 @@ body{
     display: flex;
     /* justify-content: center; */
     height: 100vh;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     text-align: center;
     flex-direction: column;
     /* border: 1px solid blue; */
+
 }
 .btn{
     width: 150px;;
@@ -397,6 +398,67 @@ hr{
     margin: 0.2rem;
     font-size: 1.2rem;
 }
+
+/* Carousel */
+.sliders{
+    position: relative;
+    height: 50%;
+    /* border: 1px solid white; */
+    width:100%;
+    display: flex;
+    overflow: hidden;
+
+}
+.slide{
+    position: relative;
+    width: 100%;
+    
+    transform: translate(0%,0%);
+    transition: .3s ease-in-out;
+  flex-shrink: 0;
+}
+.slide_title{
+    background: rgba(0,0,0, 0.5);
+    position: absolute;
+    font-size: 3rem;
+    margin: 0;
+    width: 100%;
+    color :white;
+    z-index: 2;
+    padding: 0.5rem;
+    /* border:1px solid white; */
+}
+.slide > img {
+    width:100%;
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    /* border: 1px solid yellow; */
+
+}
+.carousel_btn{
+    /* border:1px solid tomato; */
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+    top: calc(calc(50%) - 1.25rem);
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+.btn_previuous,
+.btn_next{
+    /* border:1px solid yellow; */
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2.5rem;
+    background: var(--backgroundSecondary);
+    margin:0 0.8rem;
+}
+
+
+
+
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   
 }
@@ -425,6 +487,11 @@ hr{
     }
     .container__img{
         column-count: 6;
+    }
+    /* slider */
+    .sliders{
+        height: 70%;
+      /* border: 1px solid white; */
     }
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */

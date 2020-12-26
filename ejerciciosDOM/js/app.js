@@ -12,6 +12,7 @@ import { moveKeys, shortCuts} from "./shortcuts.js";
 import { sortear } from "./sorteo.js";
 import { toUp } from "./toUp.js";
 import { userDevice } from "./userAgent.js";
+import {carousel} from "./sliders.js"
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded",e=>{
     geolocalizacion("geo");
     search("input");
     sortear();
+    carousel("next","prev",".slide");
+    
 });
 
 document.addEventListener("keydown",e=>{
@@ -115,6 +118,10 @@ const listSeccion=[
     {
         name:"Sorteo Digital",
         link:"#11"
+    },
+    {
+        name:"Carousel Responsive",
+        link:"#12"
     }
 ]
 
