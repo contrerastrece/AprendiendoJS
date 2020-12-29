@@ -45,8 +45,6 @@ document.addEventListener("scroll",e=>{
 modeDark("#btnMode");
 
 deteccion_Conexion("status");
-// masonry();    
-
 
 
 const $template=document.getElementById("templateList").content;
@@ -100,7 +98,7 @@ const listSeccion=[
         link:"#6"
     },
     {
-        name:"Detección de Conexi{on",
+        name:"Detección de Conexión",
         link:"#7"
     },
     {

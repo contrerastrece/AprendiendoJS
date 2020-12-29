@@ -7,7 +7,8 @@ function detectarCamara(btn,videoCam){
    
     document.addEventListener("click",e=>{
         if(e.target===$btnActivar){
-            //preguntamos si soporata la Api de mediaDevices
+            e.preventDefault()
+            //preguntamos si soporta la Api de mediaDevices
             if(navigator.mediaDevices.getUserMedia){
                 navigator.mediaDevices.getUserMedia({audio:true,
                     video:true}).then((stream)=>{
