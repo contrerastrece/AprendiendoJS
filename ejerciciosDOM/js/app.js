@@ -13,6 +13,7 @@ import { sortear } from "./sorteo.js";
 import { toUp } from "./toUp.js";
 import { userDevice } from "./userAgent.js";
 import {carousel} from "./sliders.js"
+import { scrollSpy } from "./scrollSpy.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     search("input");
     sortear();
     carousel("next","prev",".slide");
+    scrollSpy();
     
 });
 
@@ -129,6 +131,10 @@ listSeccion.forEach(contenido=>{
     $template.querySelector("a").classList.add("a");
     $template.querySelector("a").textContent=contenido.name;    
     $template.querySelector("a").setAttribute("href",contenido.link);
+    let data_scroll=document.createAttribute("data-scroll-spy")
+    // data_scroll.value="valor de la data"
+    // $template.querySelectorAll("a").createAttribute("data-scroll-spy");
+    $template.querySelector("a").setAttributeNode(data_scroll);
     
 
     //el template es único, por eso clonaremos el nodo para cada elemento
@@ -140,4 +146,5 @@ listSeccion.forEach(contenido=>{
 
 $ul.appendChild($fragment);
 $div.appendChild($ul);
-document.querySelector(".menu").appendChild($div);
+// document.querySelector(".Panel").appendChild(document.querySelector(".menu").appendChild($div));
+document.querySelector(".menu").appendChild($div)
