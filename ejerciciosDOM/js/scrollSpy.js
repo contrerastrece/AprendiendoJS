@@ -27,8 +27,8 @@ function scrollSpy(){
     }
 
     const callback=(entries)=>{
-        console.clear();
-        console.log(entries,"entradas")
+        // console.clear();
+        // console.log(entries,"entradas")
         // console.log(entries.target.id)
         entries.forEach(entry=>{
             if(entry.isIntersecting){

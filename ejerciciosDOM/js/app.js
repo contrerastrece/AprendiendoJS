@@ -14,6 +14,7 @@ import { toUp } from "./toUp.js";
 import { userDevice } from "./userAgent.js";
 import {carousel} from "./sliders.js"
 import { scrollSpy } from "./scrollSpy.js";
+import { smartVideo } from "./smartVideo.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     sortear();
     carousel("next","prev",".slide");
     scrollSpy();
+    smartVideo("video")
     
 });
 
@@ -122,6 +124,10 @@ const listSeccion=[
     {
         name:"Carousel Responsive",
         link:"#12"
+    },
+    {
+        name:"Video Inteligente",
+        link:"#13"
     }
 ]
 

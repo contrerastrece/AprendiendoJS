@@ -57,6 +57,7 @@ function userDevice(id){
     // redirecciones
     // en el caso de que mi dispositivo sea mobil me redireccionará a una página en concreta
     if(isMobile.android()){
-        window.location.href="https://youtube.com";
+        // window.location.href="";
+        
     }
 }

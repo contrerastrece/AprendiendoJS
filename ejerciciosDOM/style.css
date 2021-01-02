@@ -472,6 +472,10 @@ body{
     background: var(--backgroundSecondary);
     margin:0 0.8rem;
 }
+/* video Inteligente */
+.video{
+    width: 90%;
+}
 
 
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
