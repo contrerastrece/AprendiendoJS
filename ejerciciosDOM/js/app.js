@@ -15,7 +15,7 @@ import { userDevice } from "./userAgent.js";
 import {carousel} from "./sliders.js"
 import { scrollSpy } from "./scrollSpy.js";
 import { smartVideo } from "./smartVideo.js";
-import { validarForm } from "./formulario.js";
+// import { validarForm } from "./formulario.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");

@@ -12,8 +12,6 @@ function validarForm(){
           
 
         console.clear()
-        console.log(nomRe)
-        console.log(e.key,$nombre.value)
         // validar nombre
         if(nomRe){ 
             $nombre.classList.remove("error")
@@ -33,7 +31,7 @@ function validarForm(){
         }
 
         // validar mensaje
-        if($mensaje.value.length>0 && $mensaje.value.length<250){
+        if($mensaje.value.length>0 && $mensaje.value.length<255){
             console.log($mensaje)
             $mensaje.classList.remove("error")
             $mensaje.classList.add("success")

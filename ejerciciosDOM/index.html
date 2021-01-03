@@ -220,11 +220,17 @@
         <div class="container" data-scroll-spy id="14">
             <h2>Formulario</h2>
             <form action="" class="formulario">
-                <input class="form_input" type="text" placeholder="Nombre"  autofocus id="nombre">
-                <input class="form_input" type="text" placeholder="E-mail"  id="email">
-                <input class="form_input" type="text" placeholder="Asunto"  id="asunto">
-                <textarea class="form_input" name="textarea"cols="30" rows="10" placeholder="Escriba su mensaje" id="mensaje"></textarea>
+                <input class="form_input" type="text" placeholder="Nombre"  autofocus id="nombre" title="Solo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                <input class="form_input" type="text" placeholder="E-mail"  id="email" title="ejemplo@email.com" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+                <input class="form_input" type="text" placeholder="Asunto"  id="asunto" required>
+                <textarea class="form_input" name="textarea"cols="30" rows="10" placeholder="Escriba su mensaje" id="mensaje" title="Acepta 255 carácteres" data-pattern="^.{1,255}$" required></textarea>
                 <button class="btn">Enviar</button>
+                <div class="contact-form-loader none">
+                    <img src="assets/img/loader.svg" alt="cargando">                    
+                </div>
+                <div class="contact-form-response none">
+                    <p>Los datos han sido enviados</p>
+                </div>
             </form>
         </div>
             

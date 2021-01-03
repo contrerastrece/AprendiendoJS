@@ -486,6 +486,8 @@ body{
     /* border: 1px solid red; */
 }
 .form_input{
+    --form-ok-color:#4caf50;
+    --form-error-color:#f44336;
     border:none;
     border-bottom:0.1rem solid var(--textPrimary);
     background: transparent;
@@ -497,18 +499,57 @@ body{
     line-height: 1.2rem;
     padding:0.5rem 1rem ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 .formulario textarea{
     resize: none;
 }
 .success{
-    /* background: yellowgreen; */
     border: 1px solid greenyellow;
 }
 .error{
-    /* background: tomato; */
     border:1px solid tomato;
 }
+.form_input[required]:valid{
+    border: thin solid var(--form-ok-color);
+}
+.form_input[required]:invalid{
+    border:thin solid var(--form-error-color);
+}
+.none{
+    display:none
+}
+
+.form_input-error{
+    margin-top: -1rem;
+    background-color: var(--form-error-color);
+    color: #fff;
+    transition: all 0.8s ease;
+}
+.form-input-error.is-active{
+    display: block;
+    /* una animacion con el nombre show message
+    durará 1s 
+    se ejecutará solo 1 vez
+    de manera normal
+    retardo de 0s
+    both conservará su estilo con la animación que termina
+    */
+    animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+@keyframes show-message{
+    0%{
+        visibility: hidden;
+        opacity: 0;
+    }
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
 
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   
