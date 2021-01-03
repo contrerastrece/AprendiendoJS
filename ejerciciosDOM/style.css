@@ -478,6 +478,38 @@ body{
 }
 
 
+/* formulario */
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.form_input{
+    border:none;
+    border-bottom:0.1rem solid var(--textPrimary);
+    background: transparent;
+    color: var(--textPrimary);
+    /* background: var(--backgroundSecondary); */
+    margin: 0.5rem 0;
+    /* border: 1px solid blue; */
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    padding:0.5rem 1rem ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.formulario textarea{
+    resize: none;
+}
+.success{
+    /* background: yellowgreen; */
+    border: 1px solid greenyellow;
+}
+.error{
+    /* background: tomato; */
+    border:1px solid tomato;
+}
+
 @media (min-width:320px) { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   
 }

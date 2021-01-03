@@ -7,12 +7,11 @@ function smartVideo(tagvideo){
         threshold:1
     }
     
-    console.log($video,"all videos")
+    // console.log($video,"all videos")
     let callback=(entries)=>{
         entries.forEach(entry=>{            
             if( entry.isIntersecting ){  
                 entry.target.play();
-                entry.target.muted=true;
                 entry.target.loop=true;
                 // console.clear() 
                 // console.log("play")

@@ -15,6 +15,7 @@ import { userDevice } from "./userAgent.js";
 import {carousel} from "./sliders.js"
 import { scrollSpy } from "./scrollSpy.js";
 import { smartVideo } from "./smartVideo.js";
+import { validarForm } from "./formulario.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
     hamburgerMenu(".menu-btn",".panel-item",".li .a");
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     carousel("next","prev",".slide");
     scrollSpy();
     smartVideo("video")
+    validarForm();
     
 });
 
@@ -128,6 +130,10 @@ const listSeccion=[
     {
         name:"Video Inteligente",
         link:"#13"
+    },
+    {
+        name:"Formulario",
+        link:"#14"
     }
 ]
 

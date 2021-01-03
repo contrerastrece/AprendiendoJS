@@ -207,15 +207,27 @@
             </div>
 
         </div>
-
+        
         <!-- video Inteligente -->
         <div class="container" data-scroll-spy id="13">
             <h2>Video Inteligente</h2>
             <p>Este video se reproduce automático</p>
             <p>se mutea cuando se intercambia de pestaña</p>
-            <video src="assets/video.mp4" class="video" id="smartVideo" controls></video>
+            <video src="assets/video.mp4" class="video" id="smartVideo" muted controls></video>
         </div>
 
+        <!-- validar formulario -->
+        <div class="container" data-scroll-spy id="14">
+            <h2>Formulario</h2>
+            <form action="" class="formulario">
+                <input class="form_input" type="text" placeholder="Nombre"  autofocus id="nombre">
+                <input class="form_input" type="text" placeholder="E-mail"  id="email">
+                <input class="form_input" type="text" placeholder="Asunto"  id="asunto">
+                <textarea class="form_input" name="textarea"cols="30" rows="10" placeholder="Escriba su mensaje" id="mensaje"></textarea>
+                <button class="btn">Enviar</button>
+            </form>
+        </div>
+            
     </main>
 
     <script type="module" src="js/app.js"></script>
