@@ -15,6 +15,7 @@ import { userDevice } from "./userAgent.js";
 import {carousel} from "./sliders.js"
 import { scrollSpy } from "./scrollSpy.js";
 import { smartVideo } from "./smartVideo.js";
+import { contact_validations } from "./validacion_formulario.js";
 // import { validarForm } from "./formulario.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
@@ -35,7 +36,8 @@ document.addEventListener("DOMContentLoaded",e=>{
     carousel("next","prev",".slide");
     scrollSpy();
     smartVideo("video")
-    validarForm();
+    // validarForm();
+    contact_validations()
     
 });
 

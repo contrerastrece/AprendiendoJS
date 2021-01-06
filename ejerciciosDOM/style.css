@@ -482,7 +482,7 @@ body{
 .formulario{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
     /* border: 1px solid red; */
 }
 .form_input{
@@ -521,12 +521,16 @@ body{
 }
 
 .form_input-error{
+    box-sizing: border-box;
     margin-top: -1rem;
-    background-color: var(--form-error-color);
+    padding: 0.2rem 0;
+    /* background-color: var(--form-error-color); */
     color: #fff;
     transition: all 0.8s ease;
+    background: tomato;
+    font-size: .9rem;
 }
-.form-input-error.is-active{
+.form_input-error.is-active{
     display: block;
     /* una animacion con el nombre show message
     durará 1s 
@@ -558,6 +562,7 @@ body{
     .container__img{
         column-count: 3;
     }
+ 
 }
 @media (min-width:600px) { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
 
@@ -608,7 +613,9 @@ body{
     .container__img{
         column-count: 5;
     }
+     
 }
+
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */
     /* video y mapa responsive */
     
@@ -628,6 +635,10 @@ body{
       /* border: 1px solid white; */
     }
     
+    /* formulario */
+    .formulario{
+        width: 60%;
+    }  
 }
 @media (min-width:1281px) { /* hi-res laptops and desktops */
     
