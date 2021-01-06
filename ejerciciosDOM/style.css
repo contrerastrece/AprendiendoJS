@@ -231,7 +231,7 @@ body{
 .fest_title,
 .fest_day{
     color:white;
-    font-size: 2rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
     position: relative;
 }
@@ -249,7 +249,7 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 0 .3rem;
+    margin: 0 .2rem;
     box-sizing: border-box;
     /* color: #ff9500; */
     color:#fff;
@@ -267,7 +267,7 @@ body{
     color: white;
     background-color:rgba(0, 0, 0, .6);
     font-family: DS-DIGIB;
-    font-size: 5rem;
+    font-size: 4rem;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .5);
     /* letter-spacing: 5px; */
 }

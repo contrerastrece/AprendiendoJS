@@ -219,12 +219,13 @@
         <!-- validar formulario -->
         <div class="container" data-scroll-spy id="14">
             <h2>Formulario</h2>
-            <form action="" class="formulario">
+            <form class="formulario" target="_blank" action="https://formsubmit.co/contrerastrece@gmail.com" method="POST">
+                <input type="hidden" name="_next" id="" value="http://127.0.0.1:5500/ejerciciosDOM/index.html#14">
                 <input class="form_input" type="text" name="name" autocomplete="off" placeholder="Nombre"  autofocus title="Solo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
-                <input class="form_input" type="text" name="email" autocomplete="off" placeholder="E-mail" title="ejemplo@email.com" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+                <input class="form_input" type="email" name="email" autocomplete="off" placeholder="E-mail" title="ejemplo@email.com" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
                 <input class="form_input" type="text" name="subject" autocomplete="off" placeholder="Asunto"  title="Por favor ingrese un Asunto" required>
                 <textarea class="form_input" name="comments" cols="30" rows="10" placeholder="Escriba su mensaje" title="Acepta 255 carácteres" data-pattern="^.{1,255}$" required></textarea>
-                <button class="btn">Enviar</button>
+                <button class="btn btn_enviar">Enviar</button>
                 <div class="contact-form-loader none">
                     <img src="assets/img/loader.svg" alt="cargando">                    
                 </div>

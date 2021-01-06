@@ -1,5 +1,6 @@
 export{contact_validations}
 function contact_validations(){
+    const $form=document.querySelector(".formulario")
     const $inputs=document.querySelectorAll(".formulario [required]")
 
     // console.log($inputs);
@@ -34,5 +35,24 @@ function contact_validations(){
                 :document.getElementById($input.name).classList.remove("is-active")
             }
         }
+    })
+
+
+    document.addEventListener("submit",e=>{
+            // e.preventDefault()
+            const $response=document.querySelector(".contact-form-response");
+            const $loader=document.querySelector(".contact-form-loader");
+
+            $loader.classList.remove("none")
+            // console.log(e.target)
+
+            //simulamos el retardo con 3s
+            setTimeout(()=>{
+                $loader.classList.add("none");
+                $response.classList.remove("none")
+                $form.reset();
+
+                setTimeout(()=>$response.classList.add("none"),3000)
+            },3000)
     })
 }
