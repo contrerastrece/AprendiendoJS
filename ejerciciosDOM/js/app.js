@@ -16,6 +16,7 @@ import {carousel} from "./sliders.js"
 import { scrollSpy } from "./scrollSpy.js";
 import { smartVideo } from "./smartVideo.js";
 import { contact_validations } from "./validacion_formulario.js";
+import { leer } from "./narrador.js";
 // import { validarForm } from "./formulario.js";
 
 document.addEventListener("DOMContentLoaded",e=>{
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded",e=>{
     scrollSpy();
     smartVideo("video")
     // validarForm();
-    contact_validations()
+    contact_validations();
     
 });
 
@@ -54,6 +55,7 @@ modeDark("#btnMode");
 
 deteccion_Conexion("status");
 
+leer();
 
 const $template=document.getElementById("templateList").content;
 const $fragment=document.createDocumentFragment();
@@ -136,6 +138,10 @@ const listSeccion=[
     {
         name:"Formulario",
         link:"#14"
+    },
+    {
+        name:"Narrador de Texto",
+        link:"#15"
     }
 ]
 

@@ -39,6 +39,8 @@ function contact_validations(){
 
 
     document.addEventListener("submit",e=>{
+        if(e.target.matches(".btn_enviar")){
+
             // e.preventDefault()
             const $response=document.querySelector(".contact-form-response");
             const $loader=document.querySelector(".contact-form-loader");
@@ -54,5 +56,6 @@ function contact_validations(){
 
                 setTimeout(()=>$response.classList.add("none"),3000)
             },3000)
+        }
     })
 }

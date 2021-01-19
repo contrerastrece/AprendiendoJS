@@ -488,8 +488,8 @@ body{
 .form_input{
     --form-ok-color:#4caf50;
     --form-error-color:#f44336;
-    border:none;
-    border-bottom:0.1rem solid var(--textPrimary);
+    border:thin solid var(--textPrimary);
+    /* border-bottom:0.1rem solid var(--textPrimary); */
     background: transparent;
     color: var(--textPrimary);
     /* background: var(--backgroundSecondary); */
@@ -499,9 +499,10 @@ body{
     line-height: 1.2rem;
     padding:0.5rem 1rem ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 
 }
-.formulario textarea{
+.form_input{
     resize: none;
 }
 .success{
