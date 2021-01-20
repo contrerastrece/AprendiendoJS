@@ -38,9 +38,47 @@
     })
 
     // 3.- abrir la petición con el metodo GET y el recurso
-    // ajax.open("GET","https://jsonplaceholder.typicode.com/user")
+    // ajax.open("GET","https://jsonplaceholder.typicode.com/users")
     ajax.open("GET","assets/users.json")
 
     // 4.- enviar la petición
     ajax.send();
 })();
+
+// Api Fetch
+(()=>{
+    const $fetch=document.getElementById("fetch");
+    const $fragment=document.createDocumentFragment();
+    console.clear()
+
+    // fetch("https://jsonplaceholder.typicode.com/users")
+    // .then()
+    // .catch()
+    // .finally()
+    
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res=>{
+        // console.log(res)
+       
+        // convertir a JSON la respuesta
+        return res.ok ?res.json() :Promise.reject(res) 
+    })
+    .then(json=>{
+        // console.log(json)
+        // $fetch.innerHTML=json
+        json.forEach(element => {
+            let $li=document.createElement("li");
+            $li.innerHTML = `${element.username} - ${element.website}`
+            $fragment.appendChild($li)
+        });
+        $fetch.appendChild($fragment)
+    })
+    .catch(err=>{
+        let message=err.statusText || "Ocurrió un problema";
+        $fetch.innerHTML=`Error - ${err.status} ${message}`
+        console.log(err)
+    })
+    .finally(()=>{
+        console.log("esto se ejecutará independientemente del resultado de la promesa FETCH")
+    })
+})()
