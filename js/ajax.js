@@ -81,4 +81,33 @@
     .finally(()=>{
         console.log("esto se ejecutará independientemente del resultado de la promesa FETCH")
     })
-})()
+})();
+
+// Api Fetch Asyn Await
+(()=>{
+    const $fetchAsync=document.getElementById("fetchAsync");
+    const $fragment=document.createDocumentFragment();
+    console.clear()
+    async function getData(){
+        try {
+            let res=await fetch("https://jsonplaceholder.typicode.com/user");
+            let json=await res.json();
+            
+            if(!res.ok) throw {status:res.status,statusText:res.statusText}
+
+            json.forEach(element => {
+                let $li=document.createElement("li");
+                $li.innerHTML = `${element.name} - ${element.email}`
+                $fragment.appendChild($li)
+            });
+            $fetchAsync.appendChild($fragment)
+
+        } catch (error) {
+            let message=error.statusText || "Ocurrió un problema";
+            $fetchAsync.innerHTML=`Error - ${error.status} ${message}`
+            console.log(error)
+        }
+    }
+    
+    getData();
+})();
