@@ -4,14 +4,13 @@
     
     // 1.- instanciar 
     const ajax=new XMLHttpRequest();
-    console.clear()
-    
+       
     // 2.- asignar los eventos
     ajax.addEventListener("readystatechange",e=>{
         if(ajax.readyState!==4) return;
         
         if(ajax.status>=200 && ajax.status<300){
-            console.log("Exito")
+            // console.log("Exito")
             // convertir a formato de string => json
             let json=JSON.parse(ajax.responseText);
             // convertir de JSON => a un String
@@ -49,8 +48,7 @@
 (()=>{
     const $fetch=document.getElementById("fetch");
     const $fragment=document.createDocumentFragment();
-    console.clear()
-
+    
     // fetch("https://jsonplaceholder.typicode.com/users")
     // .then()
     // .catch()
@@ -79,7 +77,7 @@
         console.log(err)
     })
     .finally(()=>{
-        console.log("esto se ejecutará independientemente del resultado de la promesa FETCH")
+        // console.log("esto se ejecutará independientemente del resultado de la promesa FETCH")
     })
 })();
 
@@ -87,10 +85,9 @@
 (()=>{
     const $fetchAsync=document.getElementById("fetchAsync");
     const $fragment=document.createDocumentFragment();
-    console.clear()
     async function getData(){
         try {
-            let res=await fetch("https://jsonplaceholder.typicode.com/user");
+            let res=await fetch("https://jsonplaceholder.typicode.com/users");
             let json=await res.json();
             
             if(!res.ok) throw {status:res.status,statusText:res.statusText}
@@ -105,9 +102,36 @@
         } catch (error) {
             let message=error.statusText || "Ocurrió un problema";
             $fetchAsync.innerHTML=`Error - ${error.status} ${message}`
-            console.log(error)
+            // console.log(error)
         }
     }
     
     getData();
 })();
+
+// Usando Axios
+(()=>{
+    const $axios=document.getElementById("axios");
+    const $fragment=document.createDocumentFragment();
+    console.clear()
+
+    // Utilizando la librería Axios
+    axios
+    .get("https://jsonplaceholder.typicode.com/user")
+    .then(res=>{
+        console.log(res);
+        let json=res.data
+        json.forEach(element => {
+            let $li=document.createElement("li");
+            $li.innerHTML = `${element.username} - ${element.email}`
+            $fragment.appendChild($li)
+        });
+        $axios.appendChild($fragment)
+    })
+    .catch(error=>{
+        console.log("CATCH",error.response)
+    })
+    .finally(()=>{
+        console.log("Esto se ejecutará independientemente del resultado Axios")
+    });
+})()
