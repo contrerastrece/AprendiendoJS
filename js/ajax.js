@@ -117,7 +117,7 @@
 
     // Utilizando la librería Axios
     axios
-    .get("https://jsonplaceholder.typicode.com/user")
+    .get("https://jsonplaceholder.typicode.com/users")
     .then(res=>{
         console.log(res);
         let json=res.data
@@ -134,4 +134,30 @@
     .finally(()=>{
         console.log("Esto se ejecutará independientemente del resultado Axios")
     });
-})()
+})();
+
+// axios + async await
+(()=>{
+    const $axios_async=document.getElementById("axios-async");
+    const $fragment=document.createDocumentFragment();
+    console.clear()    
+
+    async function getData(){
+        try {
+            let res=await axios.get("https://jsonplaceholder.typicode.com/user");
+            let json=await res.data;
+            json.forEach(element => {
+                let $li=document.createElement("li");
+                $li.innerHTML = `${element.username} - ${element.email}`
+                $fragment.appendChild($li)
+            });
+            $axios_async.appendChild($fragment)
+        } catch (error) {
+            let message=error.response.statusText || "Ocurrió un problema";
+            $axios_async.innerHTML=`Error - ${error.response.status} ${message}`
+        } finally{
+            console.log("esto se ejecutará independientemente del resultado de la promesa Axios Async")
+        }
+    }
+    getData();
+})();
