@@ -114,6 +114,12 @@
                         };
                         let res = await fetch("http://localhost:5000/santos", options);
                         let json = await res.json();
+
+                         // control de error
+                         if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                        
+                        // recargar la página
+                        location.reload();
                     } catch (error) {
                         let message = error.statusText || "Ocurrió un problema";
                         $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
@@ -137,6 +143,9 @@
 
                         // control de error
                         if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                        
+                        // recargar la página
+                        location.reload();
                     } catch (error) {
                         let message = error.statusText || "Ocurrió un problema";
                         $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
@@ -172,8 +181,11 @@
                         let res = await fetch(`http://localhost:5000/santos/${e.target.dataset.id}`, options);
                         let json = await res.json();
     
-                        // control de error
+                         // control de error
                         if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                        
+                        // recargar la página
+                        location.reload();
                     } catch (error) {
                         let message = error.statusText || "Ocurrió un problema";
                         $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
