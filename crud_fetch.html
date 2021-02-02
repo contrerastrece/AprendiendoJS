@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD API REST FETCH</title>
 </head>
+
 <body>
     <h1>CRUD API REST FETCH</h1>
     <section id="crud">
@@ -17,7 +19,7 @@
                 <br>
                 <input type="submit" value="Enviar">
                 <input type="hidden" name="id">
-            
+
             </form>
         </article>
         <article>
@@ -31,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                 </tbody>
             </table>
         </article>
@@ -49,48 +51,116 @@
 
     <script>
 
-        const $table=document.querySelector(".crud-table");
-        const $form=document.querySelector(".crud-form");
-        const $title=document.querySelector(".crud-title")
-        const $template=document.getElementById("crud-template").content
-        const $fragment=document.createDocumentFragment();
+        const $table = document.querySelector(".crud-table");
+        const $form = document.querySelector(".crud-form");
+        const $title = document.querySelector(".crud-title")
+        const $template = document.getElementById("crud-template").content
+        const $fragment = document.createDocumentFragment();
 
-        const getAll=async()=>{
+        const getAll = async () => {
             try {
-                let res=await fetch("http://localhost:5000/santos");
-                let json=await res.json();
+                let res = await fetch("http://localhost:5000/santos");
+                let json = await res.json();
 
-                console.log(res);
                 // control de error
-                if(!res.ok) throw {status:res.status,statusText:res.statusText}
+                if (!res.ok) throw { status: res.status, statusText: res.statusText }
 
                 // Insertar Data en la tabla
-                json.forEach(element=>{
-                    $template.querySelector(".name").textContent=element.nombre;                        
-                        $template.querySelector(".constelation").textContent=element.constelacion;
+                json.forEach(element => {
+                    $template.querySelector(".name").textContent = element.nombre;
+                    $template.querySelector(".constelation").textContent = element.constelacion;
 
-                        // asignar un dataset al boton edit para luego reutilizar sus datos
-                        $template.querySelector(".btn_edit").dataset.id=element.id;
-                        $template.querySelector(".btn_edit").dataset.name=element.nombre;
-                        $template.querySelector(".btn_edit").dataset.constelation=element.constelacion;
+                    // asignar un dataset al boton edit para luego reutilizar sus datos
+                    $template.querySelector(".btn_edit").dataset.id = element.id;
+                    $template.querySelector(".btn_edit").dataset.name = element.nombre;
+                    $template.querySelector(".btn_edit").dataset.constelation = element.constelacion;
 
-                        // asignar un data set al btn eliminar para eliminar por su id
-                        $template.querySelector(".btn_del").dataset.id=element.id;
+                    // asignar un data set al btn eliminar para eliminar por su id
+                    $template.querySelector(".btn_del").dataset.id = element.id;
 
-                        // clonar template para que quede en memoria
-                        let $clone=document.importNode($template,true);
-                        $fragment.appendChild($clone)
+                    // clonar template para que quede en memoria
+                    let $clone = document.importNode($template, true);
+                    $fragment.appendChild($clone)
                 })
                 $table.querySelector("tbody").appendChild($fragment)
 
             } catch (error) {
-                let message=error.statusText || "Ocurrió un problema";
-                $table.insertAdjacentHTML("afterend",`<p><b>Error - ${error.status} ${message}</b></p>`)
+                let message = error.statusText || "Ocurrió un problema";
+                $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
             }
 
         }
-        document.addEventListener("DOMContentLoaded",getAll);
+        document.addEventListener("DOMContentLoaded", getAll);
+
+        // Crear y Actualizar
+        document.addEventListener("submit", async e => {
+            if (e.target === $form) {
+                // Create - POST
+                e.preventDefault();
+                // si el btn Hidden viene vacío entonces crearemos nuevo item
+                if (!e.target.id.value) {
+                    // Create - POST                    
+                    console.log(e.target.nombre.value)
+                    try {
+                        let options = {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                nombre: e.target.nombre.value,
+                                constelacion: e.target.constelacion.value
+                            })
+                        };
+                        let res = await fetch("http://localhost:5000/santos", options);
+                        let json = await res.json();
+                    } catch (error) {
+                        let message = error.statusText || "Ocurrió un problema";
+                        $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
+                    }
+
+                } else {
+                    // Update - PUT
+                    try {
+                        let options = {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                nombre: e.target.nombre.value,
+                                constelacion: e.target.constelacion.value
+                            })
+                        };
+                        let res = await fetch(`http://localhost:5000/santos/${e.target.id.value}`, options);
+                        let json = await res.json();
+                        
+                        // control de error
+                        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                    } catch (error) {
+                        let message = error.statusText || "Ocurrió un problema";
+                        $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
+                    }
+
+                }
+            }
+            $form.reset();
+        })
+
         
+        document.addEventListener("click",e=>{
+            if(e.target.matches(".btn_edit")){
+                // agregar contenido a los input de los formularios al presionar EDITAR
+                $title.textContent="Editar Santo";
+                $form.nombre.value=e.target.dataset.name;
+                $form.constelacion.value=e.target.dataset.constelation;
+
+                // agregar el id del btn_editar al btn hidden del formulario
+                $form.id.value=e.target.dataset.id;
+            }
+            
+        })
     </script>
 </body>
+
 </html>

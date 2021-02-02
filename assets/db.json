@@ -9,6 +9,29 @@
       "nombre": "Saga",
       "constelacion": "Geminis",
       "id": 5
+    },
+    {
+      "nombre": "Seiya",
+      "constelacion": "Pegaso",
+      "id": 6
+    },
+    {
+      "nombre": "Shuryu",
+      "constelacion": "Dragon",
+      "id": 7
+    },
+    {
+      "nombre": "Mascara de muerte",
+      "constelacion": "Cancer",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "nombre": "hhhasdasd",
+      "constelacion": "sd",
+      "id": 10
     }
   ],
   "dioses": [
