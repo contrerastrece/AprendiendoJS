@@ -1,11 +1,6 @@
 {
   "santos": [
     {
-      "id": 4,
-      "nombre": "Shun",
-      "constelacion": "Andromeda"
-    },
-    {
       "nombre": "Saga",
       "constelacion": "Geminis",
       "id": 5
@@ -21,17 +16,14 @@
       "id": 7
     },
     {
-      "nombre": "Mascara de muerte",
-      "constelacion": "Cancer",
+      "nombre": "a",
+      "constelacion": "a",
       "id": 8
     },
     {
+      "nombre": "bb",
+      "constelacion": "bb",
       "id": 9
-    },
-    {
-      "nombre": "hhhasdasd",
-      "constelacion": "sd",
-      "id": 10
     }
   ],
   "dioses": [

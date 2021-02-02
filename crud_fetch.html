@@ -134,7 +134,7 @@
                         };
                         let res = await fetch(`http://localhost:5000/santos/${e.target.id.value}`, options);
                         let json = await res.json();
-                        
+
                         // control de error
                         if (!res.ok) throw { status: res.status, statusText: res.statusText }
                     } catch (error) {
@@ -147,18 +147,39 @@
             $form.reset();
         })
 
-        
-        document.addEventListener("click",e=>{
-            if(e.target.matches(".btn_edit")){
+
+        document.addEventListener("click", async e => {
+            if (e.target.matches(".btn_edit")) {
                 // agregar contenido a los input de los formularios al presionar EDITAR
-                $title.textContent="Editar Santo";
-                $form.nombre.value=e.target.dataset.name;
-                $form.constelacion.value=e.target.dataset.constelation;
+                $title.textContent = "Editar Santo";
+                $form.nombre.value = e.target.dataset.name;
+                $form.constelacion.value = e.target.dataset.constelation;
 
                 // agregar el id del btn_editar al btn hidden del formulario
-                $form.id.value=e.target.dataset.id;
+                $form.id.value = e.target.dataset.id;
             }
-            
+            if (e.target.matches(".btn_del")) {
+                let alert=confirm("Desea Eliminar el Registro");
+                if(alert){
+                    // Delete - DELETE
+                    try {
+                        let options = {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            }
+                        };
+                        let res = await fetch(`http://localhost:5000/santos/${e.target.dataset.id}`, options);
+                        let json = await res.json();
+    
+                        // control de error
+                        if (!res.ok) throw { status: res.status, statusText: res.statusText }
+                    } catch (error) {
+                        let message = error.statusText || "Ocurrió un problema";
+                        $table.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
+                    }
+                }
+            }
         })
     </script>
 </body>

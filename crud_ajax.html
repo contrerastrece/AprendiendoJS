@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD API REST AJAX</title>
 </head>
+
 <body>
     <h1>CRUD API REST AJAX</h1>
     <section id="crud">
@@ -17,7 +19,7 @@
                 <br>
                 <input type="submit" value="Enviar">
                 <input type="hidden" name="id">
-            
+
             </form>
         </article>
         <article>
@@ -31,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                 </tbody>
             </table>
         </article>
@@ -49,105 +51,105 @@
 
     <script>
 
-        const $table=document.querySelector(".crud-table");
-        const $form=document.querySelector(".crud-form");
-        const $title=document.querySelector(".crud-title")
-        const $template=document.getElementById("crud-template").content
-        const $fragment=document.createDocumentFragment();
+        const $table = document.querySelector(".crud-table");
+        const $form = document.querySelector(".crud-form");
+        const $title = document.querySelector(".crud-title")
+        const $template = document.getElementById("crud-template").content
+        const $fragment = document.createDocumentFragment();
 
-        const ajax=(options)=>{
+        const ajax = (options) => {
             // destructuración
-            let {url, method, success, error, data}=options;
-            const xhr=new XMLHttpRequest();
+            let { url, method, success, error, data } = options;
+            const xhr = new XMLHttpRequest();
 
-            xhr.addEventListener("readystatechange",e=>{
+            xhr.addEventListener("readystatechange", e => {
 
-                if(xhr.readyState!==4) return;
-        
-                if(xhr.status>=200 && xhr.status<300){
+                if (xhr.readyState !== 4) return;
+
+                if (xhr.status >= 200 && xhr.status < 300) {
                     // convertir a formato de string => json
-                    let json=JSON.parse(xhr.responseText);   
+                    let json = JSON.parse(xhr.responseText);
                     success(json);
-                }else{
-                    let message=ajax.statusText || "Ocurrió un problema";
+                } else {
+                    let message = ajax.statusText || "Ocurrió un problema";
                     error(`Error ${xhr.status}: ${message}`)
                 }
             });
 
             // deberemos pasarle un metodo y en el caso de que no le pasemos por defecto será 
             // el metodo GET
-            xhr.open(method || "GET", url );
-            
+            xhr.open(method || "GET", url);
+
             // agregar cabezera
-            xhr.setRequestHeader("Content-Type","application/json; charset=utf-8");
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 
             // enviamos la data en formato cadena de texto
             xhr.send(JSON.stringify(data));
         }
 
-        const getAll=()=>{
+        const getAll = () => {
             ajax({
-                url:"http://localhost:5000/santos",
+                url: "http://localhost:5000/santos",
                 method: "GET",
-                success:(res)=>{
+                success: (res) => {
                     console.log(res)
-                    res.forEach(element=>{
-                        $template.querySelector(".name").textContent=element.nombre;                        
-                        $template.querySelector(".constelation").textContent=element.constelacion;
+                    res.forEach(element => {
+                        $template.querySelector(".name").textContent = element.nombre;
+                        $template.querySelector(".constelation").textContent = element.constelacion;
 
                         // asignar un dataset al boton edit para luego reutilizar sus datos
-                        $template.querySelector(".btn_edit").dataset.id=element.id;
-                        $template.querySelector(".btn_edit").dataset.name=element.nombre;
-                        $template.querySelector(".btn_edit").dataset.constelation=element.constelacion;
+                        $template.querySelector(".btn_edit").dataset.id = element.id;
+                        $template.querySelector(".btn_edit").dataset.name = element.nombre;
+                        $template.querySelector(".btn_edit").dataset.constelation = element.constelacion;
 
                         // asiganar un data set al btn eliminar para eliminar por su id
-                        $template.querySelector(".btn_del").dataset.id=element.id;
+                        $template.querySelector(".btn_del").dataset.id = element.id;
 
                         // clonar template para que quede en memoria
-                        let $clone=document.importNode($template,true);
+                        let $clone = document.importNode($template, true);
                         $fragment.appendChild($clone)
 
                     })
                     $table.querySelector("tbody").appendChild($fragment);
                 },
-                error:(err)=>{
+                error: (err) => {
                     console.log(err)
                     // insertando error despu+es de la tabla
-                    $table.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`)
+                    $table.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`)
                 },
-                data:null
+                data: null
             })
         }
-        document.addEventListener("DOMContentLoaded",getAll);
+        document.addEventListener("DOMContentLoaded", getAll);
 
-        document.addEventListener("submit",e=>{
-            if(e.target === $form){
+        document.addEventListener("submit", e => {
+            if (e.target === $form) {
                 e.preventDefault();
                 // si el btn Hidden viene vacío entonces crearemos nuevo item
-                if(!e.target.id.value){
+                if (!e.target.id.value) {
                     // create - POST
-                    console.log( e.target.nombre.value)
+                    console.log(e.target.nombre.value)
                     ajax({
-                        url:"http://localhost:5000/santos",
-                        method:"POST",
-                        success:(res)=>location.reload(),
-                        error:(err)=> $form.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`),
-                        data:{
+                        url: "http://localhost:5000/santos",
+                        method: "POST",
+                        success: (res) => location.reload(),
+                        error: (err) => $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+                        data: {
                             nombre: e.target.nombre.value,
                             constelacion: e.target.constelacion.value
                         }
                     });
-                }else{
+                } else {
                     // Update - PUT
                     ajax({
-                        url:`http://localhost:5000/santos/${e.target.id.value}`,
-                        method:"PUT",
-                        success:(res)=>location.reload(),
-                        error:(err)=> $form.insertAdjacentHTML("afterend",`<p><b>${err}</b></p>`),
-                        data:{
-                           nombre: e.target.nombre.value,
+                        url: `http://localhost:5000/santos/${e.target.id.value}`,
+                        method: "PUT",
+                        success: (res) => location.reload(),
+                        error: (err) => $form.insertAdjacentHTML("afterend", `<p><b>${err}</b></p>`),
+                        data: {
+                            nombre: e.target.nombre.value,
                             constelacion: e.target.constelacion.value
-                        } 
+                        }
                     });
                 }
 
@@ -155,33 +157,34 @@
             $form.reset();
         })
 
-        document.addEventListener("click",e=>{
-            if(e.target.matches(".btn_edit")){
+        document.addEventListener("click", e => {
+            if (e.target.matches(".btn_edit")) {
                 // agregar contenido a los input de los formularios al presionar EDITAR
-                $title.textContent="Editar Santo";
-                $form.nombre.value=e.target.dataset.name;
-                $form.constelacion.value=e.target.dataset.constelation;
+                $title.textContent = "Editar Santo";
+                $form.nombre.value = e.target.dataset.name;
+                $form.constelacion.value = e.target.dataset.constelation;
 
                 // agregar el id del btn_editar al btn hidden del formulario
-                $form.id.value=e.target.dataset.id;
+                $form.id.value = e.target.dataset.id;
             }
-            if(e.target.matches(".btn_del")){
-               let eliminar= confirm(`Estás seguro de eliminar ${e.target.dataset.id}`)
+            if (e.target.matches(".btn_del")) {
+                let eliminar = confirm(`Estás seguro de eliminar ${e.target.dataset.id}`)
 
-               if(eliminar){
-                   // Delete - DELETE
-                   ajax({
-                           url:`http://localhost:5000/santos/${e.target.dataset.id}`,
-                           method:"DELETE",
-                           success:(res)=>location.reload(),
-                           error:(err)=> alert(err)
-                          
-                       });
+                if (eliminar) {
+                    // Delete - DELETE
+                    ajax({
+                        url: `http://localhost:5000/santos/${e.target.dataset.id}`,
+                        method: "DELETE",
+                        success: (res) => location.reload(),
+                        error: (err) => alert(err)
 
-               }
+                    });
+
+                }
             }
         })
-        
+
     </script>
 </body>
+
 </html>
