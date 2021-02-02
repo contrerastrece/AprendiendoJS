@@ -51,11 +51,45 @@
 
         const $table=document.querySelector(".crud-table");
         const $form=document.querySelector(".crud-form");
-        const $title=document.querySelector(".title")
+        const $title=document.querySelector(".crud-title")
         const $template=document.getElementById("crud-template").content
         const $fragment=document.createDocumentFragment();
 
+        const getAll=async()=>{
+            try {
+                let res=await fetch("http://localhost:5000/santos");
+                let json=await res.json();
 
+                console.log(res);
+                // control de error
+                if(!res.ok) throw {status:res.status,statusText:res.statusText}
+
+                // Insertar Data en la tabla
+                json.forEach(element=>{
+                    $template.querySelector(".name").textContent=element.nombre;                        
+                        $template.querySelector(".constelation").textContent=element.constelacion;
+
+                        // asignar un dataset al boton edit para luego reutilizar sus datos
+                        $template.querySelector(".btn_edit").dataset.id=element.id;
+                        $template.querySelector(".btn_edit").dataset.name=element.nombre;
+                        $template.querySelector(".btn_edit").dataset.constelation=element.constelacion;
+
+                        // asignar un data set al btn eliminar para eliminar por su id
+                        $template.querySelector(".btn_del").dataset.id=element.id;
+
+                        // clonar template para que quede en memoria
+                        let $clone=document.importNode($template,true);
+                        $fragment.appendChild($clone)
+                })
+                $table.querySelector("tbody").appendChild($fragment)
+
+            } catch (error) {
+                let message=error.statusText || "Ocurrió un problema";
+                $table.insertAdjacentHTML("afterend",`<p><b>Error - ${error.status} ${message}</b></p>`)
+            }
+
+        }
+        document.addEventListener("DOMContentLoaded",getAll);
         
     </script>
 </body>

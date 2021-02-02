@@ -1,3 +1,4 @@
+//XMLHttpRequest
 (()=>{
     const $xhr=document.getElementById("xhr");
     const $fragment=document.createDocumentFragment();
