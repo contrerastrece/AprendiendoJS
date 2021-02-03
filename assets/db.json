@@ -24,6 +24,36 @@
       "nombre": "bb",
       "constelacion": "bb",
       "id": 9
+    },
+    {
+      "nombre": "1",
+      "constelacion": "1",
+      "id": 10
+    },
+    {
+      "nombre": "b",
+      "constelacion": "b",
+      "id": 11
+    },
+    {
+      "nombre": "1",
+      "constelacion": "1",
+      "id": 12
+    },
+    {
+      "nombre": "2",
+      "constelacion": "2",
+      "id": 13
+    },
+    {
+      "nombre": "q",
+      "constelacion": "q",
+      "id": 14
+    },
+    {
+      "nombre": "w",
+      "constelacion": "w",
+      "id": 15
     }
   ],
   "dioses": [
