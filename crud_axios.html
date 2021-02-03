@@ -113,7 +113,6 @@
                     } catch (error) {
                         let message = error.statusText || "Ocurrió un problema";
                         $form.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
-
                     }
                 }else{
                     // Update - PUT
@@ -135,16 +134,14 @@
                     } catch (error) {
                         let message = error.statusText || "Ocurrió un problema";
                         $form.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`)
-
-                    }
-                   
+                    }                   
                 }
-
             }
             $form.reset();
         })
 
         document.addEventListener("click",async e=>{
+
             if(e.target.matches(".btn_edit")){
              // agregar contenido a los input de los formularios al presionar EDITAR
              $title.textContent="Editar Santo";
@@ -153,6 +150,27 @@
 
               // agregar el id del btn_editar al btn hidden del formulario
               $form.id.value = e.target.dataset.id;
+            }
+
+            if(e.target.matches(".btn_del")){
+                let alert=confirm("Desea Eliminar");
+                if(alert){
+                    try {
+                        let options={
+                            method:"DELETE",
+                            headers: {
+                                "Content-Type": "application/json; charset=utf-8"
+                            }                            
+                        }
+                        let res=await axios(`http://localhost:5000/santos/${e.target.dataset.id}`,options);
+                        let json=await res.json();
+
+                        location.reload();
+                    } catch (error) {
+                        let message = error.statusText || "Ocurrió un problema";
+                        $form.insertAdjacentHTML("afterend", `<p><b>Error - ${error.status} ${message}</b></p>`);                 
+                    }
+                }
             }
         })
     </script>
