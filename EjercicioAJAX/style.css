@@ -48,3 +48,11 @@ header{
 .navbar__list-element:hover {
     background:rgba(0, 0, 0,.5);
 }
+.footer{
+    position: relative;
+    bottom: 0;
+    background-color: tomato;
+    color: #fff;
+    font-size:1rem;
+    text-align: center;
+}
