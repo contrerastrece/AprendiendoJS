@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         if(xhr.status>=200 && xhr.status<300){
             el.outerHTML=xhr.responseText;
         }else{
-            let message = xhr.statusText || "Eror en la carga del archivo, verifique que si estás realizando la peticion por http o https";
+            let message = xhr.statusText || "Eror en la carga del archivo, verifique que si estés realizando la peticion por http o https";
             el.outerHTML=`<div>Error ${xhr.status}: ${message}</div>`
         }        
     })

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/upload.css">
+    <title>Uploader</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" id="form_uploader">
+        <input type="file" id="files" name="files" required multiple>
+        
+        <!-- barra -->
+        <div class="progress-bar">
+            <div class="barra" id="barraEstate">
+                <span id="span"></span>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="actions">
+            <input type="submit" class="btn_enviar" value="Enviar" />
+            <input type="button" class="btn_cancel" id="cancel" value="Cancelar">
+
+        </div>
+    </form>
+    <script src="assets/uploader.js"></script>
+</body>
+</html>
